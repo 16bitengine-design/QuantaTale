@@ -152,6 +152,23 @@ def lone_number_sentences(narration: str) -> list[str]:
     return found
 
 
+MAX_SENTENCE_WORDS = 26
+MAX_WORD_LETTERS = 14
+
+
+def hard_to_follow(narration: str) -> list[str]:
+    """Sentences a general audience will struggle with: very long sentences or very long words (jargon)."""
+    found = []
+    for sentence in re.split(r"(?<=[.!?])\s+", narration.strip()):
+        words = sentence.split()
+        long_word = next((w for w in words for part in w.split("-") if len(re.sub(r"[^A-Za-z]", "", part)) >= MAX_WORD_LETTERS), "")
+        if len(words) > MAX_SENTENCE_WORDS:
+            found.append(f"{len(words)} words (max {MAX_SENTENCE_WORDS}): {sentence[:60]}")
+        elif long_word:
+            found.append(f"long word {long_word!r}: {sentence[:60]}")
+    return found
+
+
 def check_shape(draft: dict[str, Any], existing_titles: set[str]) -> list[str]:
     problems: list[str] = []
     title = str(draft.get("title", "")).strip()
@@ -166,6 +183,8 @@ def check_shape(draft: dict[str, Any], existing_titles: set[str]) -> list[str]:
         problems.append("description is empty")
     for sentence in lone_number_sentences(str(draft.get("narration", ""))):
         problems.append(f"states a number without comparing situations (say it in words): {sentence[:70]!r}")
+    for note in hard_to_follow(str(draft.get("narration", ""))):
+        problems.append(f"hard for a general audience, simplify: {note}")
     scenes = draft.get("scenes")
     if not isinstance(scenes, list) or not 3 <= len(scenes) <= 5 or not all(
             isinstance(s, dict) and s.get("visual_description") for s in scenes):
@@ -208,6 +227,7 @@ WRITE_SYSTEM = ("You write a short educational video script in your OWN WORDS us
                 '"claims":[{"sentence":"exact narration sentence","quote":"verbatim 6+ word excerpt from a passage","source":0}],'
                 '"scenes":[{"narration_segment":"...","visual_description":"...","visual_style":"hybrid","motif":"<name or none>"}]}. '
                 "Every narration sentence must have a claim whose quote is copied exactly from the passage with that source index. "
+                "Write for the general public, not scientists: a warm, friendly, curious tone that welcomes everyone, everyday words, short sentences (under 22 words), no jargon unless you explain it in plain words straight away, and no talking down to the reader. "
                 "Do not state numbers (measurements, counts, percentages, fractions) unless the sentence compares two or more situations, such as the speed of light versus the speed of sound; otherwise describe the idea in words. Years of events are fine. visual_style is one of hybrid, 3d, procedural_2d_holographic. 3-4 scenes. motif must be one of these 3D holographic animations: " + ", ".join(sorted(HOLOGRAPHIC_3D)) + ". Choose the one that literally shows what that part of the narration says. If none does, write \"request: <the 3D animation that is needed>\" instead of picking a poor match.")
 
 
