@@ -29,19 +29,22 @@
   ],
   "scenes": [
     {
-      "narration_segment": "Opening hook",
+      "narration_segment": "Mars is home to Olympus Mons, the largest volcano in the solar system. NASA describes it as more than 25 miles, or about 40 kilometres, from base to summit.",
       "visual_description": "Mars rotates into view as Olympus Mons rises above the surrounding plains.",
-      "visual_style": "hybrid"
+      "visual_style": "hybrid",
+      "motif": "mars_volcano_3d"
     },
     {
-      "narration_segment": "Core explanation",
+      "narration_segment": "Its base covers an area comparable to the state of Arizona.",
       "visual_description": "A scale comparison places Olympus Mons beside Mount Everest.",
-      "visual_style": "3d"
+      "visual_style": "3d",
+      "motif": "volcano_scale_3d"
     },
     {
-      "narration_segment": "Memorable conclusion",
+      "narration_segment": "It is a giant shield volcano built by repeated flows of lava over immense periods of time. Mars has no active plate tectonic system like Earth's, which helps explain how such enormous volcanic structures could grow in one region.",
       "visual_description": "A cutaway shows a broad shield volcano built from successive lava flows.",
-      "visual_style": "hybrid"
+      "visual_style": "hybrid",
+      "motif": "shield_cutaway_3d"
     }
   ],
   "editorial_review_notes": "Approved by the project owner as a batch on 2026-11-15. Approval authorizes topic use; automated source summaries are not independent verification. Before publication, retrieve and assess source passages, corroborate material claims, and flag unsupported or conflicting details for human review.",

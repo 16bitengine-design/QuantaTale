@@ -29,19 +29,22 @@
   ],
   "scenes": [
     {
-      "narration_segment": "Opening hook",
+      "narration_segment": "Sound is a vibration that travels through a material such as air, water or metal. So a real explosion in open space would not reach a nearby observer as a movie-style boom.",
       "visual_description": "A cinematic spacecraft floats in space as an explosion flashes silently.",
-      "visual_style": "hybrid"
+      "visual_style": "hybrid",
+      "motif": "silent_blast_3d"
     },
     {
-      "narration_segment": "Core explanation",
+      "narration_segment": "In the near-vacuum of space, there are far too few particles to carry an ordinary sound wave from one place to another. Light is different: it is a wave of electric and magnetic fields and does not need air or another material to travel.",
       "visual_description": "Sound-wave rings stop at the boundary of a vacuum while light continues outward.",
-      "visual_style": "3d"
+      "visual_style": "3d",
+      "motif": "vacuum_rings_3d"
     },
     {
-      "narration_segment": "Memorable conclusion",
+      "narration_segment": "Inside a spacecraft, sound can travel through the cabin air.",
       "visual_description": "A cutaway of a spacecraft shows sound travelling through cabin air.",
-      "visual_style": "hybrid"
+      "visual_style": "hybrid",
+      "motif": "cabin_sound_3d"
     }
   ],
   "editorial_review_notes": "Approved by the project owner as a batch on 2026-11-15. Approval authorizes topic use; automated source summaries are not independent verification. Before publication, retrieve and assess source passages, corroborate material claims, and flag unsupported or conflicting details for human review.",
