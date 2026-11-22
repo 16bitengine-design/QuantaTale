@@ -123,6 +123,9 @@ def build_parser() -> argparse.ArgumentParser:
     number_parser = subparsers.add_parser("number-report", help="List narration sentences that state a number without comparing situations.")
     number_parser.add_argument("--specs-dir", default="production/specs")
 
+    language_parser = subparsers.add_parser("language-report", help="List narration sentences that are hard for a general audience.")
+    language_parser.add_argument("--specs-dir", default="production/specs")
+
     stock_parser = subparsers.add_parser("topic-stock", help="Report never-used publishable topics.")
     stock_parser.add_argument("--library", default="production/topic-library.json")
     stock_parser.add_argument("--ledger", default="production/publishing-ledger.json")
@@ -202,6 +205,18 @@ def main() -> int:
                 total += 1
                 print(f"  {path.stem}: {sentence[:110]}")
         print(f"Sentences stating a lone number: {total}")
+        return 0
+
+    if args.command == "language-report":
+        import json as _json
+        from factflow.topic_authoring import hard_to_follow
+        total = 0
+        for path in sorted(Path(args.specs_dir).glob("*.json")):
+            spec = _json.loads(path.read_text(encoding="utf-8"))
+            for note in hard_to_follow(str(spec.get("narration", ""))):
+                total += 1
+                print(f"  {path.stem}: {note}")
+        print(f"Sentences hard for a general audience: {total}")
         return 0
 
     if args.command == "source-text":

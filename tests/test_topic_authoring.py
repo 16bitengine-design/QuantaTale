@@ -2,7 +2,7 @@ import json
 
 from factflow.llm_providers import ProviderChain
 from factflow.research import load_source_registry
-from factflow.topic_authoring import (author_topics, check_grounding, check_originality, check_shape, lone_number_sentences,
+from factflow.topic_authoring import (author_topics, check_grounding, check_originality, check_shape, hard_to_follow, lone_number_sentences,
                                       slugify)
 
 P1 = ["Clouds form when water vapor in rising air cools and condenses onto tiny particles in the sky.",
@@ -22,8 +22,7 @@ def fetcher(url, publisher):
 NARRATION = ("Why do clouds exist at all? Rising air cools and its invisible vapour starts turning into liquid. "
              "That change needs microscopic specks such as dust or salt to gather on. "
              "When the air is fully saturated at 100 percent humidity, but not before, droplets build up around the specks. "
-             "Millions of these droplets together make the white shape you see overhead, so a cloud is really a crowd of tiny drops "
-             "or ice crystals floating in the atmosphere, not a puff of pure gas.")
+             "A cloud is really a crowd of tiny drops or ice crystals floating in the atmosphere.")
 CLAIMS = [
     {"sentence": "Rising air cools and its invisible vapour starts turning into liquid.",
      "quote": "water vapor in rising air cools and condenses onto tiny particles", "source": 0},
@@ -31,7 +30,7 @@ CLAIMS = [
      "quote": "include dust and sea salt grains", "source": 0},
     {"sentence": "When the air is fully saturated at 100 percent humidity, but not before, droplets build up around the specks.",
      "quote": "saturated with 100 percent relative humidity", "source": 1},
-    {"sentence": "Millions of these droplets together make the white shape you see overhead, so a cloud is really a crowd of tiny drops or ice crystals floating in the atmosphere, not a puff of pure gas.",
+    {"sentence": "A cloud is really a crowd of tiny drops or ice crystals floating in the atmosphere.",
      "quote": "collection of water droplets or ice crystals that float in the atmosphere", "source": 1},
 ]
 DRAFT = {"title": "Why Clouds Need Dust to Exist", "narration": NARRATION, "description": "A cloud starts with a speck.",
@@ -192,3 +191,17 @@ def test_shape_rejects_a_lone_number_sentence():
     draft = {**DRAFT, "narration": NARRATION.replace(", but not before,", "")}
     assert any("without comparing situations" in p for p in check_shape(draft, set()))
     assert not any("without comparing situations" in p for p in check_shape(DRAFT, set()))
+
+
+def test_hard_to_follow_flags_long_sentences_and_jargon_but_not_hyphenated_compounds():
+    long_sentence = " ".join(["word"] * 30) + "."
+    text = f"Light is an electromagnetic wave. A sunrise-to-sunrise day is easy. {long_sentence} Short and clear."
+    notes = hard_to_follow(text)
+    assert len(notes) == 2
+    assert "electromagnetic" in notes[0] and notes[1].startswith("30 words")
+
+
+def test_shape_asks_for_plainer_language():
+    draft = {**DRAFT, "narration": NARRATION + " The electromagnetic spectrum is wide."}
+    assert any("general audience" in p for p in check_shape(draft, set()))
+    assert not any("general audience" in p for p in check_shape(DRAFT, set()))

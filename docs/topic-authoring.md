@@ -70,3 +70,11 @@ the sentence compares two or more situations, for example the speed of light ver
 `check_shape` enforces this with a heuristic (`lone_number_sentences`): a sentence with a number and no comparison word is
 rejected, and the writer prompt states the rule. The heuristic cannot judge intent, so review borderline cases.
 `python -m factflow.cli number-report` lists the sentences in existing topics that break the rule.
+
+## Plain language for everyone
+
+Videos are for the general public, not only scientists. The tone is warm, friendly and curious, with everyday words and short
+sentences. A technical term is allowed only when it is explained in plain words straight away.
+
+`check_shape` rejects sentences over 26 words and words of 14 or more letters (`hard_to_follow`), and the writer prompt asks for
+plain language. `python -m factflow.cli language-report` lists existing sentences that fail.
