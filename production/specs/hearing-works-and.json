@@ -10,7 +10,7 @@
   "editorial_approved": true,
   "editorial_status": "automated_gate_passed",
   "editorial_review_required": false,
-  "narration": "How does a wave of air become a sound you hear? Your ears carry out several steps that convert airborne sound waves into electrical signals. The auditory nerve then carries those signals to the brain. Loud noise, especially at work, can damage your hearing. Hearing loss caused by noise at work is permanent. Noise becomes hazardous once it reaches 85 A-weighted decibels. Tinnitus is the annoying sound of buzzing, rushing or ringing that seems to come from your ears or head. The good news is that work-related hearing loss can nearly always be prevented. Anyone exposed to hazardous noise at work should have a hearing test every year.",
+  "narration": "How does a wave of air become a sound you hear? Your ears carry out several steps that convert airborne sound waves into electrical signals. The auditory nerve then carries those signals to the brain. Loud noise, especially at work, can damage your hearing. Hearing loss caused by noise at work is permanent. Once noise is loud enough, it becomes hazardous to your hearing. Tinnitus is the annoying sound of buzzing, rushing or ringing that seems to come from your ears or head. The good news is that work-related hearing loss can nearly always be prevented. Anyone exposed to hazardous noise at work should have a hearing test every year.",
   "sources": [
     {
       "publisher": "National Institutes of Health",
@@ -39,7 +39,7 @@
       "motif": "ear_signal"
     },
     {
-      "narration_segment": "Noise at 85 decibels or more is hazardous and the damage is permanent.",
+      "narration_segment": "Loud enough noise is hazardous and the damage is permanent.",
       "visual_description": "A noise meter passing a hazard line.",
       "visual_style": "hybrid",
       "motif": "noise_gauge"

@@ -10,7 +10,7 @@
   "editorial_approved": true,
   "editorial_status": "automated_gate_passed",
   "editorial_review_required": false,
-  "narration": "When winds blow parallel to a coastline, they push surface water away, creating a gap that must be filled. Cold, nutrient‑rich water from deeper layers then wells up to replace the displaced water. This rising water is colder than the surrounding surface and carries high concentrations of nutrients. Those nutrients fertilize the upper ocean, sparking bursts of plankton growth and making the area a hotspot for fish and other marine life.",
+  "narration": "When winds blow parallel to a coastline, they push surface water away, creating a gap that must be filled. Cold, nutrient‑rich water from deeper layers then wells up to replace the displaced water. This rising water is colder than the surrounding surface and carries lots of nutrients. Those nutrients fertilize the upper ocean, sparking bursts of plankton growth and making the area a hotspot for fish and other marine life.",
   "sources": [
     {
       "publisher": "National Oceanic and Atmospheric Administration",
@@ -45,7 +45,7 @@
       "motif": "water_share_bars"
     },
     {
-      "narration_segment": "This rising water is colder than the surrounding surface and carries high concentrations of nutrients.",
+      "narration_segment": "This rising water is colder than the surrounding surface and carries lots of nutrients.",
       "visual_description": "Temperature gradient overlay with blue tones descending, particles representing nutrients swirling upward.",
       "visual_style": "hybrid",
       "motif": "glacier_share"

@@ -10,7 +10,7 @@
   "editorial_approved": true,
   "editorial_status": "automated_gate_passed",
   "editorial_review_required": false,
-  "narration": "How does light become the picture you see? Light enters through the cornea, the clear dome at the front, which bends it to help the eye focus. The coloured iris adjusts how much light the pupil admits. The lens and cornea together focus light onto the retina, where photoreceptor cells turn it into electrical signals. Those signals travel along the optic nerve to the brain, which converts them into the image you see. The World Health Organization reports that at least 2.2 billion people worldwide have impaired near or distance vision. In at least 1 billion of those cases, the impairment could have been prevented or has not yet been addressed. Uncorrected refractive error is a leading cause of impaired vision in every country, among children and adults alike. Glasses for refractive error and cataract surgery are among the most cost-effective health-care interventions there are.",
+  "narration": "How does light become the picture you see? Light enters through the cornea, the clear dome at the front, which bends it to help the eye focus. The coloured iris adjusts how much light the pupil admits. The lens and cornea together focus light onto the retina, where photoreceptor cells turn it into electrical signals. Those signals travel along the optic nerve to the brain, which converts them into the image you see. The World Health Organization reports that billions of people worldwide have impaired near or distance vision. For almost half of them, the impairment could have been prevented or has not yet been addressed. Uncorrected refractive error is a leading cause of impaired vision in every country, among children and adults alike. Glasses for refractive error and cataract surgery are among the most cost-effective health-care interventions there are.",
   "sources": [
     {
       "publisher": "National Institutes of Health",
@@ -39,7 +39,7 @@
       "motif": "eye_path_3d"
     },
     {
-      "narration_segment": "At least 2.2 billion people have impaired vision, and about 1 billion cases were preventable or unaddressed.",
+      "narration_segment": "Billions of people have impaired vision, and almost half of those cases were preventable or unaddressed.",
       "visual_description": "Two columns comparing the counts.",
       "visual_style": "hybrid",
       "motif": "vision_counts"

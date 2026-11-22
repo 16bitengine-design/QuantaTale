@@ -10,7 +10,7 @@
   "editorial_approved": true,
   "editorial_status": "automated_gate_passed",
   "editorial_review_required": false,
-  "narration": "What invisible shield protects Earth from the solar wind? Almost all of Earth's magnetic field starts in its fluid outer core. Churning molten metal there generates electrical currents hundreds of miles wide. Scientists call this mechanism the geodynamo. The field has two poles, like a bar magnet. Unlike Mercury, Venus and Mars, Earth wears a huge magnetic field called the magnetosphere. It shields us from solar wind that would erode the atmosphere. Over time the poles drift, and they flip about every 300,000 years.",
+  "narration": "What invisible shield protects Earth from the solar wind? Almost all of Earth's magnetic field starts in its fluid outer core. Churning molten metal there generates electrical currents hundreds of miles wide. Scientists call this mechanism the geodynamo. The field has two poles, like a bar magnet. Unlike Mercury, Venus and Mars, Earth wears a huge magnetic field called the magnetosphere. It shields us from solar wind that would erode the atmosphere. Over time the poles drift, and every now and then they flip completely.",
   "sources": [
     {
       "publisher": "National Aeronautics and Space Administration",
@@ -45,7 +45,7 @@
       "motif": "magnetosphere"
     },
     {
-      "narration_segment": "The poles drift and flip about every 300,000 years.",
+      "narration_segment": "The poles drift and, now and then, flip.",
       "visual_description": "A bar magnet whose poles swap.",
       "visual_style": "hybrid",
       "motif": "pole_flip"

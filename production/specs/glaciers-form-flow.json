@@ -10,7 +10,7 @@
   "editorial_approved": true,
   "editorial_status": "automated_gate_passed",
   "editorial_review_required": false,
-  "narration": "What is a glacier, and how does one begin? A glacier starts life as snowflakes. When far more snow falls than melts each summer, the weight of the pile compresses the old snow into ice. Gravity pulls the ice downhill so slowly that you would not notice it move. On its way, the ice grinds away at the ground like a gigantic bulldozer. Roughly 10 percent of Earth's land area is covered by glaciers. And roughly 69 percent of Earth's fresh water is locked up in glaciers.",
+  "narration": "What is a glacier, and how does one begin? A glacier starts life as snowflakes. When far more snow falls than melts each summer, the weight of the pile compresses the old snow into ice. Gravity pulls the ice downhill so slowly that you would not notice it move. On its way, the ice grinds away at the ground like a gigantic bulldozer. Glaciers cover only a slice of Earth's land, yet they lock up most of its fresh water.",
   "sources": [
     {
       "publisher": "United States Geological Survey",
@@ -45,7 +45,7 @@
       "motif": "glacier_flow"
     },
     {
-      "narration_segment": "Glaciers cover about 10 percent of land and hold about 69 percent of fresh water.",
+      "narration_segment": "Glaciers cover a slice of land yet hold most of the fresh water.",
       "visual_description": "Two bars for land cover and fresh water share.",
       "visual_style": "hybrid",
       "motif": "glacier_share"

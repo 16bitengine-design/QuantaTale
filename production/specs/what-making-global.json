@@ -10,7 +10,7 @@
   "editorial_approved": true,
   "editorial_status": "automated_gate_passed",
   "editorial_review_required": false,
-  "narration": "Why is the ocean creeping higher along the world's coasts? Two things drive it: ocean water expands as it warms, and glaciers and ice sheets on land melt into the sea. Melting sea ice does not raise sea level, because it already floats in the ocean. The ocean absorbs around 90% of the added heat, and ocean warming accounts for about one third of the rise. The other two thirds comes from melting land ice, such as glaciers and the Greenland and Antarctic ice sheets. Since 1920, global mean sea level has risen 15 to 20 centimeters. The first 10 centimeters took 90 years, from 1902 to 1992, but the next 10 took just 30 years, from 1993 to 2023.",
+  "narration": "Why is the ocean creeping higher along the world's coasts? Two things drive it: ocean water expands as it warms, and glaciers and ice sheets on land melt into the sea. Melting sea ice does not raise sea level, because it already floats in the ocean. The ocean soaks up most of the extra heat, and that warming explains less of the rise than melting land ice does. That ice comes from glaciers and the Greenland and Antarctic ice sheets. The first 10 centimeters took 90 years, from 1902 to 1992, but the next 10 took just 30 years, from 1993 to 2023.",
   "sources": [
     {
       "publisher": "National Aeronautics and Space Administration",
@@ -39,7 +39,7 @@
       "motif": "ocean_expansion_3d"
     },
     {
-      "narration_segment": "Ocean warming gives about one third of the rise and melting land ice about two thirds.",
+      "narration_segment": "Ocean warming explains less of the rise than melting land ice.",
       "visual_description": "Two columns of causes.",
       "visual_style": "hybrid",
       "motif": "sea_level_causes"
