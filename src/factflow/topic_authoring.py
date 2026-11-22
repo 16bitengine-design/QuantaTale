@@ -134,6 +134,24 @@ def check_originality(narration: str, sources: list[dict[str, Any]], run: int = 
     return []
 
 
+_NUMBER = re.compile(r"(?<![\w.])\d[\d,]*(?:\.\d+)?%?(?![\w])|\b(?:thousand|hundred|million|billion|trillion|percent|per cent|third|thirds)\b", re.I)
+_YEAR = re.compile(r"^(1[0-9]{3}|20[0-9]{2})$")
+_COMPARE = re.compile(
+    r"\b(than|compared|versus|vs|while|whereas|but|unlike|twice|double|triple|times|faster|slower|larger|smaller|bigger|"
+    r"longer|shorter|higher|lower|heavier|lighter|hotter|colder|more|less|fewer|greater|further|closer|older|younger|"
+    r"stronger|weaker|both|instead|whereas)\b", re.I)
+
+
+def lone_number_sentences(narration: str) -> list[str]:
+    """Sentences that state a number without comparing two or more situations (channel rule: numbers only to compare)."""
+    found = []
+    for sentence in re.split(r"(?<=[.!?])\s+", narration.strip()):
+        numbers = [m.group(0) for m in _NUMBER.finditer(sentence) if not _YEAR.match(m.group(0))]
+        if numbers and not _COMPARE.search(sentence):
+            found.append(sentence)
+    return found
+
+
 def check_shape(draft: dict[str, Any], existing_titles: set[str]) -> list[str]:
     problems: list[str] = []
     title = str(draft.get("title", "")).strip()
@@ -146,6 +164,8 @@ def check_shape(draft: dict[str, Any], existing_titles: set[str]) -> list[str]:
         problems.append(f"narration must be {MIN_WORDS}-{MAX_WORDS} words, got {count}")
     if not str(draft.get("description", "")).strip():
         problems.append("description is empty")
+    for sentence in lone_number_sentences(str(draft.get("narration", ""))):
+        problems.append(f"states a number without comparing situations (say it in words): {sentence[:70]!r}")
     scenes = draft.get("scenes")
     if not isinstance(scenes, list) or not 3 <= len(scenes) <= 5 or not all(
             isinstance(s, dict) and s.get("visual_description") for s in scenes):
@@ -188,7 +208,7 @@ WRITE_SYSTEM = ("You write a short educational video script in your OWN WORDS us
                 '"claims":[{"sentence":"exact narration sentence","quote":"verbatim 6+ word excerpt from a passage","source":0}],'
                 '"scenes":[{"narration_segment":"...","visual_description":"...","visual_style":"hybrid","motif":"<name or none>"}]}. '
                 "Every narration sentence must have a claim whose quote is copied exactly from the passage with that source index. "
-                "Keep numbers exactly as in the quote. visual_style is one of hybrid, 3d, procedural_2d_holographic. 3-4 scenes. motif must be one of these 3D holographic animations: " + ", ".join(sorted(HOLOGRAPHIC_3D)) + ". Choose the one that literally shows what that part of the narration says. If none does, write \"request: <the 3D animation that is needed>\" instead of picking a poor match.")
+                "Do not state numbers (measurements, counts, percentages, fractions) unless the sentence compares two or more situations, such as the speed of light versus the speed of sound; otherwise describe the idea in words. Years of events are fine. visual_style is one of hybrid, 3d, procedural_2d_holographic. 3-4 scenes. motif must be one of these 3D holographic animations: " + ", ".join(sorted(HOLOGRAPHIC_3D)) + ". Choose the one that literally shows what that part of the narration says. If none does, write \"request: <the 3D animation that is needed>\" instead of picking a poor match.")
 
 
 SEEDED_PROPOSE_SYSTEM = ("You propose evergreen educational science questions for 40-second videos. Reply with JSON only: "

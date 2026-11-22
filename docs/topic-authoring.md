@@ -59,3 +59,14 @@ motifs and lists the flat ones still used by existing topics, most-used first, s
 
 To add a 3D motif: put the function in `visual_motifs_3d.py` (or name it `*_3d`), add it to `MOTIFS_3D`,
 render a frame to check it, and make sure its on-screen text states only what the sources support.
+
+## Numbers only when comparing
+
+Narration does not state standalone numerical facts (a measurement, count, percentage or fraction). A number is used only when
+the sentence compares two or more situations, for example the speed of light versus the speed of sound, or how long the first
+10 cm of sea level rise took versus the next 10 cm. Years of events are fine. Otherwise the idea is said in words ("almost all",
+"far larger").
+
+`check_shape` enforces this with a heuristic (`lone_number_sentences`): a sentence with a number and no comparison word is
+rejected, and the writer prompt states the rule. The heuristic cannot judge intent, so review borderline cases.
+`python -m factflow.cli number-report` lists the sentences in existing topics that break the rule.
