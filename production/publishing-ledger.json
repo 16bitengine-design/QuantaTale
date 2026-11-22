@@ -462,5 +462,15 @@
       }
     },
     "scheduled_at": "2026-11-22T12:31:42.907009+00:00"
+  },
+  "qt-moon-and-sun-20261122-1833": {
+    "status": "reserved",
+    "spec": "production/specs/moon-and-sun.json",
+    "due_at": "2026-11-22T18:33:36+03:00",
+    "reserved_at": "2026-11-22T15:13:36+00:00",
+    "workflow_run_id": "45037114033",
+    "slot_local": "2026-11-22 18:33",
+    "publish_timezone": "Africa/Kampala",
+    "recovers_slot": "2026-11-22 18:00"
   }
 }
