@@ -42,7 +42,7 @@
     },
     {
       "narration_segment": "Venus also rotates in the opposite direction to most planets, meaning the Sun would rise in the west. Be careful with the word day: a Venus solar day, from one noon to the next, is shorter than that star-measured day.",
-      "visual_description": "A sunrise arrow moves from west to east across a Venus horizon.",
+      "visual_description": "The Sun rises above the western horizon of Venus, with an arrow pointing west.",
       "visual_style": "hybrid",
       "motif": "venus_sunrise_3d"
     }
