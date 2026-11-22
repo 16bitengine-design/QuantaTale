@@ -29,19 +29,22 @@
   ],
   "scenes": [
     {
-      "narration_segment": "Opening hook",
+      "narration_segment": "Auroras are not ordinary clouds or reflections. The Sun releases a stream of charged particles called the solar wind.",
       "visual_description": "The Sun emits a stream of charged particles toward Earth.",
-      "visual_style": "hybrid"
+      "visual_style": "hybrid",
+      "motif": "solar_wind_3d"
     },
     {
-      "narration_segment": "Core explanation",
+      "narration_segment": "Earth's magnetic field guides energy and particles toward regions around the poles.",
       "visual_description": "Earth's magnetic field lines guide energetic particles toward polar regions.",
-      "visual_style": "3d"
+      "visual_style": "3d",
+      "motif": "field_lines_3d"
     },
     {
-      "narration_segment": "Memorable conclusion",
+      "narration_segment": "When energetic particles collide with atoms and molecules high in the atmosphere, those gases become excited and release light. Different atmospheric gases and altitudes contribute to different colours. The result is the glowing display known as the northern or southern lights.",
       "visual_description": "Particles collide with atmospheric oxygen and nitrogen, producing glowing coloured curtains.",
-      "visual_style": "hybrid"
+      "visual_style": "hybrid",
+      "motif": "aurora_curtains_3d"
     }
   ],
   "editorial_review_notes": "Approved by the project owner as a batch on 2026-11-15. Approval authorizes topic use; automated source summaries are not independent verification. Before publication, retrieve and assess source passages, corroborate material claims, and flag unsupported or conflicting details for human review.",

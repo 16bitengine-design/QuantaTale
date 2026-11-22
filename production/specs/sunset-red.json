@@ -32,24 +32,28 @@
   ],
   "scenes": [
     {
-      "narration_segment": "Opening hook",
+      "narration_segment": "At midday, sunlight travels through a shorter path in Earth's atmosphere. But at sunset, the Sun is low, so its light travels through much more air before reaching you.",
       "visual_description": "A holographic low Sun and curved Earth horizon reveal a long slanted beam through layered atmosphere.",
-      "visual_style": "procedural_2d_holographic"
+      "visual_style": "procedural_2d_holographic",
+      "motif": "sunset_path_3d"
     },
     {
-      "narration_segment": "Core explanation",
+      "narration_segment": "Air molecules scatter the shorter blue and violet wavelengths out of the direct path.",
       "visual_description": "Animated air molecules redirect blue and violet wavelengths away from the direct sunlight path.",
-      "visual_style": "procedural_2d_holographic"
+      "visual_style": "procedural_2d_holographic",
+      "motif": "blue_scatter_3d"
     },
     {
-      "narration_segment": "What reaches the observer",
+      "narration_segment": "More of the longer red and orange wavelengths continue toward your eyes.",
       "visual_description": "A warm red-orange beam continues toward an observer while shorter blue wavelengths scatter sideways.",
-      "visual_style": "procedural_2d_holographic"
+      "visual_style": "procedural_2d_holographic",
+      "motif": "red_reach_3d"
     },
     {
-      "narration_segment": "Memorable conclusion",
+      "narration_segment": "Dust and other tiny particles can change the colours even further. That's why sunsets can glow red, orange, and pink.",
       "visual_description": "A layered holographic sunset horizon and glowing Sun summarize the filtering effect.",
-      "visual_style": "procedural_2d_holographic"
+      "visual_style": "procedural_2d_holographic",
+      "motif": "sunset_horizon_3d"
     }
   ],
   "visual_profile": "sunset_red_v1",

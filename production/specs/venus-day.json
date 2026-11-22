@@ -29,19 +29,22 @@
   ],
   "scenes": [
     {
-      "narration_segment": "Opening hook",
+      "narration_segment": "Venus has a calendar that sounds impossible. One rotation of Venus relative to the distant stars takes longer than one orbit around the Sun.",
       "visual_description": "A holographic Venus rotates slowly beside a faster orbit timer.",
-      "visual_style": "hybrid"
+      "visual_style": "hybrid",
+      "motif": "venus_spin_3d"
     },
     {
-      "narration_segment": "Core explanation",
-      "visual_description": "Two counters compare 243 Earth days of rotation with 225 Earth days per orbit.",
-      "visual_style": "3d"
+      "narration_segment": "So its day, measured against the stars, is longer than its year.",
+      "visual_description": "Two columns compare one spin of Venus, which is longer, with one orbit, which is shorter.",
+      "visual_style": "3d",
+      "motif": "venus_counters"
     },
     {
-      "narration_segment": "Memorable conclusion",
-      "visual_description": "A sunrise arrow moves from west to east across a Venus horizon.",
-      "visual_style": "hybrid"
+      "narration_segment": "Venus also rotates in the opposite direction to most planets, meaning the Sun would rise in the west. Be careful with the word day: a Venus solar day, from one noon to the next, is shorter than that star-measured day.",
+      "visual_description": "The Sun rises above the western horizon of Venus, with an arrow pointing west.",
+      "visual_style": "hybrid",
+      "motif": "venus_sunrise_3d"
     }
   ],
   "editorial_review_notes": "Approved by the project owner as a batch on 2026-11-15. Approval authorizes topic use; automated source summaries are not independent verification. Before publication, retrieve and assess source passages, corroborate material claims, and flag unsupported or conflicting details for human review.",
