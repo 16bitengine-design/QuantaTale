@@ -43,6 +43,9 @@ jobs:
       - name: Report sentences that state a lone number
         run: python -m factflow.cli number-report
 
+      - name: Report sentences that are hard for a general audience
+        run: python -m factflow.cli language-report
+
       - name: Validate sample topic
         run: quantatale validate examples/topics/why-the-sky-is-blue.json
 
