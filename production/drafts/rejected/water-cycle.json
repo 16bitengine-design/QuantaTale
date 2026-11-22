@@ -74,5 +74,10 @@
       "visual_style": "hybrid",
       "motif": "water_stores"
     }
+  ],
+  "rejection_reasons": [
+    "not supported: 'Rising air carries the vapour high where it is cooler, so it condenses'",
+    "not supported: 'Over land, some of it evaporates again, some soaks into the ground and'",
+    "not supported: \"The air holds only a minute fraction of Earth's water at any moment, y\""
   ]
 }

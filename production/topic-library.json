@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-21T11:21:34.807071+00:00",
+  "updated_at": "2026-11-22T04:52:35.933192+00:00",
   "production_specs": [
     {
       "spec_path": "examples/videos/why-the-sky-is-blue-production.json",
@@ -764,6 +764,31 @@
         {
           "publisher": "World Health Organization",
           "url": "https://www.who.int/news-room/questions-and-answers/item/vaccines-and-immunization-what-is-vaccination",
+          "review_status": "passage_checked_supports_claim"
+        }
+      ]
+    },
+    {
+      "spec_path": "production/specs/what-making-global.json",
+      "content_id_prefix": "qt-what-making-global",
+      "title": "What Is Making Global Sea Level Rise | QuantaTale",
+      "publish_time_local": null,
+      "publish_timezone": "Africa/Kampala",
+      "publishing_enabled": true,
+      "status": "eligible_ready",
+      "editorial_approved": true,
+      "editorial_approval_basis": "explicit_project_owner_approval",
+      "registered_at": "2026-11-22T04:52:31.705606+00:00",
+      "source_passage_verification_required_before_publication": false,
+      "sources": [
+        {
+          "publisher": "National Aeronautics and Space Administration",
+          "url": "https://sealevel.nasa.gov/sea-level-101/global-sea-level-rise/the-basics/",
+          "review_status": "passage_checked_supports_claim"
+        },
+        {
+          "publisher": "National Oceanic and Atmospheric Administration",
+          "url": "https://oceanservice.noaa.gov/facts/sealevel.html",
           "review_status": "passage_checked_supports_claim"
         }
       ]

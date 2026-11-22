@@ -1,0 +1,58 @@
+{
+  "title": "What Is Making Global Sea Level Rise",
+  "category": "earth-science",
+  "voice": "af_heart",
+  "production_label": "QUANTATALE ORIGINAL",
+  "post_title": "What Is Making Global Sea Level Rise | QuantaTale",
+  "post_description": "The two causes of rising seas and how fast the rise is accelerating, from NASA and NOAA. Sources: National Aeronautics and Space Administration https://sealevel.nasa.gov/sea-level-101/global-sea-level-rise/the-basics/ and National Oceanic and Atmospheric Administration https://oceanservice.noaa.gov/facts/sealevel.html #Science #ScienceFacts #QuantaTale",
+  "content_id_prefix": "qt-what-making-global",
+  "publish_timezone": "Africa/Kampala",
+  "editorial_approved": true,
+  "editorial_status": "automated_gate_passed",
+  "editorial_review_required": false,
+  "narration": "Why is the ocean creeping higher along the world's coasts? Two things drive it: ocean water expands as it warms, and glaciers and ice sheets on land melt into the sea. Melting sea ice does not raise sea level, because it already floats in the ocean. The ocean absorbs around 90% of the added heat, and ocean warming accounts for about one third of the rise. The other two thirds comes from melting land ice, such as glaciers and the Greenland and Antarctic ice sheets. Since 1920, global mean sea level has risen 15 to 20 centimeters. The first 10 centimeters took 90 years, from 1902 to 1992, but the next 10 took just 30 years, from 1993 to 2023.",
+  "sources": [
+    {
+      "publisher": "National Aeronautics and Space Administration",
+      "title": "The Basics | Global Sea Level Rise – NASA Sea Level Change Portal",
+      "url": "https://sealevel.nasa.gov/sea-level-101/global-sea-level-rise/the-basics/",
+      "supports": "Melting sea ice doesn't raise sea levels because it's already floating in the ocean, like ice in a glass of water. | Around 90% of this added heat is being absorbed by the ocean, warming it up. When water warms, it expands and takes up more space. This causes the water to rise along the coastline. Currently, about one third (around 33%) of global sea level rise is because of ocean warming. | The other two thirds (around 66%) of global sea level rise is because of melting land ice. As Earth heats up, it melts the land ice, including the Greenland and Antarctic Ice Sheets and other mountain glac",
+      "review_status": "passage_checked_supports_claim",
+      "review_method": "automated_quote_grounding_and_model_entailment",
+      "reviewed_at": "2026-11-22"
+    },
+    {
+      "publisher": "National Oceanic and Atmospheric Administration",
+      "title": "Is sea level rising?",
+      "url": "https://oceanservice.noaa.gov/facts/sealevel.html",
+      "supports": "The two major causes of global sea level rise are thermal expansion caused by warming of the ocean (since water expands as it warms) and increased melting of land-based ice, such as glaciers and ice sheets.",
+      "review_status": "passage_checked_supports_claim",
+      "review_method": "automated_quote_grounding_and_model_entailment",
+      "reviewed_at": "2026-11-22"
+    }
+  ],
+  "scenes": [
+    {
+      "narration_segment": "Warm ocean water expands and land ice melts into the sea, while floating sea ice adds nothing.",
+      "visual_description": "A tank where water warms and land ice melts.",
+      "visual_style": "hybrid",
+      "motif": "ocean_expansion_3d"
+    },
+    {
+      "narration_segment": "Ocean warming gives about one third of the rise and melting land ice about two thirds.",
+      "visual_description": "Two columns of causes.",
+      "visual_style": "hybrid",
+      "motif": "sea_level_causes"
+    },
+    {
+      "narration_segment": "The same 10 centimeters of rise took 90 years, then only 30.",
+      "visual_description": "Two columns comparing years.",
+      "visual_style": "hybrid",
+      "motif": "sea_level_pace"
+    }
+  ],
+  "visual_profile": "holographic_science_v1",
+  "source_passage_verification_required_before_publication": false,
+  "source_assessment": "Automated gates passed on 2026-11-22: each sentence tied to a verbatim source quote, numbers matched, no copied word runs, model entailment check passed, independent publishers. Not complete fact verification.",
+  "authored_by": "assistant_session_draft_then_automated_gates"
+}
