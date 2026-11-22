@@ -429,5 +429,15 @@
       }
     },
     "scheduled_at": "2026-11-21T15:18:01.083971+00:00"
+  },
+  "qt-hurricane-turns-warm-20261122-1549": {
+    "status": "reserved",
+    "spec": "production/specs/hurricane-turns-warm.json",
+    "due_at": "2026-11-22T15:49:39+03:00",
+    "reserved_at": "2026-11-22T12:29:39+00:00",
+    "workflow_run_id": "45022526896",
+    "slot_local": "2026-11-22 15:49",
+    "publish_timezone": "Africa/Kampala",
+    "recovers_slot": "2026-11-22 12:00"
   }
 }
