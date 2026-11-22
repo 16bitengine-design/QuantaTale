@@ -1,0 +1,62 @@
+{
+  "title": "Why We Always See the Same Side of the Moon",
+  "description": "Why the Moon spins exactly once per orbit, called synchronous tidal locking, from NASA and ESA.",
+  "category": "space",
+  "source_urls": [
+    "https://science.nasa.gov/moon/tidal-locking/",
+    "https://sci.esa.int/web/smart-1/-/31412-moon"
+  ],
+  "narration": "Have you ever wondered why the Moon always shows us the same face? The Moon does rotate, but it takes exactly as long to spin once as to circle Earth. As a result, we never see the Moon's far side from Earth. Scientists call this synchronous tidal locking. Over time, the Moon's spin slowed down until one spin took as long as one trip around Earth. Even today, Earth's pull stretches the Moon into a slight football shape. All the large moons in our solar system are locked to their planets this way.",
+  "claims": [
+    {
+      "sentence": "The Moon does rotate, but it takes exactly as long to spin once as to circle Earth.",
+      "quote": "Earth’s Moon rotates, but it takes precisely as long for the Moon to spin on its axis as it does to complete its monthly orbit around Earth.",
+      "source": 0
+    },
+    {
+      "sentence": "As a result, we never see the Moon's far side from Earth.",
+      "quote": "As a result, the Moon never turns its back to us",
+      "source": 0
+    },
+    {
+      "sentence": "Scientists call this synchronous tidal locking.",
+      "quote": "This phenomenon, called “synchronous tidal locking,” sounds like a weird coincidence ― but it’s actually quite common.",
+      "source": 0
+    },
+    {
+      "sentence": "Over time, the Moon's spin slowed down until one spin took as long as one trip around Earth.",
+      "quote": "As the energy dissipated, the Moon’s rotation slowed until a single spin on its axis took the same amount of time as one trip around Earth.",
+      "source": 0
+    },
+    {
+      "sentence": "Even today, Earth's pull stretches the Moon into a slight football shape.",
+      "quote": "Earth’s gravitational pull distorts the Moon into a slight football shape even today",
+      "source": 0
+    },
+    {
+      "sentence": "All the large moons in our solar system are locked to their planets this way.",
+      "quote": "All the solar system’s large moons are tidally locked with their planets.",
+      "source": 0
+    }
+  ],
+  "scenes": [
+    {
+      "narration_segment": "The Moon spins exactly once per orbit, so we never see its far side.",
+      "visual_description": "The Moon circling Earth with one face always toward Earth.",
+      "visual_style": "hybrid",
+      "motif": "moon_lock_3d"
+    },
+    {
+      "narration_segment": "Earth's gravity slowed the Moon's spin over time and still stretches it slightly.",
+      "visual_description": "The Moon's spin matching its orbit.",
+      "visual_style": "hybrid",
+      "motif": "moon_lock_3d"
+    },
+    {
+      "narration_segment": "This tidal locking is common, since all large moons in our solar system are locked to their planets.",
+      "visual_description": "A moon locked to its planet.",
+      "visual_style": "hybrid",
+      "motif": "moon_lock_3d"
+    }
+  ]
+}

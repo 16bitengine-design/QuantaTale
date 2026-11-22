@@ -1,0 +1,67 @@
+{
+  "title": "How the Sun Shines: Fusion in Its Core",
+  "description": "How hydrogen fuses into helium in the Sun's core and releases energy, from NASA and ESA.",
+  "category": "space",
+  "source_urls": [
+    "https://science.nasa.gov/sun/facts/",
+    "https://sci.esa.int/web/education/-/36828-stellar-processes-and-evolution"
+  ],
+  "narration": "What keeps the Sun glowing year after year? Deep in the Sun's core, it is hot enough to sustain nuclear fusion. In fusion, small atomic nuclei combine to make a bigger one. In stars like the Sun, the simplest reaction turns hydrogen into helium. The helium that forms has slightly less mass than the hydrogen it came from. The small amount of mass that goes missing is released as energy. Fusion also pushes outward, which stops the Sun from collapsing under its own weight. Most life on our planet depends on that energy.",
+  "claims": [
+    {
+      "sentence": "Deep in the Sun's core, it is hot enough to sustain nuclear fusion.",
+      "quote": "The temperature in the Sun's core is about 27 million degrees Fahrenheit (15 million degrees Celsius) – hot enough to sustain nuclear fusion.",
+      "source": 0
+    },
+    {
+      "sentence": "In fusion, small atomic nuclei combine to make a bigger one.",
+      "quote": "Nuclear fusion, where nuclei combine to make a nucleus with a larger number of protons and neutrons, occurs in main sequence stars once they reach a critical temperature.",
+      "source": 1
+    },
+    {
+      "sentence": "In stars like the Sun, the simplest reaction turns hydrogen into helium.",
+      "quote": "The simplest reaction that occurs in stars is the conversion of hydrogen into helium - a process known as the proton-proton chain and requires a core temperature of at least 10 million K.",
+      "source": 1
+    },
+    {
+      "sentence": "The helium that forms has slightly less mass than the hydrogen it came from.",
+      "quote": "Each helium-4 nucleus has a mass that is about 99.3% of the mass of four protons.",
+      "source": 1
+    },
+    {
+      "sentence": "The small amount of mass that goes missing is released as energy.",
+      "quote": "The missing 4 million tons of matter is released as energy in accordance with Einstein's equation E=mc 2 .",
+      "source": 1
+    },
+    {
+      "sentence": "Fusion also pushes outward, which stops the Sun from collapsing under its own weight.",
+      "quote": "This creates outward pressure that supports the star's gigantic mass, keeping it from collapsing.",
+      "source": 0
+    },
+    {
+      "sentence": "Most life on our planet depends on that energy.",
+      "quote": "Nothing could live on the Sun, but its energy is vital for most life on Earth.",
+      "source": 0
+    }
+  ],
+  "scenes": [
+    {
+      "narration_segment": "Deep in the Sun's core, it is hot enough for nuclear fusion.",
+      "visual_description": "A cutaway of the Sun's glowing core.",
+      "visual_style": "hybrid",
+      "motif": "fusion_core_3d"
+    },
+    {
+      "narration_segment": "Hydrogen fuses into helium, and the missing mass is released as energy.",
+      "visual_description": "Hydrogen particles merging into helium with energy rays.",
+      "visual_style": "hybrid",
+      "motif": "fusion_core_3d"
+    },
+    {
+      "narration_segment": "Fusion pushes outward so the Sun does not collapse, and its energy supports life on Earth.",
+      "visual_description": "A steady beam of starlight reaching a planet.",
+      "visual_style": "hybrid",
+      "motif": "star_beam"
+    }
+  ]
+}

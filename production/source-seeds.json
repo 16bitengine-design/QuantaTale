@@ -228,6 +228,38 @@
   {
    "url": "https://sealevel.nasa.gov/understanding-sea-level/global-sea-level/overview",
    "group": "NASA"
+  },
+  {
+   "url": "https://www.nesdis.noaa.gov/about/k-12-education/understanding-our-planet/why-does-earth-have-seasons",
+   "group": "NOAA"
+  },
+  {
+   "url": "https://sci.esa.int/web/education/-/36828-stellar-processes-and-evolution",
+   "group": "ESA"
+  },
+  {
+   "url": "https://science.nasa.gov/mission/dart/",
+   "group": "NASA"
+  },
+  {
+   "url": "https://www.esa.int/Space_Safety/Hera/Hera_mission_overview",
+   "group": "ESA"
+  },
+  {
+   "url": "https://science.nasa.gov/moon/tidal-locking/",
+   "group": "NASA"
+  },
+  {
+   "url": "https://sci.esa.int/web/smart-1/-/31412-moon",
+   "group": "ESA"
+  },
+  {
+   "url": "https://science.nasa.gov/mission/cassini/science/rings/",
+   "group": "NASA"
+  },
+  {
+   "url": "https://www.esa.int/Science_Exploration/Space_Science/Cassini-Huygens/Saturn_s_rings",
+   "group": "ESA"
   }
  ]
 }
