@@ -1,0 +1,58 @@
+{
+  "title": "How the Sun Shines: Fusion in Its Core",
+  "category": "space",
+  "voice": "af_heart",
+  "production_label": "QUANTATALE ORIGINAL",
+  "post_title": "How the Sun Shines: Fusion in Its Core | QuantaTale",
+  "post_description": "How hydrogen fuses into helium in the Sun's core and releases energy, from NASA and ESA. Sources: National Aeronautics and Space Administration https://science.nasa.gov/sun/facts/ and European Space Agency https://sci.esa.int/web/education/-/36828-stellar-processes-and-evolution #Science #ScienceFacts #QuantaTale",
+  "content_id_prefix": "qt-sun-shines-fusion",
+  "publish_timezone": "Africa/Kampala",
+  "editorial_approved": true,
+  "editorial_status": "automated_gate_passed",
+  "editorial_review_required": false,
+  "narration": "What keeps the Sun glowing year after year? Deep in the Sun's core, it is hot enough to sustain nuclear fusion. In fusion, small atomic nuclei combine to make a bigger one. In stars like the Sun, the simplest reaction turns hydrogen into helium. The helium that forms has slightly less mass than the hydrogen it came from. The small amount of mass that goes missing is released as energy. Fusion also pushes outward, which stops the Sun from collapsing under its own weight. Most life on our planet depends on that energy.",
+  "sources": [
+    {
+      "publisher": "National Aeronautics and Space Administration",
+      "title": "Sun: Facts - NASA Science",
+      "url": "https://science.nasa.gov/sun/facts/",
+      "supports": "The temperature in the Sun's core is about 27 million degrees Fahrenheit (15 million degrees Celsius) – hot enough to sustain nuclear fusion. | This creates outward pressure that supports the star's gigantic mass, keeping it from collapsing. | Nothing could live on the Sun, but its energy is vital for most life on Earth.",
+      "review_status": "passage_checked_supports_claim",
+      "review_method": "automated_quote_grounding_and_model_entailment",
+      "reviewed_at": "2026-11-22"
+    },
+    {
+      "publisher": "European Space Agency",
+      "title": "ESA Science & Technology - Stellar Processes and Evolution",
+      "url": "https://sci.esa.int/web/education/-/36828-stellar-processes-and-evolution",
+      "supports": "Nuclear fusion, where nuclei combine to make a nucleus with a larger number of protons and neutrons, occurs in main sequence stars once they reach a critical temperature. | The simplest reaction that occurs in stars is the conversion of hydrogen into helium - a process known as the proton-proton chain and requires a core temperature of at least 10 million K. | Each helium-4 nucleus has a mass that is about 99.3% of the mass of four protons. | The missing 4 million tons of matter is released as energy in accordance with Einstein's equation E=mc 2 .",
+      "review_status": "passage_checked_supports_claim",
+      "review_method": "automated_quote_grounding_and_model_entailment",
+      "reviewed_at": "2026-11-22"
+    }
+  ],
+  "scenes": [
+    {
+      "narration_segment": "Deep in the Sun's core, it is hot enough for nuclear fusion.",
+      "visual_description": "A cutaway of the Sun's glowing core.",
+      "visual_style": "hybrid",
+      "motif": "fusion_core_3d"
+    },
+    {
+      "narration_segment": "Hydrogen fuses into helium, and the missing mass is released as energy.",
+      "visual_description": "Hydrogen particles merging into helium with energy rays.",
+      "visual_style": "hybrid",
+      "motif": "fusion_core_3d"
+    },
+    {
+      "narration_segment": "Fusion pushes outward so the Sun does not collapse, and its energy supports life on Earth.",
+      "visual_description": "A steady beam of starlight reaching a planet.",
+      "visual_style": "hybrid",
+      "motif": "star_beam"
+    }
+  ],
+  "visual_profile": "holographic_science_v1",
+  "source_passage_verification_required_before_publication": false,
+  "source_assessment": "Automated gates passed on 2026-11-22: each sentence tied to a verbatim source quote, numbers matched, no copied word runs, model entailment check passed, independent publishers. Not complete fact verification.",
+  "authored_by": "assistant_session_draft_then_automated_gates"
+}

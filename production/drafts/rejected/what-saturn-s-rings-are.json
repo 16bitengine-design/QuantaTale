@@ -53,5 +53,8 @@
       "visual_style": "hybrid",
       "motif": "saturn_rings_3d"
     }
+  ],
+  "rejection_reasons": [
+    "not supported: 'Gravity from small moonlets inside the rings produces features that lo'"
   ]
 }

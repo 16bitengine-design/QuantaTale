@@ -1,0 +1,58 @@
+{
+  "title": "Why Earth Has Seasons, and It Isn't Distance",
+  "category": "earth-science",
+  "voice": "af_heart",
+  "production_label": "QUANTATALE ORIGINAL",
+  "post_title": "Why Earth Has Seasons, and It Isn't Distance | QuantaTale",
+  "post_description": "Why the tilt of Earth's axis, not its distance from the Sun, brings summer and winter, from NASA and NOAA. Sources: National Aeronautics and Space Administration https://spaceplace.nasa.gov/seasons/en/ and National Oceanic and Atmospheric Administration https://www.nesdis.noaa.gov/about/k-12-education/understanding-our-planet/why-does-earth-have-seasons #Science #ScienceFacts #QuantaTale",
+  "content_id_prefix": "qt-earth-has-seasons",
+  "publish_timezone": "Africa/Kampala",
+  "editorial_approved": true,
+  "editorial_status": "automated_gate_passed",
+  "editorial_review_required": false,
+  "narration": "Does summer arrive because Earth swings closer to the Sun? Many people believe summer comes when Earth is closest to the Sun. But that idea is incorrect. In the Northern Hemisphere, winter arrives while Earth is nearest the Sun, and summer arrives when it is farthest. The real reason is that Earth's axis is tilted instead of standing straight up. As Earth travels around the Sun, the axis keeps pointing the same direction. So sometimes the northern half leans toward the Sun, and sometimes the southern half does. The half tilted toward the Sun gets its rays more directly, and that half has summer. Because the two poles are at opposite ends of Earth, the seasons are opposite too.",
+  "sources": [
+    {
+      "publisher": "National Aeronautics and Space Administration",
+      "title": "What Causes the Seasons? | NASA Space Place – NASA Science for Kids",
+      "url": "https://spaceplace.nasa.gov/seasons/en/",
+      "supports": "Many people believe that Earth is closer to the Sun in the summer and that is why it is hotter. | Although this idea makes sense, it is incorrect. | However, in the Northern Hemisphere, we are having winter when Earth is closest to the Sun and summer when it is farthest away! | Earth has seasons because its axis doesn't stand up straight. | As the poles are on opposite ends of Earth, they experience opposite timing for the seasons.",
+      "review_status": "passage_checked_supports_claim",
+      "review_method": "automated_quote_grounding_and_model_entailment",
+      "reviewed_at": "2026-11-22"
+    },
+    {
+      "publisher": "National Oceanic and Atmospheric Administration",
+      "title": "Why does Earth have Seasons? | NESDIS | National Environmental Satellite, Data, and Information Service",
+      "url": "https://www.nesdis.noaa.gov/about/k-12-education/understanding-our-planet/why-does-earth-have-seasons",
+      "supports": "So, here we are, orbiting the sun, but tilted a bit and always with the axis pointed in the same direction. | Thus, sometimes it is the North Pole tilting toward the sun (like in June) and sometimes it is the South Pole tilting toward the sun (like in December). | in summer, the sun's rays hit that region more directly than at any other time of the year.",
+      "review_status": "passage_checked_supports_claim",
+      "review_method": "automated_quote_grounding_and_model_entailment",
+      "reviewed_at": "2026-11-22"
+    }
+  ],
+  "scenes": [
+    {
+      "narration_segment": "Many people think summer comes when Earth is closest to the Sun, but the Northern winter happens then.",
+      "visual_description": "Earth on its orbit around the Sun, nearest the Sun in the northern winter.",
+      "visual_style": "hybrid",
+      "motif": "orbit_3d"
+    },
+    {
+      "narration_segment": "The real reason is a tilted axis that keeps pointing the same direction as Earth travels around the Sun.",
+      "visual_description": "Earth at four points on its orbit with a tilted axis.",
+      "visual_style": "hybrid",
+      "motif": "seasons_tilt_3d"
+    },
+    {
+      "narration_segment": "The half tilted toward the Sun has summer, and the two halves have opposite seasons.",
+      "visual_description": "The tilted axis leaning toward and away from the Sun.",
+      "visual_style": "hybrid",
+      "motif": "seasons_tilt_3d"
+    }
+  ],
+  "visual_profile": "holographic_science_v1",
+  "source_passage_verification_required_before_publication": false,
+  "source_assessment": "Automated gates passed on 2026-11-22: each sentence tied to a verbatim source quote, numbers matched, no copied word runs, model entailment check passed, independent publishers. Not complete fact verification.",
+  "authored_by": "assistant_session_draft_then_automated_gates"
+}

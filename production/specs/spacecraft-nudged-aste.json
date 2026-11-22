@@ -1,0 +1,58 @@
+{
+  "title": "How a Spacecraft Nudged an Asteroid's Orbit",
+  "category": "space",
+  "voice": "af_heart",
+  "production_label": "QUANTATALE ORIGINAL",
+  "post_title": "How a Spacecraft Nudged an Asteroid's Orbit | QuantaTale",
+  "post_description": "How NASA's DART crashed into an asteroid moon to change its orbit, and what ESA's Hera will check, from NASA and ESA. Sources: National Aeronautics and Space Administration https://science.nasa.gov/mission/dart/ and European Space Agency https://www.esa.int/articles/about-us/directorates/operations/space-safety/hera/hera-mission-overview #Science #ScienceFacts #QuantaTale",
+  "content_id_prefix": "qt-spacecraft-nudged-aste",
+  "publish_timezone": "Africa/Kampala",
+  "editorial_approved": true,
+  "editorial_status": "automated_gate_passed",
+  "editorial_review_required": false,
+  "narration": "Could we ever push a dangerous asteroid off course? The first mission built to test deflecting an asteroid was NASA's DART. In this kinetic impact method, you crash into an asteroid to shift where it is heading. DART's target was Dimorphos, a small body that orbits the larger asteroid Didymos. Dimorphos's orbit changed measurably, the first time humans have shifted a body's orbit. Many uncertainties remain about exactly what the impact did. ESA's Hera spacecraft will survey the asteroids afterwards to make the technique well understood and repeatable.",
+  "sources": [
+    {
+      "publisher": "National Aeronautics and Space Administration",
+      "title": "Double Asteroid Redirection Test (DART) - NASA Science",
+      "url": "https://science.nasa.gov/mission/dart/",
+      "supports": "DART was the first-ever mission dedicated to investigating and demonstrating one method of asteroid deflection by changing an asteroid's motion in space through kinetic impact.",
+      "review_status": "passage_checked_supports_claim",
+      "review_method": "automated_quote_grounding_and_model_entailment",
+      "reviewed_at": "2026-11-22"
+    },
+    {
+      "publisher": "European Space Agency",
+      "title": "Hera mission overview",
+      "url": "https://www.esa.int/articles/about-us/directorates/operations/space-safety/hera/hera-mission-overview",
+      "supports": "the goal of testing the kinetic impact method of asteroid deflection – crashing into an asteroid to shift its direction away from us. | a body named Dimorphos, a smaller object in orbit around the larger Didymos asteroid | Dimorphos became the first Solar System body to have its orbit shifted by human effort in a measurable way. | But many uncertainties remain; our best scientific models of the impact are still missing some vital pieces of information | Hera's detailed post-impact survey of the asteroids in 2026/2027 will turn this grand-scale kinetic impact experiment into a well-understood a",
+      "review_status": "passage_checked_supports_claim",
+      "review_method": "automated_quote_grounding_and_model_entailment",
+      "reviewed_at": "2026-11-22"
+    }
+  ],
+  "scenes": [
+    {
+      "narration_segment": "DART was the first mission built to test deflecting an asteroid by crashing into it.",
+      "visual_description": "A spacecraft approaching a small asteroid moon.",
+      "visual_style": "hybrid",
+      "motif": "dart_impact_3d"
+    },
+    {
+      "narration_segment": "The target moon's orbit around its asteroid changed measurably.",
+      "visual_description": "The moon's orbit shifting after impact.",
+      "visual_style": "hybrid",
+      "motif": "dart_impact_3d"
+    },
+    {
+      "narration_segment": "Uncertainties remain, so ESA's Hera will study the result up close.",
+      "visual_description": "A follow-up spacecraft surveying the asteroids.",
+      "visual_style": "hybrid",
+      "motif": "dart_impact_3d"
+    }
+  ],
+  "visual_profile": "holographic_science_v1",
+  "source_passage_verification_required_before_publication": false,
+  "source_assessment": "Automated gates passed on 2026-11-22: each sentence tied to a verbatim source quote, numbers matched, no copied word runs, model entailment check passed, independent publishers. Not complete fact verification.",
+  "authored_by": "assistant_session_draft_then_automated_gates"
+}

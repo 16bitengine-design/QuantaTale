@@ -58,5 +58,8 @@
       "visual_style": "hybrid",
       "motif": "moon_lock_3d"
     }
+  ],
+  "rejection_reasons": [
+    "quotes come from fewer than two independent publisher groups, so nothing is corroborated"
   ]
 }
