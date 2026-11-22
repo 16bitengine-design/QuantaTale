@@ -2,7 +2,8 @@ import json
 
 from factflow.llm_providers import ProviderChain
 from factflow.research import load_source_registry
-from factflow.topic_authoring import (author_topics, check_grounding, check_originality, check_shape, slugify)
+from factflow.topic_authoring import (author_topics, check_grounding, check_originality, check_shape, lone_number_sentences,
+                                      slugify)
 
 P1 = ["Clouds form when water vapor in rising air cools and condenses onto tiny particles in the sky.",
       "These tiny particles are called cloud condensation nuclei and include dust and sea salt grains."]
@@ -20,7 +21,7 @@ def fetcher(url, publisher):
 
 NARRATION = ("Why do clouds exist at all? Rising air cools and its invisible vapour starts turning into liquid. "
              "That change needs microscopic specks such as dust or salt to gather on. "
-             "When the air is fully saturated at 100 percent humidity, droplets build up around the specks. "
+             "When the air is fully saturated at 100 percent humidity, but not before, droplets build up around the specks. "
              "Millions of these droplets together make the white shape you see overhead, so a cloud is really a crowd of tiny drops "
              "or ice crystals floating in the atmosphere, not a puff of pure gas.")
 CLAIMS = [
@@ -28,7 +29,7 @@ CLAIMS = [
      "quote": "water vapor in rising air cools and condenses onto tiny particles", "source": 0},
     {"sentence": "That change needs microscopic specks such as dust or salt to gather on.",
      "quote": "include dust and sea salt grains", "source": 0},
-    {"sentence": "When the air is fully saturated at 100 percent humidity, droplets build up around the specks.",
+    {"sentence": "When the air is fully saturated at 100 percent humidity, but not before, droplets build up around the specks.",
      "quote": "saturated with 100 percent relative humidity", "source": 1},
     {"sentence": "Millions of these droplets together make the white shape you see overhead, so a cloud is really a crowd of tiny drops or ice crystals floating in the atmosphere, not a puff of pure gas.",
      "quote": "collection of water droplets or ice crystals that float in the atmosphere", "source": 1},
@@ -177,3 +178,17 @@ def test_flat_or_missing_motifs_are_rejected_and_prompt_lists_only_3d():
     ok = dict(DRAFT)
     ok["scenes"] = [{"visual_description": "x", "motif": "heart_pump"}] * 3
     assert not [p for p in check_shape(ok, set()) if "motif" in p]
+
+
+def test_lone_number_sentences_flag_numbers_not_used_to_compare():
+    text = ("Sound travels about 343 meters per second in air. Light is far faster than sound, so lightning is seen before thunder. "
+            "In 2019 a telescope captured the first image. Roughly 3.5 percent of seawater is salt. The first 10 cm took 90 years, "
+            "but the next 10 cm took 30 years. Two forces act on the Moon.")
+    flagged = lone_number_sentences(text)
+    assert flagged == ["Sound travels about 343 meters per second in air.", "Roughly 3.5 percent of seawater is salt."]
+
+
+def test_shape_rejects_a_lone_number_sentence():
+    draft = {**DRAFT, "narration": NARRATION.replace(", but not before,", "")}
+    assert any("without comparing situations" in p for p in check_shape(draft, set()))
+    assert not any("without comparing situations" in p for p in check_shape(DRAFT, set()))

@@ -40,6 +40,9 @@ jobs:
       - name: Report flat animations still used by topics
         run: python -m factflow.cli motif-report
 
+      - name: Report sentences that state a lone number
+        run: python -m factflow.cli number-report
+
       - name: Validate sample topic
         run: quantatale validate examples/topics/why-the-sky-is-blue.json
 

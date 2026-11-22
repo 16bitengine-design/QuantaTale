@@ -120,6 +120,9 @@ def build_parser() -> argparse.ArgumentParser:
     motif_parser = subparsers.add_parser("motif-report", help="Count 3D vs flat animations and list flat ones still used by topics.")
     motif_parser.add_argument("--specs-dir", default="production/specs")
 
+    number_parser = subparsers.add_parser("number-report", help="List narration sentences that state a number without comparing situations.")
+    number_parser.add_argument("--specs-dir", default="production/specs")
+
     stock_parser = subparsers.add_parser("topic-stock", help="Report never-used publishable topics.")
     stock_parser.add_argument("--library", default="production/topic-library.json")
     stock_parser.add_argument("--ledger", default="production/publishing-ledger.json")
@@ -187,6 +190,18 @@ def main() -> int:
         print(f"Scenes in topics: {sum(used.values())}; still flat: {sum(flat_used.values())}")
         for name, n in sorted(flat_used.items(), key=lambda kv: -kv[1]):
             print(f"  flat: {name} x{n}")
+        return 0
+
+    if args.command == "number-report":
+        import json as _json
+        from factflow.topic_authoring import lone_number_sentences
+        total = 0
+        for path in sorted(Path(args.specs_dir).glob("*.json")):
+            spec = _json.loads(path.read_text(encoding="utf-8"))
+            for sentence in lone_number_sentences(str(spec.get("narration", ""))):
+                total += 1
+                print(f"  {path.stem}: {sentence[:110]}")
+        print(f"Sentences stating a lone number: {total}")
         return 0
 
     if args.command == "source-text":
