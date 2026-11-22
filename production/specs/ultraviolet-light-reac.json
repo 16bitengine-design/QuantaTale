@@ -10,7 +10,7 @@
   "editorial_approved": true,
   "editorial_status": "automated_gate_passed",
   "editorial_review_required": false,
-  "narration": "Can you get sunburnt on a cloudy day? Ultraviolet rays are invisible radiation from the sun, and they can damage skin cells. The atmosphere absorbs all UVC and most UVB, but it filters UVA much less. So UVA makes up about 95 per cent of the UV that reaches the ground. UV is strongest when the sun is high, because then its rays travel the most direct route to Earth. Higher up there is less air to absorb it, and UV rises by roughly 10 per cent with every 1000 metres of altitude. UV also gets through on cloudy, cool days, and it bounces off water, sand and snow. Wear broad-spectrum sunscreen rated SPF 15 or higher before going outside. The best sunglasses block both UVA and UVB.",
+  "narration": "Can you get sunburnt on a cloudy day? Ultraviolet rays are invisible radiation from the sun, and they can damage skin cells. The atmosphere absorbs all UVC and most UVB, but it filters UVA much less. So most of the UV that reaches the ground is UVA. UV is strongest when the sun is high, because then its rays travel the most direct route to Earth. Higher up there is less air to absorb it, so UV is stronger on a mountain than at sea level. UV also gets through on cloudy, cool days, and it bounces off water, sand and snow. Wear broad-spectrum sunscreen rated SPF 15 or higher before going outside. The best sunglasses block both UVA and UVB.",
   "sources": [
     {
       "publisher": "Centers for Disease Control and Prevention",

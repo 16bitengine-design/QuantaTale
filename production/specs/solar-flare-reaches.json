@@ -10,7 +10,7 @@
   "editorial_approved": true,
   "editorial_status": "automated_gate_passed",
   "editorial_review_required": false,
-  "narration": "What happens when the Sun suddenly blasts out a burst of energy? A solar flare is a sudden, intense burst of radiation from the Sun. No other explosion in the solar system is more powerful. The largest have the energy of about a billion hydrogen bombs. They start when twisted magnetic fields on the Sun snap and reconnect. Its energy travels at light speed and reaches Earth in about 8 minutes. Earth's atmosphere and magnetic field shield us on the ground. Strong flares can still disrupt radio signals and affect satellites.",
+  "narration": "What happens when the Sun suddenly blasts out a burst of energy? A solar flare is a sudden, intense burst of radiation from the Sun. No other explosion in the solar system is more powerful. The largest pack the energy of a huge number of hydrogen bombs. They start when twisted magnetic fields on the Sun snap and reconnect. Its energy travels at light speed, so it reaches Earth within minutes. Earth's atmosphere and magnetic field shield us on the ground. Strong flares can still disrupt radio signals and affect satellites.",
   "sources": [
     {
       "publisher": "National Aeronautics and Space Administration",
@@ -39,7 +39,7 @@
       "motif": "flare_burst"
     },
     {
-      "narration_segment": "The flare's light reaches Earth in about 8 minutes.",
+      "narration_segment": "The flare's light reaches Earth within minutes.",
       "visual_description": "A pulse crossing from Sun to Earth with a minute counter.",
       "visual_style": "hybrid",
       "motif": "flare_travel"

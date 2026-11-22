@@ -10,7 +10,7 @@
   "editorial_approved": true,
   "editorial_status": "approved_by_user_batch",
   "editorial_review_required": false,
-  "narration": "Venus has a calendar that sounds impossible. One rotation of Venus relative to the distant stars takes about 243 Earth days. But one orbit around the Sun takes only about 225 Earth days. So its sidereal day is longer than its year. Venus also rotates in the opposite direction to most planets, meaning the Sun would rise in the west. Be careful with the word day: a Venus solar day, from one noon to the next, is about 117 Earth days.",
+  "narration": "Venus has a calendar that sounds impossible. One rotation of Venus relative to the distant stars takes longer than one orbit around the Sun. So its day, measured against the stars, is longer than its year. Venus also rotates in the opposite direction to most planets, meaning the Sun would rise in the west. Be careful with the word day: a Venus solar day, from one noon to the next, is shorter than that star-measured day.",
   "sources": [
     {
       "publisher": "NASA Science",

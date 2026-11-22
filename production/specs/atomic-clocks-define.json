@@ -10,7 +10,7 @@
   "editorial_approved": true,
   "editorial_status": "automated_gate_passed",
   "editorial_review_required": false,
-  "narration": "How do we measure a single second so precisely? Atomic clocks are the most accurate way to measure time. Inside, waves are aimed at cesium atoms, and the atoms absorb them and leap to a different energy level. That jump only happens at one precise frequency. Cesium atoms respond to 9,192,631,770 wave cycles every second, so the second itself is defined as that many cycles. The best cesium clocks drift by only about a three-hundred-millionth of a second each year, while a quartz wristwatch may be off by about 15 seconds a month. Quartz clocks drift too: after six weeks, even good ones can be off by a full millisecond.",
+  "narration": "How do we measure a single second so precisely? Atomic clocks are the most accurate way to measure time. Inside, waves are aimed at cesium atoms, and the atoms absorb them and leap to a different energy level. That jump only happens at one precise frequency. Cesium atoms respond to one exact, steady count of wave cycles, so the second itself is defined by counting those cycles. The best cesium clocks drift by only a tiny fraction of a second each year. A quartz wristwatch may be off by several seconds a month. Quartz clocks drift too: after six weeks, even good ones can be off by a full millisecond.",
   "sources": [
     {
       "publisher": "National Institute of Standards and Technology",
@@ -39,7 +39,7 @@
       "motif": "atom_jump"
     },
     {
-      "narration_segment": "Counting 9,192,631,770 cycles defines one second.",
+      "narration_segment": "Counting wave cycles defines one second.",
       "visual_description": "A wave with a cycle counter climbing.",
       "visual_style": "hybrid",
       "motif": "cycle_counter"

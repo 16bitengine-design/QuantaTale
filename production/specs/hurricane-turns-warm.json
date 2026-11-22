@@ -10,7 +10,7 @@
   "editorial_approved": true,
   "editorial_status": "automated_gate_passed",
   "editorial_review_required": false,
-  "narration": "What turns warm ocean water into a giant spinning storm? A hurricane works like an engine that runs on warm, moist air. As the warm air rises, it leaves an area of lower pressure below. Rising air cools, and its water vapour forms clouds. North of the equator they spin counterclockwise; south of it, clockwise. At the centre an eye forms, calm and clear. Once its sustained winds reach 74 miles per hour, the storm counts as a hurricane. On land they usually weaken, because the warm ocean no longer feeds them.",
+  "narration": "What turns warm ocean water into a giant spinning storm? A hurricane works like an engine that runs on warm, moist air. As the warm air rises, it leaves an area of lower pressure below. Rising air cools, and its water vapour forms clouds. North of the equator they spin anticlockwise; south of it, clockwise. At the centre an eye forms, calm and clear. Once its sustained winds are strong enough, the storm counts as a hurricane. On land they usually weaken, because the warm ocean no longer feeds them.",
   "sources": [
     {
       "publisher": "National Oceanic and Atmospheric Administration",
@@ -45,7 +45,7 @@
       "motif": "hurricane_spin"
     },
     {
-      "narration_segment": "At 74 mph it is a hurricane; over land it weakens.",
+      "narration_segment": "Strong enough winds make it a hurricane; over land it weakens.",
       "visual_description": "A storm moving from sea to land losing strength.",
       "visual_style": "hybrid",
       "motif": "hurricane_landfall"

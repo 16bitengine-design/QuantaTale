@@ -10,7 +10,7 @@
   "editorial_approved": true,
   "editorial_status": "automated_gate_passed",
   "editorial_review_required": false,
-  "narration": "Where does all the ocean's salt come from? It comes from two places: runoff from land and openings in the seafloor. Slightly acidic rainwater erodes rocks on land. That frees ions, which rivers carry to the sea. Hydrothermal fluids from vents in the seafloor add more. Sodium and chloride account for roughly 85 percent of the ocean's dissolved ions. Roughly 3.5 percent of seawater's weight is dissolved salt. In the extremely salty Dead Sea, the dense water holds you up like a mattress.",
+  "narration": "Where does all the ocean's salt come from? It comes from two places: runoff from land and openings in the seafloor. Slightly acidic rainwater erodes rocks on land. That frees ions, which rivers carry to the sea. Hydrothermal fluids from vents in the seafloor add more. Sodium and chloride make up most of the ocean's dissolved ions. Even so, only a small share of seawater's weight is dissolved salt. In the extremely salty Dead Sea, the dense water holds you up like a mattress.",
   "sources": [
     {
       "publisher": "National Oceanic and Atmospheric Administration",
@@ -39,7 +39,7 @@
       "motif": "salt_sources"
     },
     {
-      "narration_segment": "Sodium and chloride dominate; about 3.5 percent of seawater is salt.",
+      "narration_segment": "Sodium and chloride dominate, yet salt is a small share of seawater.",
       "visual_description": "Bars showing the share of salt in seawater and of sodium and chloride in the salt.",
       "visual_style": "hybrid",
       "motif": "salt_share"
