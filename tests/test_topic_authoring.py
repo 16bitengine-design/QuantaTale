@@ -163,12 +163,14 @@ def test_seeds_already_used_by_a_topic_are_not_offered_again(tmp_path):
     assert report["accepted"] == [] and "no unused verified pages" in report["note"]
 
 
-def test_flat_or_missing_motifs_are_rejected_and_prompt_lists_only_3d():
+def test_flat_or_missing_motifs_are_rejected_and_prompt_lists_only_3d(monkeypatch):
     from factflow.topic_authoring import WRITE_SYSTEM  # the writer's instructions
     from factflow.visual_motifs import HOLOGRAPHIC_3D, MOTIFS
 
+    flat = "flat_demo"  # every shipped motif is 3D now, so register a flat one for this check
+    monkeypatch.setitem(MOTIFS, flat, lambda *args: None)
+    assert flat not in HOLOGRAPHIC_3D
     draft = dict(DRAFT)
-    flat = next(name for name in MOTIFS if name not in HOLOGRAPHIC_3D)
     draft["scenes"] = [{"visual_description": "x", "motif": flat}, {"visual_description": "y", "motif": "none"},
                        {"visual_description": "z", "motif": "request: a 3D cutaway of a cell"}]
     problems = [p for p in check_shape(draft, set()) if "3D holographic motif" in p]
