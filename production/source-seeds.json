@@ -220,6 +220,14 @@
   {
    "url": "https://www.who.int/news-room/questions-and-answers/item/radiation-ultraviolet-(uv)",
    "group": "WHO"
+  },
+  {
+   "url": "https://science.nasa.gov/earth/earth-observatory/the-water-cycle/",
+   "group": "NASA"
+  },
+  {
+   "url": "https://sealevel.nasa.gov/understanding-sea-level/global-sea-level/overview",
+   "group": "NASA"
   }
  ]
 }
