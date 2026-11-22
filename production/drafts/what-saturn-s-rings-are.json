@@ -1,0 +1,57 @@
+{
+  "title": "What Saturn's Rings Are Really Made Of",
+  "description": "What the rings of Saturn are made of and what spacecraft found in them, from NASA and ESA.",
+  "category": "space",
+  "source_urls": [
+    "https://science.nasa.gov/mission/cassini/science/rings/",
+    "https://www.esa.int/Science_Exploration/Space_Science/Cassini-Huygens/Saturn_s_rings"
+  ],
+  "narration": "What are Saturn's glittering rings actually made of? Saturn's rings are almost completely made of chunks of water ice. Some pieces are tiny specks, while others are as big as mountains. Much of the material in Saturn's faint E ring comes from water jets on the moon Enceladus. Gravity from small moonlets inside the rings produces features that look like propellers. Even now, much of the structure in the rings remains unexplained.",
+  "claims": [
+    {
+      "sentence": "Saturn's rings are almost completely made of chunks of water ice.",
+      "quote": "almost completely composed of billions (if not trillions) of chunks of water ice",
+      "source": 0
+    },
+    {
+      "sentence": "Some pieces are tiny specks, while others are as big as mountains.",
+      "quote": "The particles that make up Saturn’s rings range in size from smaller than a grain of sand to as large as mountains.",
+      "source": 0
+    },
+    {
+      "sentence": "Much of the material in Saturn's faint E ring comes from water jets on the moon Enceladus.",
+      "quote": "Cassini found that much of the material for Saturn's E-ring—a diffuse ring outside the bright, main rings—comes from the moon Enceladus, which is venting icy particles and gas into space as it orbits Saturn.",
+      "source": 0
+    },
+    {
+      "sentence": "Gravity from small moonlets inside the rings produces features that look like propellers.",
+      "quote": "Cassini also discovered features that look like propellers, which are sometimes several thousand miles (kilometers) long. The spacecraft’s instruments first observed the formations in 2006. The propellers are produced by the gravitational influence of moonlets",
+      "source": 0
+    },
+    {
+      "sentence": "Even now, much of the structure in the rings remains unexplained.",
+      "quote": "Some of this structure is related to gravitational perturbations by Saturn's many moons, but much of it remains unexplained.",
+      "source": 1
+    }
+  ],
+  "scenes": [
+    {
+      "narration_segment": "Saturn's rings are almost completely water ice, from tiny specks to mountain-sized chunks.",
+      "visual_description": "Ice chunks orbiting a ringed planet.",
+      "visual_style": "hybrid",
+      "motif": "saturn_rings_3d"
+    },
+    {
+      "narration_segment": "Water jets from Enceladus feed a faint ring, and moonlets make propeller shapes.",
+      "visual_description": "Moonlets shaping the ring particles.",
+      "visual_style": "hybrid",
+      "motif": "saturn_rings_3d"
+    },
+    {
+      "narration_segment": "Much of the ring structure is still unexplained.",
+      "visual_description": "The rings turning slowly around Saturn.",
+      "visual_style": "hybrid",
+      "motif": "saturn_rings_3d"
+    }
+  ]
+}
