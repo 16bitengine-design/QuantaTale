@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-22T07:51:27.755451+00:00",
+  "updated_at": "2026-11-22T08:39:41.020686+00:00",
   "production_specs": [
     {
       "spec_path": "examples/videos/why-the-sky-is-blue-production.json",
@@ -814,6 +814,31 @@
         {
           "publisher": "National Aeronautics and Space Administration",
           "url": "https://science.nasa.gov/earth/earth-observatory/the-water-cycle/",
+          "review_status": "passage_checked_supports_claim"
+        }
+      ]
+    },
+    {
+      "spec_path": "production/specs/your-eye-turns.json",
+      "content_id_prefix": "qt-your-eye-turns",
+      "title": "How Your Eye Turns Light into Pictures | QuantaTale",
+      "publish_time_local": null,
+      "publish_timezone": "Africa/Kampala",
+      "publishing_enabled": true,
+      "status": "eligible_ready",
+      "editorial_approved": true,
+      "editorial_approval_basis": "explicit_project_owner_approval",
+      "registered_at": "2026-11-22T08:38:42.984922+00:00",
+      "source_passage_verification_required_before_publication": false,
+      "sources": [
+        {
+          "publisher": "National Institutes of Health",
+          "url": "https://www.nei.nih.gov/eye-health-information/healthy-vision/how-eyes-work",
+          "review_status": "passage_checked_supports_claim"
+        },
+        {
+          "publisher": "National Aeronautics and Space Administration",
+          "url": "https://spaceplace.nasa.gov/atmosphere/en/",
           "review_status": "passage_checked_supports_claim"
         }
       ]
