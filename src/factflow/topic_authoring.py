@@ -122,6 +122,35 @@ def check_grounding(narration: str, claims: list[dict[str, Any]], sources: list[
     return problems
 
 
+_TITLE_STOP = frozenset("a an and are as at by do does for how in into is it its of on or our that the their this to what when where which who why with you your".split())
+
+
+def _title_tokens(title: str) -> set[str]:
+    return {w[:-1] if len(w) > 3 and w.endswith("s") else w for w in _norm(title).split() if w not in _TITLE_STOP}
+
+
+def check_duplicate_subject(title: str, existing_titles: set[str], threshold: float = 0.5) -> list[str]:
+    """Reject a topic whose title says nearly the same thing as an existing one (different wording, same subject)."""
+    mine = _title_tokens(title)
+    for other in existing_titles:
+        theirs = _title_tokens(other)
+        if mine and theirs and len(mine & theirs) / len(mine | theirs) >= threshold:
+            return [f"same subject as an existing topic: {other!r}"]
+    return []
+
+
+def check_source_coverage(claims: list[dict[str, Any]], sources: list[dict[str, Any]]) -> list[str]:
+    """The cited quotes must come from at least two independent publisher groups, not just one page plus a bystander."""
+    groups = set()
+    for claim in claims:
+        index = claim.get("source") if isinstance(claim, dict) else None
+        if isinstance(index, int) and 0 <= index < len(sources):
+            groups.add(sources[index].get("group"))
+    if len(groups) < 2:
+        return ["quotes come from fewer than two independent publisher groups, so nothing is corroborated"]
+    return []
+
+
 def check_originality(narration: str, sources: list[dict[str, Any]], run: int = COPY_RUN_WORDS) -> list[str]:
     """Reject a script that copies a long word run from any source."""
     words = _words(narration)
@@ -361,6 +390,8 @@ def author_topics(chain: ProviderChain, library: dict[str, Any], registry: dict[
             if not problems:
                 problems += check_grounding(str(draft.get("narration", "")), claims, sources)
                 problems += check_originality(str(draft.get("narration", "")), sources)
+                problems += check_source_coverage(claims, sources)
+                problems += check_duplicate_subject(str(draft.get("title", "")), existing)
             if not problems:
                 problems += check_entailment(chain, claims, sources)
         except AllProvidersFailed as exc:
@@ -417,6 +448,8 @@ def ingest_drafts(chain: ProviderChain, library: dict[str, Any], registry: dict[
             if not problems:
                 problems += check_grounding(str(draft.get("narration", "")), claims, sources)
                 problems += check_originality(str(draft.get("narration", "")), sources)
+                problems += check_source_coverage(claims, sources)
+                problems += check_duplicate_subject(str(draft.get("title", "")), existing)
             if not problems:
                 problems += check_entailment(chain, claims, sources)
         except AllProvidersFailed as exc:
