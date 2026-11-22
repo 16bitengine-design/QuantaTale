@@ -6,7 +6,7 @@
     "https://www.usgs.gov/water-science-school/science/water-cycle",
     "https://science.nasa.gov/earth/earth-observatory/the-water-cycle/"
   ],
-  "narration": "Where does the rain that falls today go next? The water cycle is the story of where Earth's water is stored and how it moves between those places. Sunlight and gravity keep that water moving all the time. Evaporation from oceans, seas, lakes and rivers supplies nearly 90% of the moisture in the air. Plants release most of the rest through tiny pores in their leaves, a process called transpiration. Rising air currents carry water vapor high into the atmosphere, where cool air makes condensation into cloud droplets more likely, and precipitation carries the water back to the surface. Over land, precipitation can evaporate back to the atmosphere, seep into the ground, or run off into rivers and streams, and almost all of the water eventually reaches the oceans. Oceans hold about 96% of all the water on Earth. At any moment the air holds only 12,900 cubic kilometers of water, a minute fraction of Earth's total, yet roughly 495,000 cubic kilometers cycle through it each year.",
+  "narration": "Where does the rain that falls today go next? The water cycle is the story of where Earth's water is stored and how it moves between those places. Sunlight and gravity keep that water moving all the time. Evaporation from oceans, seas, lakes and rivers supplies most of the moisture in the air. Plants release most of the rest through tiny pores in their leaves, a process called transpiration. Rising air currents carry water vapor high into the atmosphere, where cool air makes condensation into cloud droplets more likely, and precipitation carries the water back to the surface. Over land, precipitation can evaporate back to the atmosphere, seep into the ground, or run off into rivers and streams, and almost all of the water eventually reaches the oceans. Oceans hold almost all of Earth's water. At any moment the air holds only a minute fraction of Earth's water, yet far more water cycles through it every year.",
   "claims": [
     {
       "sentence": "The water cycle is the story of where Earth's water is stored and how it moves between those places.",
@@ -19,7 +19,7 @@
       "source": 0
     },
     {
-      "sentence": "Evaporation from oceans, seas, lakes and rivers supplies nearly 90% of the moisture in the air.",
+      "sentence": "Evaporation from oceans, seas, lakes and rivers supplies most of the moisture in the air.",
       "quote": "Studies have revealed that evaporation—the process by which water changes from a liquid to a gas—from oceans, seas, and other bodies of water (lakes, rivers, streams) provides nearly 90% of the moisture in our atmosphere.",
       "source": 1
     },
@@ -39,12 +39,12 @@
       "source": 1
     },
     {
-      "sentence": "Oceans hold about 96% of all the water on Earth.",
+      "sentence": "Oceans hold almost all of Earth's water.",
       "quote": "Oceans store 96% of all water on Earth.",
       "source": 0
     },
     {
-      "sentence": "At any moment the air holds only 12,900 cubic kilometers of water, a minute fraction of Earth's total, yet roughly 495,000 cubic kilometers cycle through it each year.",
+      "sentence": "At any moment the air holds only a minute fraction of Earth's water, yet far more water cycles through it every year.",
       "quote": "The amount of water in the atmosphere at any moment in time is only 12,900 cubic kilometers, a minute fraction of Earth’s total water supply: if it were to completely rain out, atmospheric moisture would cover the Earth’s surface to a depth of only 2.5 centimeters. However, far more water—in fact, some 495,000 cubic kilometers of it—are cycled through the atmosphere every year.",
       "source": 1
     }
@@ -57,7 +57,7 @@
       "motif": "water_cycle_3d"
     },
     {
-      "narration_segment": "Evaporation supplies nearly 90% of atmospheric moisture, plants most of the rest.",
+      "narration_segment": "Evaporation supplies most atmospheric moisture, plants most of the rest.",
       "visual_description": "Two columns of moisture sources.",
       "visual_style": "hybrid",
       "motif": "moisture_sources"
@@ -69,7 +69,7 @@
       "motif": "water_cycle_3d"
     },
     {
-      "narration_segment": "Oceans hold about 96% of Earth's water, and the air holds a tiny fraction.",
+      "narration_segment": "Oceans hold almost all of Earth's water, and the air holds a tiny fraction.",
       "visual_description": "Columns of where water is stored.",
       "visual_style": "hybrid",
       "motif": "water_stores"
