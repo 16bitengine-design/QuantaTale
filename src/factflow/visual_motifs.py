@@ -1076,8 +1076,9 @@ from .visual_motifs_3d_b import MOTIFS_3D_B  # noqa: E402
 from .visual_motifs_3d_c import MOTIFS_3D_C  # noqa: E402
 from .visual_motifs_3d_d import MOTIFS_3D_D  # noqa: E402
 from .visual_motifs_3d_e import MOTIFS_3D_E  # noqa: E402
+from .visual_motifs_3d_f import MOTIFS_3D_F  # noqa: E402
 
-MOTIFS_3D = {**MOTIFS_3D, **MOTIFS_3D_B, **MOTIFS_3D_C, **MOTIFS_3D_D, **MOTIFS_3D_E}
+MOTIFS_3D = {**MOTIFS_3D, **MOTIFS_3D_B, **MOTIFS_3D_C, **MOTIFS_3D_D, **MOTIFS_3D_E, **MOTIFS_3D_F}
 MOTIFS.update(MOTIFS_3D)
 
 # Motifs that show the idea as a holographic 3D figure. New topics may use only these.
