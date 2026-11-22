@@ -78,3 +78,18 @@ sentences. A technical term is allowed only when it is explained in plain words 
 
 `check_shape` rejects sentences over 26 words and words of 14 or more letters (`hard_to_follow`), and the writer prompt asks for
 plain language. `python -m factflow.cli language-report` lists existing sentences that fail.
+
+## Entertainment first, never rushed
+
+QuantaTale is an entertainment channel, not a classroom. A video should feel like a curious friend telling a good story.
+
+- **One idea, given room.** Narration is 50-110 words, at most about six short sentences, each under 18 words.
+- **Open with a friendly question** that makes people curious. Drafts that do not are rejected.
+- **Everyday words.** Textbook terms such as "synchronous", "nuclei" or "kinetic" are rejected; say "locked in step", "tiny cores", "a crash" instead. Words of 12+ letters are flagged too.
+- **The narrator takes it slowly.** Kokoro speaks at 0.9 speed, pauses a breath after every sentence and a little longer after the opening question. Captions follow the real spoken timing of each sentence, so they stay in step with the voice.
+
+`quantatale language-report` lists every topic that still needs a friendlier rewrite.
+
+## Rewriting a topic that is not scheduled yet
+
+Add `"replaces": "<spec file name without .json>"` to a draft in `production/drafts/`. It must pass every gate again (fresh page fetch, a verbatim quote per sentence, originality, independent model check) and then overwrites that spec in place, keeping its id. Topics listed in `production/publishing-ledger.json` are already scheduled or published and are never replaced.

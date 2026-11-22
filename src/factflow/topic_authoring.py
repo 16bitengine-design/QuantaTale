@@ -28,7 +28,7 @@ from factflow.llm_providers import AllProvidersFailed, ProviderChain
 from factflow.topic_library import register_production_spec
 from factflow.visual_motifs import HOLOGRAPHIC_3D, MOTIFS
 
-MIN_WORDS, MAX_WORDS = 60, 170
+MIN_WORDS, MAX_WORDS = 50, 110  # fewer ideas, more time on each: the audience is entertained, not lectured
 MIN_TITLE, MAX_TITLE = 20, 70
 COPY_RUN_WORDS = 8
 MAX_UNCITED_QUESTIONS = 1
@@ -181,8 +181,15 @@ def lone_number_sentences(narration: str) -> list[str]:
     return found
 
 
-MAX_SENTENCE_WORDS = 26
-MAX_WORD_LETTERS = 14
+MAX_SENTENCE_WORDS = 18
+MAX_WORD_LETTERS = 12
+# Textbook words that lose a general audience. Say it the everyday way instead ("leans" for "tilts", "pushing" for "force").
+JARGON = {
+    "synchronous", "tidally", "nucleus", "nuclei", "proton", "protons", "neutron", "neutrons", "kinetic", "hemisphere",
+    "hemispheres", "perturbation", "perturbations", "thermal", "electromagnetic", "stratosphere", "troposphere",
+    "isotope", "isotopes", "trajectory", "momentum", "ionosphere", "photosynthesis", "precipitation", "evaporates",
+    "condensation", "sedimentary", "convection", "dissipated", "sidereal", "antibodies", "antigen", "pathogen",
+}
 
 
 def hard_to_follow(narration: str) -> list[str]:
@@ -195,6 +202,10 @@ def hard_to_follow(narration: str) -> list[str]:
             found.append(f"{len(words)} words (max {MAX_SENTENCE_WORDS}): {sentence[:60]}")
         elif long_word:
             found.append(f"long word {long_word!r}: {sentence[:60]}")
+        else:
+            term = next((w for w in re.findall(r"[a-z]+", sentence.lower()) if w in JARGON), "")
+            if term:
+                found.append(f"textbook word {term!r}: {sentence[:60]}")
     return found
 
 
@@ -212,6 +223,8 @@ def check_shape(draft: dict[str, Any], existing_titles: set[str]) -> list[str]:
         problems.append("description is empty")
     for sentence in lone_number_sentences(str(draft.get("narration", ""))):
         problems.append(f"states a number without comparing situations (say it in words): {sentence[:70]!r}")
+    if not (split_sentences(str(draft.get("narration", ""))) or [""])[0].endswith("?"):
+        problems.append("open with a friendly question that makes people curious")
     for note in hard_to_follow(str(draft.get("narration", ""))):
         problems.append(f"hard for a general audience, simplify: {note}")
     scenes = draft.get("scenes")
@@ -251,12 +264,12 @@ PROPOSE_SYSTEM = ("You propose evergreen educational science questions for 40-se
 
 WRITE_SYSTEM = ("You write a short educational video script in your OWN WORDS using ONLY the supplied source passages. "
                 "Never copy phrases; never add facts that are not in the passages. Reply with JSON only: "
-                '{"title":"clickable curiosity title, 25-65 characters","narration":"70-150 words, plain sentences",'
+                '{"title":"clickable curiosity title, 25-65 characters","narration":"60-100 words, plain sentences, starting with a curious question",'
                 '"description":"1-2 sentence hook for the post","category":"...",'
                 '"claims":[{"sentence":"exact narration sentence","quote":"verbatim 6+ word excerpt from a passage","source":0}],'
                 '"scenes":[{"narration_segment":"...","visual_description":"...","visual_style":"hybrid","motif":"<name or none>"}]}. '
                 "Every narration sentence must have a claim whose quote is copied exactly from the passage with that source index. "
-                "Write for the general public, not scientists: a warm, friendly, curious tone that welcomes everyone, everyday words, short sentences (under 22 words), no jargon unless you explain it in plain words straight away, and no talking down to the reader. "
+                "This is an ENTERTAINMENT channel, not a classroom. Write for the general public, never for scientists: sound like a warm, curious friend telling a fascinating story, with a little wonder and humour. Open with a question that makes people curious. Teach ONE main idea and give it room: at most six short sentences, each under 16 words, one thought per sentence, so the narrator never rushes. Use everyday words (say \"leans\", not \"tilts its axis\"; \"pushes\", not \"exerts force\"). Avoid textbook terms; if one is unavoidable, explain it in plain words right away. Never lecture or talk down. "
                 "Do not state numbers (measurements, counts, percentages, fractions) unless the sentence compares two or more situations, such as the speed of light versus the speed of sound; otherwise describe the idea in words. Years of events are fine. visual_style is one of hybrid, 3d, procedural_2d_holographic. 3-4 scenes. motif must be one of these 3D holographic animations: " + ", ".join(sorted(HOLOGRAPHIC_3D)) + ". Choose the one that literally shows what that part of the narration says. If none does, write \"request: <the 3D animation that is needed>\" instead of picking a poor match.")
 
 
@@ -418,12 +431,17 @@ def author_topics(chain: ProviderChain, library: dict[str, Any], registry: dict[
 # ---------------------------------------------------------------- drafts written outside the automated chain
 
 def ingest_drafts(chain: ProviderChain, library: dict[str, Any], registry: dict[str, Any], specs_dir: Path,
-                  drafts_dir: Path, *, fetcher: Fetcher = default_fetcher, today: str | None = None) -> dict[str, Any]:
+                  drafts_dir: Path, *, fetcher: Fetcher = default_fetcher, today: str | None = None,
+                  locked_specs: set[str] | None = None) -> dict[str, Any]:
     """Run drafts written by an assistant session through exactly the same gates as model-authored topics.
 
     A draft is JSON with the fields of a model draft plus ``source_urls``. Pages are fetched fresh, every
     sentence must be tied to a verbatim quote, and the independent model entailment pass must succeed. Accepted drafts
     become specs and are removed; rejected ones move to ``rejected/`` with their reasons so they are never retried silently.
+
+    A draft may carry ``"replaces": "<spec file name without .json>"`` to rewrite a topic that has not been scheduled yet
+    (for a friendlier tone, say). It passes every gate again and then overwrites that spec in place; specs listed in
+    ``locked_specs`` (already scheduled or published) can never be replaced.
     """
     today = today or datetime.now(timezone.utc).date().isoformat()
     report: dict[str, Any] = {"accepted": [], "rejected": [], "deferred": []}
@@ -439,17 +457,24 @@ def ingest_drafts(chain: ProviderChain, library: dict[str, Any], registry: dict[
                 sources.append(page)
                 groups.add(page["group"])
         problems: list[str] = []
+        replaces = str(draft.get("replaces", "")).strip()
+        old = next((i for i in library["production_specs"] if Path(str(i.get("spec_path", ""))).stem == replaces), None) if replaces else None
+        others = existing - {_norm(str(old.get("title", "")).replace("| QuantaTale", ""))} if old else existing
+        if replaces and old is None:
+            problems.append(f"replaces unknown topic {replaces!r}")
+        elif old is not None and str(old.get("spec_path")) in (locked_specs or set()):
+            problems.append(f"{replaces!r} is already scheduled or published and cannot be replaced")
         if len(groups) < 2:
             problems.append("fewer than two independent publisher pages loaded: " + " | ".join(why))
         try:
             claims = draft.get("claims") if isinstance(draft.get("claims"), list) else []
             if not problems:
-                problems += check_shape(draft, existing)
+                problems += check_shape(draft, others)
             if not problems:
                 problems += check_grounding(str(draft.get("narration", "")), claims, sources)
                 problems += check_originality(str(draft.get("narration", "")), sources)
                 problems += check_source_coverage(claims, sources)
-                problems += check_duplicate_subject(str(draft.get("title", "")), existing)
+                problems += check_duplicate_subject(str(draft.get("title", "")), others)
             if not problems:
                 problems += check_entailment(chain, claims, sources)
         except AllProvidersFailed as exc:
@@ -469,9 +494,15 @@ def ingest_drafts(chain: ProviderChain, library: dict[str, Any], registry: dict[
             continue
         spec = build_spec(draft, sources, today)
         spec["authored_by"] = "assistant_session_draft_then_automated_gates"
-        if spec["content_id_prefix"] in prefixes:
-            spec["content_id_prefix"] += "-2"
-        spec_path = specs_dir / f"{spec['content_id_prefix'][3:]}.json"
+        if old is not None:
+            spec["content_id_prefix"] = str(old["content_id_prefix"])
+            spec["replaced_at"] = today
+            existing.discard(_norm(str(old.get("title", "")).replace("| QuantaTale", "")))
+            spec_path = Path(str(old["spec_path"]))
+        else:
+            if spec["content_id_prefix"] in prefixes:
+                spec["content_id_prefix"] += "-2"
+            spec_path = specs_dir / f"{spec['content_id_prefix'][3:]}.json"
         spec_path.write_text(json.dumps(spec, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         register_production_spec(library, str(spec_path.as_posix()), spec)
         existing.add(_norm(spec["title"]))

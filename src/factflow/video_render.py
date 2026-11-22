@@ -9,6 +9,7 @@ sample is a demonstration asset and is not cleared for public release.
 from __future__ import annotations
 
 import json
+import re
 import math
 import random
 import shutil
@@ -55,8 +56,25 @@ def _scene_state(seconds: float, duration: float) -> tuple[int, float]:
     local = progress * 4 - index
     eased = local * local * (3 - 2 * local)
     return index, eased
-def _generate_kokoro_audio(text: str, output_path: Path, voice: str = "af_heart") -> None:
-    """Generate natural narration with the open-weight Kokoro model."""
+# Pacing: this is an entertainment channel, so the narrator talks a little slower than Kokoro's default and leaves
+# a breath between sentences (a longer one after the opening question) so every idea has room to land.
+NARRATION_SPEED = 0.9
+PAUSE_AFTER_SENTENCE = 0.6
+PAUSE_AFTER_QUESTION = 1.0
+PAUSE_AT_END = 0.8
+SAMPLE_RATE = 24000
+
+
+def _narration_sentences(text: str) -> list[str]:
+    return [part.strip() for part in re.split(r"(?<=[.!?])\s+", text.strip()) if part.strip()]
+
+
+def _generate_kokoro_audio(text: str, output_path: Path, voice: str = "af_heart",
+                           speed: float = NARRATION_SPEED) -> list[tuple[float, float]]:
+    """Generate natural narration with the open-weight Kokoro model, one sentence at a time.
+
+    Returns the (start, end) seconds each sentence is spoken, so captions follow the real timing.
+    """
     try:
         import numpy as np
         import soundfile as sf
@@ -69,15 +87,23 @@ def _generate_kokoro_audio(text: str, output_path: Path, voice: str = "af_heart"
 
     language_code = "b" if voice.startswith(("bf_", "bm_")) else "a"
     pipeline = KPipeline(lang_code=language_code)
-    audio_chunks = [
-        np.asarray(audio, dtype=np.float32)
-        for _, _, audio in pipeline(text, voice=voice, speed=1.0)
-        if audio is not None and len(audio)
-    ]
-    if not audio_chunks:
-        raise RuntimeError("Kokoro did not return any narration audio.")
-    combined = np.concatenate(audio_chunks)
-    sf.write(str(output_path), combined, 24000, subtype="PCM_16")
+    sentences = _narration_sentences(text)
+    pieces: list[Any] = []
+    spans: list[tuple[float, float]] = []
+    cursor = 0.0
+    for index, sentence in enumerate(sentences):
+        chunks = [np.asarray(audio, dtype=np.float32) for _, _, audio in pipeline(sentence, voice=voice, speed=speed)
+                  if audio is not None and len(audio)]
+        if not chunks:
+            raise RuntimeError(f"Kokoro did not return any narration audio for: {sentence[:60]!r}")
+        spoken = np.concatenate(chunks)
+        last = index == len(sentences) - 1
+        pause = PAUSE_AT_END if last else (PAUSE_AFTER_QUESTION if sentence.endswith("?") else PAUSE_AFTER_SENTENCE)
+        pieces += [spoken, np.zeros(int(pause * SAMPLE_RATE), dtype=np.float32)]
+        spans.append((cursor, cursor + len(spoken) / SAMPLE_RATE))
+        cursor += (len(spoken) / SAMPLE_RATE) + pause
+    sf.write(str(output_path), np.concatenate(pieces), SAMPLE_RATE, subtype="PCM_16")
+    return spans
 
 
 def _timestamp(seconds: float) -> str:
@@ -104,7 +130,23 @@ def _split_caption(text: str, max_words: int = 9, max_chars: int = 58) -> list[s
     return chunks or [text]
 
 
-def _caption_segments(narration: str, duration: float) -> list[tuple[float, float, str]]:
+def _caption_segments(narration: str, duration: float,
+                      spans: list[tuple[float, float]] | None = None) -> list[tuple[float, float, str]]:
+    """Caption pieces with start/end times. With real per-sentence ``spans`` each caption follows the spoken sentence."""
+    spoken = _narration_sentences(narration)
+    if spans and len(spans) == len(spoken):
+        segments: list[tuple[float, float, str]] = []
+        for number, (sentence, (start, end)) in enumerate(zip(spoken, spans)):
+            chunks = _split_caption(sentence)
+            counts = [max(1, len(c.split())) for c in chunks]
+            cursor = start
+            for chunk, count in zip(chunks, counts):
+                stop = cursor + (end - start) * count / sum(counts)
+                segments.append((cursor, stop, chunk))
+                cursor = stop
+            nxt = spans[number + 1][0] if number + 1 < len(spans) else duration
+            segments[-1] = (segments[-1][0], nxt, segments[-1][2])  # keep the caption up through the pause
+        return segments
     sentences = [part.strip() for part in narration.replace("—", ",").split(".") if part.strip()]
     if not sentences:
         sentences = [narration.strip()]
@@ -259,13 +301,13 @@ def render_sample_video(spec_path: str | Path, output_dir: str | Path) -> dict[s
     metadata_path = output_dir / "sample-metadata.json"
 
     voice = validate_production_voice(spec)
-    _generate_kokoro_audio(spec["narration"], audio_path, voice=voice)
+    spans = _generate_kokoro_audio(spec["narration"], audio_path, voice=voice)
     import soundfile as sf
     duration = float(sf.info(str(audio_path)).duration)
     if not 8 <= duration <= 90:
         raise RuntimeError(f"Sample narration duration {duration:.1f}s is outside the safe 8-90s range.")
 
-    segments = _caption_segments(spec["narration"], duration)
+    segments = _caption_segments(spec["narration"], duration, spans)
     with srt_path.open("w", encoding="utf-8") as handle:
         for index, (start, end, text) in enumerate(segments, 1):
             handle.write(f"{index}\n{_timestamp(start)} --> {_timestamp(end)}\n{text}\n\n")

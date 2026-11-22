@@ -110,6 +110,8 @@ def build_parser() -> argparse.ArgumentParser:
     ingest_parser.add_argument("--library", default="production/topic-library.json")
     ingest_parser.add_argument("--specs-dir", default="production/specs")
     ingest_parser.add_argument("--registry", default=None)
+    ingest_parser.add_argument("--ledger", default="production/publishing-ledger.json",
+                               help="Publishing ledger; topics listed there are locked and cannot be rewritten.")
     ingest_parser.add_argument("--output", default="build/draft-ingest.json")
 
     probe_parser = subparsers.add_parser("source-text", help="Print the paragraphs the evidence gates would see for page URLs.")
@@ -209,14 +211,23 @@ def main() -> int:
 
     if args.command == "language-report":
         import json as _json
-        from factflow.topic_authoring import hard_to_follow
-        total = 0
+        from factflow.topic_authoring import MAX_WORDS, hard_to_follow, split_sentences
+        total, rewrite = 0, []
         for path in sorted(Path(args.specs_dir).glob("*.json")):
             spec = _json.loads(path.read_text(encoding="utf-8"))
-            for note in hard_to_follow(str(spec.get("narration", ""))):
+            narration = str(spec.get("narration", ""))
+            notes = hard_to_follow(narration)
+            if len(narration.split()) > MAX_WORDS:
+                notes.append(f"{len(narration.split())} words, too many ideas for a relaxed pace (max {MAX_WORDS})")
+            if not (split_sentences(narration) or [""])[0].endswith("?"):
+                notes.append("does not open with a friendly question")
+            for note in notes:
                 total += 1
                 print(f"  {path.stem}: {note}")
+            if notes:
+                rewrite.append(path.stem)
         print(f"Sentences hard for a general audience: {total}")
+        print(f"Topics to rewrite for a friendlier, slower pace: {len(rewrite)}")
         return 0
 
     if args.command == "source-text":
@@ -240,7 +251,10 @@ def main() -> int:
             library = load_library(args.library)
             registry = load_source_registry(args.registry) if args.registry else load_source_registry()
             chain = ProviderChain()
-            report = ingest_drafts(chain, library, registry, Path(args.specs_dir), Path(args.drafts_dir))
+            ledger_path = Path(args.ledger)
+            ledger = json.loads(ledger_path.read_text(encoding="utf-8")) if ledger_path.exists() else {}
+            locked = {str(v.get("spec")) for v in ledger.values() if isinstance(v, dict) and v.get("spec")}
+            report = ingest_drafts(chain, library, registry, Path(args.specs_dir), Path(args.drafts_dir), locked_specs=locked)
             report["provider_failures"] = chain.failures[:40]
             if report["accepted"]:
                 save_library(library, args.library)

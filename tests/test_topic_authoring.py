@@ -21,14 +21,14 @@ def fetcher(url, publisher):
 
 NARRATION = ("Why do clouds exist at all? Rising air cools and its invisible vapour starts turning into liquid. "
              "That change needs microscopic specks such as dust or salt to gather on. "
-             "When the air is fully saturated at 100 percent humidity, but not before, droplets build up around the specks. "
+             "Droplets form around the specks once humidity reaches 100 percent, but not before. "
              "A cloud is really a crowd of tiny drops or ice crystals floating in the atmosphere.")
 CLAIMS = [
     {"sentence": "Rising air cools and its invisible vapour starts turning into liquid.",
      "quote": "water vapor in rising air cools and condenses onto tiny particles", "source": 0},
     {"sentence": "That change needs microscopic specks such as dust or salt to gather on.",
      "quote": "include dust and sea salt grains", "source": 0},
-    {"sentence": "When the air is fully saturated at 100 percent humidity, but not before, droplets build up around the specks.",
+    {"sentence": "Droplets form around the specks once humidity reaches 100 percent, but not before.",
      "quote": "saturated with 100 percent relative humidity", "source": 1},
     {"sentence": "A cloud is really a crowd of tiny drops or ice crystals floating in the atmosphere.",
      "quote": "collection of water droplets or ice crystals that float in the atmosphere", "source": 1},
@@ -190,7 +190,7 @@ def test_lone_number_sentences_flag_numbers_not_used_to_compare():
 
 
 def test_shape_rejects_a_lone_number_sentence():
-    draft = {**DRAFT, "narration": NARRATION.replace(", but not before,", "")}
+    draft = {**DRAFT, "narration": NARRATION.replace(", but not before", "")}
     assert any("without comparing situations" in p for p in check_shape(draft, set()))
     assert not any("without comparing situations" in p for p in check_shape(DRAFT, set()))
 
