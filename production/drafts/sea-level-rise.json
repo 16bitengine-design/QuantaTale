@@ -1,0 +1,62 @@
+{
+  "title": "What Is Making Global Sea Level Rise",
+  "description": "The two causes of rising seas and how fast the rise is accelerating, from NASA and NOAA.",
+  "category": "earth-science",
+  "source_urls": [
+    "https://sealevel.nasa.gov/understanding-sea-level/global-sea-level/overview",
+    "https://oceanservice.noaa.gov/facts/sealevel.html"
+  ],
+  "narration": "Why is the ocean creeping higher along the world's coasts? Two things drive it: ocean water expands as it warms, and glaciers and ice sheets on land melt into the sea. Melting sea ice does not raise sea level, because it already floats in the ocean. The ocean absorbs around 90% of the added heat, and ocean warming accounts for about one third of the rise. The other two thirds comes from melting land ice, such as glaciers and the Greenland and Antarctic ice sheets. Since 1920, global mean sea level has risen 15 to 20 centimeters. The first 10 centimeters took 90 years, from 1902 to 1992, but the next 10 took just 30 years, from 1993 to 2023.",
+  "claims": [
+    {
+      "sentence": "Two things drive it: ocean water expands as it warms, and glaciers and ice sheets on land melt into the sea.",
+      "quote": "The two major causes of global sea level rise are thermal expansion caused by warming of the ocean (since water expands as it warms) and increased melting of land-based ice, such as glaciers and ice sheets.",
+      "source": 1
+    },
+    {
+      "sentence": "Melting sea ice does not raise sea level, because it already floats in the ocean.",
+      "quote": "Melting sea ice doesn't raise sea levels because it's already floating in the ocean, like ice in a glass of water.",
+      "source": 0
+    },
+    {
+      "sentence": "The ocean absorbs around 90% of the added heat, and ocean warming accounts for about one third of the rise.",
+      "quote": "Around 90% of this added heat is being absorbed by the ocean, warming it up. When water warms, it expands and takes up more space. This causes the water to rise along the coastline. Currently, about one third (around 33%) of global sea level rise is because of ocean warming.",
+      "source": 0
+    },
+    {
+      "sentence": "The other two thirds comes from melting land ice, such as glaciers and the Greenland and Antarctic ice sheets.",
+      "quote": "The other two thirds (around 66%) of global sea level rise is because of melting land ice. As Earth heats up, it melts the land ice, including the Greenland and Antarctic Ice Sheets and other mountain glaciers.",
+      "source": 0
+    },
+    {
+      "sentence": "Since 1920, global mean sea level has risen 15 to 20 centimeters.",
+      "quote": "Global mean sea level, or the average height of the ocean surface, has risen 6 - 8 inches (15 - 20 centimeters) since 1920.",
+      "source": 0
+    },
+    {
+      "sentence": "The first 10 centimeters took 90 years, from 1902 to 1992, but the next 10 took just 30 years, from 1993 to 2023.",
+      "quote": "It took 90 years (1902 – 1992) for the global sea level to rise around 10 cm. In just the last 30 years (1993 - 2023), that same amount of rise, around 10 cm, happened again.",
+      "source": 0
+    }
+  ],
+  "scenes": [
+    {
+      "narration_segment": "Warm ocean water expands and land ice melts into the sea, while floating sea ice adds nothing.",
+      "visual_description": "A tank where water warms and land ice melts.",
+      "visual_style": "hybrid",
+      "motif": "ocean_expansion_3d"
+    },
+    {
+      "narration_segment": "Ocean warming gives about one third of the rise and melting land ice about two thirds.",
+      "visual_description": "Two columns of causes.",
+      "visual_style": "hybrid",
+      "motif": "sea_level_causes"
+    },
+    {
+      "narration_segment": "The same 10 centimeters of rise took 90 years, then only 30.",
+      "visual_description": "Two columns comparing years.",
+      "visual_style": "hybrid",
+      "motif": "sea_level_pace"
+    }
+  ]
+}
