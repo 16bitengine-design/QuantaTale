@@ -76,7 +76,7 @@ rejected, and the writer prompt states the rule. The heuristic cannot judge inte
 Videos are for the general public, not only scientists. The tone is warm, friendly and curious, with everyday words and short
 sentences. A technical term is allowed only when it is explained in plain words straight away.
 
-`check_shape` rejects sentences over 26 words and words of 14 or more letters (`hard_to_follow`), and the writer prompt asks for
+`check_shape` rejects sentences over 18 words, words of 12 or more letters and textbook terms (`hard_to_follow`), and the writer prompt asks for
 plain language. `python -m factflow.cli language-report` lists existing sentences that fail.
 
 ## Entertainment first, never rushed
