@@ -44,6 +44,7 @@ def test_draft_stays_when_no_checker_is_reachable(tmp_path, monkeypatch):
     from factflow import topic_authoring as ta
     monkeypatch.setattr(ta, "check_grounding", lambda *a: [])
     monkeypatch.setattr(ta, "check_originality", lambda *a: [])
+    monkeypatch.setattr(ta, "check_source_coverage", lambda *a: [])
     report = ingest_drafts(FakeChain(fail=True), {"production_specs": []}, {}, tmp_path / "specs", drafts)
     assert len(report["deferred"]) == 1 and (drafts / "one.json").exists()
 

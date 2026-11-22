@@ -2,7 +2,7 @@ import json
 
 from factflow.llm_providers import ProviderChain
 from factflow.research import load_source_registry
-from factflow.topic_authoring import (author_topics, check_grounding, check_originality, check_shape, hard_to_follow, lone_number_sentences,
+from factflow.topic_authoring import (author_topics, check_grounding, check_originality, check_shape, check_duplicate_subject, check_source_coverage, hard_to_follow, lone_number_sentences,
                                       slugify)
 
 P1 = ["Clouds form when water vapor in rising air cools and condenses onto tiny particles in the sky.",
@@ -205,3 +205,17 @@ def test_shape_asks_for_plainer_language():
     draft = {**DRAFT, "narration": NARRATION + " The electromagnetic spectrum is wide."}
     assert any("general audience" in p for p in check_shape(draft, set()))
     assert not any("general audience" in p for p in check_shape(DRAFT, set()))
+
+
+def test_duplicate_subject_is_rejected_even_when_worded_differently():
+    existing = {"how your eyes turn light into sight"}
+    assert check_duplicate_subject("How Your Eye Turns Light into Pictures", existing)
+    assert not check_duplicate_subject("How Vaccines Train Your Immune System", existing)
+
+
+def test_quotes_must_come_from_two_independent_groups():
+    sources = [{"group": "NIH", "paragraphs": []}, {"group": "NASA", "paragraphs": []}]
+    one_group = [{"source": 0, "quote": "a"}, {"source": 0, "quote": "b"}]
+    two_groups = [{"source": 0, "quote": "a"}, {"source": 1, "quote": "b"}]
+    assert check_source_coverage(one_group, sources)
+    assert check_source_coverage(two_groups, sources) == []
