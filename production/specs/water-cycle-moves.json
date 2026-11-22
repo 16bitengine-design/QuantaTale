@@ -1,0 +1,64 @@
+{
+  "title": "How the Water Cycle Moves Water Around Earth",
+  "category": "earth-science",
+  "voice": "af_heart",
+  "production_label": "QUANTATALE ORIGINAL",
+  "post_title": "How the Water Cycle Moves Water Around Earth | QuantaTale",
+  "post_description": "How water evaporates, condenses, falls and flows back to the ocean, from USGS and NASA. Sources: United States Geological Survey https://www.usgs.gov/water-science-school/water-cycle and National Aeronautics and Space Administration https://science.nasa.gov/earth/earth-observatory/the-water-cycle/ #Science #ScienceFacts #QuantaTale",
+  "content_id_prefix": "qt-water-cycle-moves",
+  "publish_timezone": "Africa/Kampala",
+  "editorial_approved": true,
+  "editorial_status": "automated_gate_passed",
+  "editorial_review_required": false,
+  "narration": "Where does the rain that falls today go next? The water cycle is the story of where Earth's water is stored and how it moves between those places. Sunlight and gravity keep that water moving all the time. Evaporation from oceans, seas, lakes and rivers supplies most of the moisture in the air. Plants release most of the rest through tiny pores in their leaves, a process called transpiration. Rising air currents carry water vapor high into the atmosphere, where cool air makes condensation into cloud droplets more likely, and precipitation carries the water back to the surface. Over land, precipitation can evaporate back to the atmosphere, seep into the ground, or run off into rivers and streams, and almost all of the water eventually reaches the oceans. Oceans hold almost all of Earth's water. At any moment the air holds only a minute fraction of Earth's water, yet far more water cycles through it every year.",
+  "sources": [
+    {
+      "publisher": "United States Geological Survey",
+      "title": "Water cycle | U.S. Geological Survey",
+      "url": "https://www.usgs.gov/water-science-school/water-cycle",
+      "supports": "The water cycle describes where water is on Earth and how it moves. Water is stored in the atmosphere, on the land surface, and below the ground. | Energy from the sun and the force of gravity drive the continual movement of water between pools. | Oceans store 96% of all water on Earth.",
+      "review_status": "passage_checked_supports_claim",
+      "review_method": "automated_quote_grounding_and_model_entailment",
+      "reviewed_at": "2026-11-22"
+    },
+    {
+      "publisher": "National Aeronautics and Space Administration",
+      "title": "The Water Cycle - NASA Science",
+      "url": "https://science.nasa.gov/earth/earth-observatory/the-water-cycle/",
+      "supports": "Studies have revealed that evaporation—the process by which water changes from a liquid to a gas—from oceans, seas, and other bodies of water (lakes, rivers, streams) provides nearly 90% of the moisture in our atmosphere. | Most of the remaining 10% found in the atmosphere is released by plants through transpiration. Plants take in water through their roots, then release it through small pores on the underside of their leaves. | rising air currents carry it upward, often high into the atmosphere, where the air is cooler. In the cool air, water vapor is more likely to condense from a gas to a l",
+      "review_status": "passage_checked_supports_claim",
+      "review_method": "automated_quote_grounding_and_model_entailment",
+      "reviewed_at": "2026-11-22"
+    }
+  ],
+  "scenes": [
+    {
+      "narration_segment": "Water moves between the atmosphere, land and ocean, driven by sunlight and gravity.",
+      "visual_description": "Evaporation, clouds, rain and runoff.",
+      "visual_style": "hybrid",
+      "motif": "water_cycle_3d"
+    },
+    {
+      "narration_segment": "Evaporation supplies most atmospheric moisture, plants most of the rest.",
+      "visual_description": "Two columns of moisture sources.",
+      "visual_style": "hybrid",
+      "motif": "moisture_sources"
+    },
+    {
+      "narration_segment": "Vapour condenses into clouds, falls as rain or snow and runs back to the ocean.",
+      "visual_description": "Clouds, rain and runoff.",
+      "visual_style": "hybrid",
+      "motif": "water_cycle_3d"
+    },
+    {
+      "narration_segment": "Oceans hold almost all of Earth's water, and the air holds a tiny fraction.",
+      "visual_description": "Columns of where water is stored.",
+      "visual_style": "hybrid",
+      "motif": "water_stores"
+    }
+  ],
+  "visual_profile": "holographic_science_v1",
+  "source_passage_verification_required_before_publication": false,
+  "source_assessment": "Automated gates passed on 2026-11-22: each sentence tied to a verbatim source quote, numbers matched, no copied word runs, model entailment check passed, independent publishers. Not complete fact verification.",
+  "authored_by": "assistant_session_draft_then_automated_gates"
+}
