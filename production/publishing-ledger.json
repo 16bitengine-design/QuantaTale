@@ -537,7 +537,7 @@
     "scheduled_at": "2026-11-23T10:42:26.295869+00:00"
   },
   "qt-moon-phases-20261123-2230": {
-    "status": "reserved",
+    "status": "scheduled",
     "spec": "production/specs/moon-phases.json",
     "due_at": "2026-11-23T22:30:46+03:00",
     "reserved_at": "2026-11-23T19:10:46+00:00",
@@ -562,6 +562,7 @@
           "status": "awaiting_confirmation"
         }
       }
-    }
+    },
+    "scheduled_at": "2026-11-23T19:12:54.560415+00:00"
   }
 }
