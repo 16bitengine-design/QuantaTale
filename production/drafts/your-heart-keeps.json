@@ -1,0 +1,64 @@
+{
+ "title": "How Does Your Heart Keep You Going?",
+ "description": "Your fist-sized heart never takes a break. Here is how it keeps blood moving.",
+ "category": "health",
+ "replaces": "your-heart-keeps",
+ "source_urls": [
+  "https://www.nhlbi.nih.gov/health/heart",
+  "https://www.cdc.gov/heart-disease/about/index.html"
+ ],
+ "narration": "What keeps your blood moving every second of your life? It's your heart, an organ about the size of your fist. It sits in the middle of a web of tubes that reach all over you. Blood delivers the oxygen and nutrients your organs need. Little doors called valves keep the blood flowing the right way. Smoking, high blood pressure and high cholesterol can make heart trouble more likely.",
+ "claims": [
+  {
+   "sentence": "It's your heart, an organ about the size of your fist.",
+   "quote": "The heart is an organ about the size of your fist that pumps blood through your body.",
+   "source": 0
+  },
+  {
+   "sentence": "It sits in the middle of a web of tubes that reach all over you.",
+   "quote": "Your heart is at the center of your circulatory system.",
+   "source": 0
+  },
+  {
+   "sentence": "Blood delivers the oxygen and nutrients your organs need.",
+   "quote": "Your blood carries the oxygen and nutrients that your organs need to work properly.",
+   "source": 0
+  },
+  {
+   "sentence": "Little doors called valves keep the blood flowing the right way.",
+   "quote": "Inside your heart, valves keep blood flowing in the right direction.",
+   "source": 0
+  },
+  {
+   "sentence": "Smoking, high blood pressure and high cholesterol can make heart trouble more likely.",
+   "quote": "High blood pressure , high blood cholesterol , and smoking are key risk factors for heart disease.",
+   "source": 1
+  }
+ ],
+ "scenes": [
+  {
+   "narration_segment": "What keeps your blood moving every second of your life? It's your heart, an organ about the size of your fist.",
+   "visual_description": "A glowing fist-sized heart pumps in the middle of the chest.",
+   "visual_style": "hybrid",
+   "motif": "heart_pump"
+  },
+  {
+   "narration_segment": "It sits in the middle of a web of tubes that reach all over you. Blood delivers the oxygen and nutrients your organs need.",
+   "visual_description": "Blood flows through a web of vessels carrying oxygen and nutrients to organs.",
+   "visual_style": "hybrid",
+   "motif": "blood_delivery"
+  },
+  {
+   "narration_segment": "Little doors called valves keep the blood flowing the right way.",
+   "visual_description": "Valves inside the heart open one way as blood pumps through.",
+   "visual_style": "hybrid",
+   "motif": "heart_pump"
+  },
+  {
+   "narration_segment": "Smoking, high blood pressure and high cholesterol can make heart trouble more likely.",
+   "visual_description": "Risk factors light up around a heart as a gentle warning.",
+   "visual_style": "hybrid",
+   "motif": "heart_risks"
+  }
+ ]
+}
