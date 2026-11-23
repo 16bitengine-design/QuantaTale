@@ -535,5 +535,15 @@
       }
     },
     "scheduled_at": "2026-11-23T10:42:26.295869+00:00"
+  },
+  "qt-moon-phases-20261123-2230": {
+    "status": "reserved",
+    "spec": "production/specs/moon-phases.json",
+    "due_at": "2026-11-23T22:30:46+03:00",
+    "reserved_at": "2026-11-23T19:10:46+00:00",
+    "workflow_run_id": "45246169528",
+    "slot_local": "2026-11-23 22:30",
+    "publish_timezone": "Africa/Kampala",
+    "recovers_slot": "2026-11-23 18:00"
   }
 }
