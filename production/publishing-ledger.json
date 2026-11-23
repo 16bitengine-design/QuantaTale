@@ -504,7 +504,7 @@
     "scheduled_at": "2026-11-22T15:15:44.235916+00:00"
   },
   "qt-earth-has-seasons-20261123-1400": {
-    "status": "reserved",
+    "status": "scheduled",
     "spec": "production/specs/earth-has-seasons.json",
     "due_at": "2026-11-23T14:00:27+03:00",
     "reserved_at": "2026-11-23T10:40:27+00:00",
@@ -529,6 +529,7 @@
           "status": "awaiting_confirmation"
         }
       }
-    }
+    },
+    "scheduled_at": "2026-11-23T10:42:26.295869+00:00"
   }
 }
