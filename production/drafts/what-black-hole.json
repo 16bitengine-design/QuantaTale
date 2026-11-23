@@ -1,0 +1,69 @@
+{
+ "title": "What Is a Black Hole, Really?",
+ "description": "Black holes are not holes at all. Here is what they really are.",
+ "category": "space",
+ "replaces": "what-black-hole",
+ "source_urls": [
+  "https://science.nasa.gov/universe/black-holes/",
+  "https://www.esa.int/articles/about-us/directorates/science/black-holes"
+ ],
+ "narration": "What kind of thing is so heavy that even light can't get out? Black holes aren't really holes at all. They're huge amounts of stuff squeezed into very tiny spaces. Their gravity is so strong that light itself stays trapped. One kind is born when a giant star runs out of fuel and blows up. Since they give off no light, we spot them by how they tug on things nearby. A telescope has even pictured a dark shape against the glow around one.",
+ "claims": [
+  {
+   "sentence": "Black holes aren't really holes at all.",
+   "quote": "These objects aren’t really holes.",
+   "source": 0
+  },
+  {
+   "sentence": "They're huge amounts of stuff squeezed into very tiny spaces.",
+   "quote": "huge concentrations of matter packed into very tiny spaces",
+   "source": 0
+  },
+  {
+   "sentence": "Their gravity is so strong that light itself stays trapped.",
+   "quote": "nothing, not even light, can escape it",
+   "source": 1
+  },
+  {
+   "sentence": "One kind is born when a giant star runs out of fuel and blows up.",
+   "quote": "One type of black hole is born when massive stars run out of fuel and explode in supernovae",
+   "source": 0
+  },
+  {
+   "sentence": "Since they give off no light, we spot them by how they tug on things nearby.",
+   "quote": "Scientists primarily detect and study them based on how they affect their surroundings",
+   "source": 0
+  },
+  {
+   "sentence": "A telescope has even pictured a dark shape against the glow around one.",
+   "quote": "in 2019 the Event Horizon Telescope captured a black hole’s dark silhouette cast against light from matter",
+   "source": 1
+  }
+ ],
+ "scenes": [
+  {
+   "narration_segment": "What kind of thing is so heavy that even light can't get out? Black holes aren't really holes at all. They're huge amounts of stuff squeezed into very tiny spaces.",
+   "visual_description": "A dark sphere with a glowing ring pulls in and squeezes stuff into a tiny space.",
+   "visual_style": "hybrid",
+   "motif": "black_hole_3d"
+  },
+  {
+   "narration_segment": "Their gravity is so strong that light itself stays trapped.",
+   "visual_description": "Light rays curve toward a dark sphere and cannot get away.",
+   "visual_style": "hybrid",
+   "motif": "black_hole_3d"
+  },
+  {
+   "narration_segment": "One kind is born when a giant star runs out of fuel and blows up.",
+   "visual_description": "A giant star runs out of fuel, collapses and blows its outer layers into space.",
+   "visual_style": "hybrid",
+   "motif": "star_collapse_3d"
+  },
+  {
+   "narration_segment": "Since they give off no light, we spot them by how they tug on things nearby. A telescope has even pictured a dark shape against the glow around one.",
+   "visual_description": "Glowing gas swirls around a dark silhouette at a galaxy's heart.",
+   "visual_style": "hybrid",
+   "motif": "galaxy_core_3d"
+  }
+ ]
+}

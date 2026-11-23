@@ -1,0 +1,64 @@
+{
+ "title": "Why Do Sunsets Glow Red and Orange?",
+ "description": "Ever wondered why sunsets glow? The Sun's light takes the long way through the air.",
+ "category": "Science",
+ "replaces": "sunset-red",
+ "source_urls": [
+  "https://spaceplace.nasa.gov/blue-sky/en/",
+  "https://www.weather.gov/fgz/SkyBlue"
+ ],
+ "narration": "Ever wondered why sunsets glow red and orange? At sunset the Sun is low, so its light crosses a lot more air. Tiny bits of air bounce the blue light off in every direction. That leaves the reds and yellows to sail straight to your eyes. Here's the cool part: extra stuff in the air can make sunsets even bolder. So at sunset, you're watching the blue light get steered away from you.",
+ "claims": [
+  {
+   "sentence": "At sunset the Sun is low, so its light crosses a lot more air.",
+   "quote": "At sunrise and sunset, the sunlight passes through more atmosphere",
+   "source": 1
+  },
+  {
+   "sentence": "Tiny bits of air bounce the blue light off in every direction.",
+   "quote": "Blue light is scattered in all directions by the tiny molecules of air",
+   "source": 0
+  },
+  {
+   "sentence": "That leaves the reds and yellows to sail straight to your eyes.",
+   "quote": "allowing the reds and yellows to pass straight through to your eyes",
+   "source": 0
+  },
+  {
+   "sentence": "Here's the cool part: extra stuff in the air can make sunsets even bolder.",
+   "quote": "More oranges and reds reach your eyes in this situation leading to intense sunrises and sunsets",
+   "source": 1
+  },
+  {
+   "sentence": "So at sunset, you're watching the blue light get steered away from you.",
+   "quote": "all the blue and violet light gets redirected out of your line of sight",
+   "source": 1
+  }
+ ],
+ "scenes": [
+  {
+   "narration_segment": "Ever wondered why sunsets glow red and orange? At sunset the Sun is low, so its light crosses a lot more air.",
+   "visual_description": "A low glowing Sun above a curved horizon sends a long slanted beam through layers of air.",
+   "visual_style": "hybrid",
+   "motif": "sunset_path_3d"
+  },
+  {
+   "narration_segment": "Tiny bits of air bounce the blue light off in every direction.",
+   "visual_description": "Tiny air bits bounce blue light in every direction away from the beam.",
+   "visual_style": "hybrid",
+   "motif": "blue_scatter_3d"
+  },
+  {
+   "narration_segment": "That leaves the reds and yellows to sail straight to your eyes.",
+   "visual_description": "A warm red-orange beam keeps going straight to an observer's eye.",
+   "visual_style": "hybrid",
+   "motif": "red_reach_3d"
+  },
+  {
+   "narration_segment": "Here's the cool part: extra stuff in the air can make sunsets even bolder. So at sunset, you're watching the blue light get steered away from you.",
+   "visual_description": "A glowing sunset horizon with extra dust brightening the colours.",
+   "visual_style": "hybrid",
+   "motif": "sunset_horizon_3d"
+  }
+ ]
+}
