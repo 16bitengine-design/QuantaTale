@@ -216,3 +216,23 @@ def test_captions_are_split_so_no_words_are_dropped():
     assert all(len(text) <= 62 for _, _, text in segments)
     assert segments[0][0] == 0.0 and segments[-1][1] == 20.0
     assert all(a[1] <= b[0] + 1e-9 for a, b in zip(segments, segments[1:]))
+
+
+def test_captions_follow_real_sentence_timing_and_stay_up_through_pauses():
+    from factflow.video_render import _caption_segments, _narration_sentences
+
+    narration = "Why is the sky blue? Air bounces blue light around. That is the whole secret."
+    assert len(_narration_sentences(narration)) == 3
+    spans = [(0.0, 2.0), (3.0, 6.0), (7.0, 9.5)]
+    segments = _caption_segments(narration, 10.3, spans)
+    assert segments[0][0] == 0.0 and segments[0][1] == 3.0  # held through the pause after the question
+    assert segments[1][0] == 3.0 and segments[1][1] == 7.0
+    assert segments[-1][0] == 7.0 and segments[-1][1] == 10.3
+    assert all(a[1] <= b[0] + 1e-9 for a, b in zip(segments, segments[1:]))
+
+
+def test_narration_is_paced_slower_than_default_with_longer_pause_after_the_question():
+    from factflow import video_render as vr
+
+    assert vr.NARRATION_SPEED < 1.0
+    assert vr.PAUSE_AFTER_QUESTION > vr.PAUSE_AFTER_SENTENCE > 0.4
