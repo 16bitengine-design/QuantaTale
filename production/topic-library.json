@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-22T19:50:46.120325+00:00",
+  "updated_at": "2026-11-23T08:39:00.008030+00:00",
   "production_specs": [
     {
       "spec_path": "examples/videos/why-the-sky-is-blue-production.json",
@@ -2531,6 +2531,50 @@
       "published": "Sun, 22 Nov 2026 05:05:00 +0000",
       "description": "APOD Science APOD APOD: 2026 November 22 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. Swirls and Colors […]",
       "discovered_at": "2026-11-22T07:51:27.754797+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000150",
+      "title": "65 Years of Human Spaceflight at NASA Johnson",
+      "url": "https://www.nasa.gov/centers-and-facilities/johnson/65-years-of-human-spaceflight-at-nasa-johnson/",
+      "publisher_id": "NASA",
+      "published": "Sun, 22 Nov 2026 19:13:25 +0000",
+      "description": "For 65 years, NASA’s Johnson Space Center in Houston has helped shape human spaceflight, from the Gemini missions that demonstrated rendezvous and docking techniques needed for Apollo to the research conducted aboard the International Space Station, which has supported a continuous human presence for more than 26 years. Today, Johnson teams are preparing crews and […]",
+      "discovered_at": "2026-11-23T08:39:00.006991+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000151",
+      "title": "APOD: 2026 November 23 – The Emergence of Dark Nebula Lynds 1251",
+      "url": "https://science.nasa.gov/image-article/apod-2026-november-23-the-emergence-of-dark-nebula-lynds-1251/",
+      "publisher_id": "NASA",
+      "published": "Mon, 23 Nov 2026 05:05:00 +0000",
+      "description": "APOD Science APOD APOD: 2026 November 23 – The… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. The Emergence […]",
+      "discovered_at": "2026-11-23T08:39:00.007042+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000152",
+      "title": "Laser Focus at the Top of the World",
+      "url": "https://science.nasa.gov/earth/earth-observatory/laser-focus-at-the-top-of-the-world/",
+      "publisher_id": "NASA",
+      "published": "Mon, 23 Nov 2026 05:01:00 +0000",
+      "description": "A next-generation geodetic instrument developed by NASA, part of a network that helps measure satellites’ orbits and the planet’s shape, has debuted in Svalbard, Norway.",
+      "discovered_at": "2026-11-23T08:39:00.007067+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000153",
+      "title": "Highway to Hell(s Half Acre)",
+      "url": "https://www.usgs.gov/observatories/yvo/news/highway-hells-half-acre?utm_source=comms&amp;utm_medium=rss&amp;utm_campaign=news",
+      "publisher_id": "USGS",
+      "published": "Mon, 23 Nov 2026 00:30:00 EST",
+      "description": "Despite its unappealing name, Hells Half Acre is a fascinating and beautiful volcanic landscape on Idaho’s Eastern Snake River Plain formed by very young lava flows. It’s also an easily accessible way to explore the unique features of a fresh volcanic field.",
+      "discovered_at": "2026-11-23T08:39:00.007115+00:00",
       "status": "candidate_unreviewed",
       "editorial_review_required": false
     }
