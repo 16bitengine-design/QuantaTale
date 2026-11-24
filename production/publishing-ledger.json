@@ -591,9 +591,10 @@
         "buffer_status": "scheduled",
         "due_at": "2026-11-24T09:00:00.000Z",
         "verification": {
-          "status": "awaiting_confirmation",
-          "buffer_status": "scheduled",
-          "checked_at": "2026-11-24T06:58:46+00:00"
+          "status": "failed",
+          "buffer_status": "error",
+          "checked_at": "2026-11-24T17:57:08+00:00",
+          "error": "The daily posting limit for this channel has been reached! Please try reducing the amount of times per day in your schedule and try again later."
         }
       },
       "tiktok": {
@@ -601,9 +602,11 @@
         "buffer_status": "scheduled",
         "due_at": "2026-11-24T09:00:00.000Z",
         "verification": {
-          "status": "awaiting_confirmation",
-          "buffer_status": "scheduled",
-          "checked_at": "2026-11-24T06:58:46+00:00"
+          "status": "published",
+          "buffer_status": "sent",
+          "checked_at": "2026-11-24T17:57:08+00:00",
+          "published_at": "2026-11-24T09:21:15.587Z",
+          "external_link": "https://tiktok.com/@craftmaths/video/7711660010463350017"
         }
       }
     },
