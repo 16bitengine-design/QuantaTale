@@ -629,7 +629,7 @@
         "verification": {
           "status": "awaiting_confirmation",
           "buffer_status": "scheduled",
-          "checked_at": "2026-11-24T18:52:48+00:00"
+          "checked_at": "2026-11-24T18:53:02+00:00"
         }
       },
       "tiktok": {
@@ -639,7 +639,7 @@
         "verification": {
           "status": "awaiting_confirmation",
           "buffer_status": "scheduled",
-          "checked_at": "2026-11-24T18:52:48+00:00"
+          "checked_at": "2026-11-24T18:53:02+00:00"
         }
       }
     },
