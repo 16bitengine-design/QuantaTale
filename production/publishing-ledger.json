@@ -611,5 +611,15 @@
       }
     },
     "scheduled_at": "2026-11-24T06:58:25.510997+00:00"
+  },
+  "qt-ocean-blue-20261124-2210": {
+    "status": "reserved",
+    "spec": "production/specs/ocean-blue.json",
+    "due_at": "2026-11-24T22:10:16+03:00",
+    "reserved_at": "2026-11-24T18:50:16+00:00",
+    "workflow_run_id": "45463744658",
+    "slot_local": "2026-11-24 22:10",
+    "publish_timezone": "Africa/Kampala",
+    "recovers_slot": "2026-11-24 18:00"
   }
 }
