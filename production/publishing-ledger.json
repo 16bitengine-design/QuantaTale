@@ -613,7 +613,7 @@
     "scheduled_at": "2026-11-24T06:58:25.510997+00:00"
   },
   "qt-ocean-blue-20261124-2210": {
-    "status": "reserved",
+    "status": "scheduled",
     "spec": "production/specs/ocean-blue.json",
     "due_at": "2026-11-24T22:10:16+03:00",
     "reserved_at": "2026-11-24T18:50:16+00:00",
@@ -638,6 +638,7 @@
           "status": "awaiting_confirmation"
         }
       }
-    }
+    },
+    "scheduled_at": "2026-11-24T18:52:22.340331+00:00"
   }
 }
