@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-23T08:39:00.008030+00:00",
+  "updated_at": "2026-11-24T10:46:06.521182+00:00",
   "production_specs": [
     {
       "spec_path": "examples/videos/why-the-sky-is-blue-production.json",
@@ -2575,6 +2575,105 @@
       "published": "Mon, 23 Nov 2026 00:30:00 EST",
       "description": "Despite its unappealing name, Hells Half Acre is a fascinating and beautiful volcanic landscape on Idaho’s Eastern Snake River Plain formed by very young lava flows. It’s also an easily accessible way to explore the unique features of a fresh volcanic field.",
       "discovered_at": "2026-11-23T08:39:00.007115+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000154",
+      "title": "APOD: 2026 November 24 – Galaxies Battle in the NGC 7771 Group",
+      "url": "https://science.nasa.gov/image-article/apod-2026-november-24-galaxies-battle-in-the-ngc-7771-group/",
+      "publisher_id": "NASA",
+      "published": "Tue, 24 Nov 2026 05:05:00 +0000",
+      "description": "APOD Science APOD APOD: 2026 November 24 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. Galaxies Battle in […]",
+      "discovered_at": "2026-11-24T10:46:06.520137+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000155",
+      "title": "Eruption Extends Iwo Jima’s Beach",
+      "url": "https://science.nasa.gov/earth/earth-observatory/eruption-extends-iwo-jimas-beach/",
+      "publisher_id": "NASA",
+      "published": "Tue, 24 Nov 2026 05:01:00 +0000",
+      "description": "A volcanic eruption just off the southeast shore of the Pacific island has reshaped the coast, but it’s unclear how long the new land will survive.",
+      "discovered_at": "2026-11-24T10:46:06.520163+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000156",
+      "title": "NASA Awards Contract for NOAA’s Near Earth Orbit Network Program",
+      "url": "https://www.nasa.gov/news-release/nasa-awards-contract-for-noaas-near-earth-orbit-network-program/",
+      "publisher_id": "NASA",
+      "published": "Mon, 23 Nov 2026 21:10:03 +0000",
+      "description": "NASA, on behalf of the National Oceanic and Atmospheric Administration (NOAA), has awarded a contract to Northrop Grumman Systems Corporation for the Sounder for Microwave-Based Applications (SMBA) instruments on NOAA’s Near Earth Orbit Network (NEON) satellites. The cost-plus-fixed-fee, firm-fixed-price, and time-and-materials hybrid contract has a value of $290.6 million. The period of performance runs from […]",
+      "discovered_at": "2026-11-24T10:46:06.520188+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000157",
+      "title": "NASA Seeks Partners to Design First Nuclear Reactor for the Moon",
+      "url": "https://www.nasa.gov/directorates/rtmd/nasa-seeks-partners-to-design-first-nuclear-reactor-for-the-moon/",
+      "publisher_id": "NASA",
+      "published": "Mon, 23 Nov 2026 17:23:50 +0000",
+      "description": "NASA is seeking industry partners to develop and test the first nuclear reactor designed to provide electricity on the Moon, a major step toward establishing a sustained human presence on the lunar surface. Lunar Reactor-1 (LR-1) will be a small fission power system that will generate 20 kilowatts of electricity, enough to power approximately 16 […]",
+      "discovered_at": "2026-11-24T10:46:06.520203+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000158",
+      "title": "NASA+ Documentary Captures Europa Clipper’s Journey Into Deep Space",
+      "url": "https://www.nasa.gov/missions/europa-clipper/nasa-documentary-captures-europa-clippers-journey-into-deep-space/",
+      "publisher_id": "NASA",
+      "published": "Mon, 23 Nov 2026 16:08:23 +0000",
+      "description": "NASA invites the world behind the scenes to witness the story of Europa Clipper’s journey from a far-off vision to a cutting-edge deep space exploration mission with the release of the agency’s newest documentary, “The Europa Concept.” The documentary will air on NASA+, the NASA app, and the agency’s website starting Monday, Nov. 23, and […]",
+      "discovered_at": "2026-11-24T10:46:06.520218+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000159",
+      "title": "NASA’s Webb Shows How Supernova Dust Chronicles Star Evolution",
+      "url": "https://science.nasa.gov/missions/webb/nasas-webb-shows-how-supernova-dust-chronicles-star-evolution/",
+      "publisher_id": "NASA",
+      "published": "Mon, 23 Nov 2026 15:00:00 +0000",
+      "description": "NASA’s James Webb Space Telescope has painted a vibrant tapestry of the legendary supernova remnant Cassiopeia A (Cas A). Remnants like these are the clouds of gas and dust that remain following the explosion of a massive star and will eventually seed a new generation of stars and planets. This high-resolution, mid-infrared observation from Webb […]",
+      "discovered_at": "2026-11-24T10:46:06.520232+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000160",
+      "title": "Studying Cancer Cells in Microgravity",
+      "url": "https://www.nasa.gov/image-article/studying-cancer-cells-in-microgravity/",
+      "publisher_id": "NASA",
+      "published": "Mon, 23 Nov 2026 17:28:37 +0000",
+      "description": "This Nov. 19, 2026, image shows gastric microtumors grown within an Encapsulates biochip. The Encapsulate-1 investigation studies patient-derived tumor samples aboard the International Space Station to better understand how cancer cells move and interact in microgravity. The results could help researchers develop further testing to predict a patient’s risk of metastasis and support more personalized […]",
+      "discovered_at": "2026-11-24T10:46:06.520245+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000161",
+      "title": "Photo & Video Chronology — Kīlauea summit eruption episode 57",
+      "url": "https://www.usgs.gov/observatories/hvo/news/photo-video-chronology-kilauea-summit-eruption-episode-57?utm_source=comms&amp;utm_medium=rss&amp;utm_campaign=news",
+      "publisher_id": "USGS",
+      "published": "Mon, 23 Nov 2026 13:58:15 EST",
+      "description": "Episode 57 of the ongoing Halemaʻumaʻu eruption occurred between 12:15 and 6:00 a.m. HST on November 23, 2026.",
+      "discovered_at": "2026-11-24T10:46:06.520356+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000162",
+      "title": "The new Illinois River Basin Accumulated Wastewater Dashboard",
+      "url": "https://www.usgs.gov/mission-areas/water-resources/news/new-illinois-river-basin-accumulated-wastewater-dashboard?utm_source=comms&amp;utm_medium=rss&amp;utm_campaign=news",
+      "publisher_id": "USGS",
+      "published": "Mon, 16 Nov 2026 13:16:24 EST",
+      "description": "Wastewater discharges from municipal and industrial facilities can be a major pathway for contaminants, including per- and polyfluoroalkyl substances (PFAS), to enter rivers and streams. A new U.S. Geological Survey interactive dashboard provides estimates of accumulated wastewater contributions and predicted PFAS concentrations across the Illinois River Basin, giving users a watershed-scale view.",
+      "discovered_at": "2026-11-24T10:46:06.520413+00:00",
       "status": "candidate_unreviewed",
       "editorial_review_required": false
     }
