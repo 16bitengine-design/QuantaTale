@@ -578,7 +578,7 @@
     "scheduled_at": "2026-11-23T19:12:54.560415+00:00"
   },
   "qt-much-you-water-20261124-1200": {
-    "status": "reserved",
+    "status": "scheduled",
     "spec": "production/specs/much-you-water.json",
     "due_at": "2026-11-24T12:00:00+03:00",
     "reserved_at": "2026-11-24T06:55:57+00:00",
@@ -602,6 +602,7 @@
           "status": "awaiting_confirmation"
         }
       }
-    }
+    },
+    "scheduled_at": "2026-11-24T06:58:25.510997+00:00"
   }
 }
