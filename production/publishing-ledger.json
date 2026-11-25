@@ -650,7 +650,7 @@
     "scheduled_at": "2026-11-24T18:52:22.340331+00:00"
   },
   "qt-old-faithful-20261125-1800": {
-    "status": "reserved",
+    "status": "scheduled",
     "spec": "production/specs/old-faithful.json",
     "due_at": "2026-11-25T18:00:00+03:00",
     "reserved_at": "2026-11-25T12:42:05+00:00",
@@ -674,6 +674,7 @@
           "status": "awaiting_confirmation"
         }
       }
-    }
+    },
+    "scheduled_at": "2026-11-25T12:44:33.663305+00:00"
   }
 }
