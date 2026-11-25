@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-24T10:46:06.521182+00:00",
+  "updated_at": "2026-11-25T09:34:57.001716+00:00",
   "production_specs": [
     {
       "spec_path": "examples/videos/why-the-sky-is-blue-production.json",
@@ -2674,6 +2674,149 @@
       "published": "Mon, 16 Nov 2026 13:16:24 EST",
       "description": "Wastewater discharges from municipal and industrial facilities can be a major pathway for contaminants, including per- and polyfluoroalkyl substances (PFAS), to enter rivers and streams. A new U.S. Geological Survey interactive dashboard provides estimates of accumulated wastewater contributions and predicted PFAS concentrations across the Illinois River Basin, giving users a watershed-scale view.",
       "discovered_at": "2026-11-24T10:46:06.520413+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000163",
+      "title": "AGU Hyperwall Schedule",
+      "url": "https://science.nasa.gov/earth/agu-hyperwall-schedule/",
+      "publisher_id": "NASA",
+      "published": "Tue, 24 Nov 2026 18:55:42 +0000",
+      "description": "American Geophysical Union (AGU) 2026 Join NASA in the Exhibit Hall (Booth #525) for Hyperwall Storytelling by NASA experts. Full Hyperwall Agenda below. TUESDAY, NOVEMBER 17 10:30 AMHigh Resolution Hydrology Simulations and Agentic Super Intelligence Interfaces for Mapping Water Availability and ExtremesSujay Kumar11:00 AMScale-Resolving CFD Methods for Predicting Aircraft “Edge of the Flight Envelope” PerformanceJared […]",
+      "discovered_at": "2026-11-25T09:34:57.000906+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000164",
+      "title": "Amateur Astronomer? Be a Kilonova Catcher!",
+      "url": "https://science.nasa.gov/get-involved/citizen-science/amateur-astronomer-be-a-kilonova-catcher/",
+      "publisher_id": "NASA",
+      "published": "Tue, 24 Nov 2026 19:19:52 +0000",
+      "description": "Neutron stars are the ultra-dense, city-sized leftovers of dead stars. When they collide, they can release a brief flash of light called a kilonova. These immensely powerful events forge much of the universe’s gold, platinum and other heavy elements. Since a kilonova fades within days, astronomers have to find it fast, and no single observatory […]",
+      "discovered_at": "2026-11-25T09:34:57.000931+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000165",
+      "title": "APOD: 2026 November 25 – SPHEREx Seeing Through Dust",
+      "url": "https://science.nasa.gov/image-article/apod-2026-november-25-spherex-seeing-through-dust/",
+      "publisher_id": "NASA",
+      "published": "Wed, 25 Nov 2026 05:05:00 +0000",
+      "description": "APOD Science APOD APOD: 2026 November 25 –… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. To view this […]",
+      "discovered_at": "2026-11-25T09:34:57.000944+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000166",
+      "title": "Georgia’s Pecan Belt",
+      "url": "https://science.nasa.gov/earth/earth-observatory/georgias-pecan-belt/",
+      "publisher_id": "NASA",
+      "published": "Wed, 25 Nov 2026 05:00:00 +0000",
+      "description": "Since an early-1900s planting boom, orchards along the Flint River in southwest Georgia have become a center of U.S. pecan production.",
+      "discovered_at": "2026-11-25T09:34:57.000954+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000167",
+      "title": "NASA Hubble’s New View of NGC 4394 Raises the Bar",
+      "url": "https://science.nasa.gov/missions/hubble/nasa-hubbles-new-view-of-ngc-4394-raises-the-bar/",
+      "publisher_id": "NASA",
+      "published": "Tue, 24 Nov 2026 13:58:28 +0000",
+      "description": "The brilliant galaxy NGC 4394 with its distinct galactic bar takes center stage in this Hubble Space Telescope image",
+      "discovered_at": "2026-11-25T09:34:57.000964+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000168",
+      "title": "NASA+ Content Coming to Big Screen at Greenbelt, Maryland Cinema",
+      "url": "https://www.nasa.gov/nasa/nasa-content-coming-to-big-screen-at-greenbelt-maryland-cinema/",
+      "publisher_id": "NASA",
+      "published": "Tue, 24 Nov 2026 21:14:36 +0000",
+      "description": "NASA announced Monday that NASA+ content has found its first theatrical home at The Greenbelt Cinema in Greenbelt, Maryland, expanding the agency’s reach across major viewing platforms and bringing space even closer to home. “The National Aeronautics and Space Act of 1958 calls us to share our story of space exploration with the broadest possible […]",
+      "discovered_at": "2026-11-25T09:34:57.000974+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000169",
+      "title": "NASA’s Northrop Grumman CRS-25 Mission Overview",
+      "url": "https://www.nasa.gov/missions/station/nasas-northrop-grumman-crs-25-mission-overview/",
+      "publisher_id": "NASA",
+      "published": "Tue, 24 Nov 2026 19:09:16 +0000",
+      "description": "NASA’s Northrop Grumman Commercial Resupply Services 25 mission, or Northrop Grumman CRS-25, will deliver about 11,000 pounds of science and supplies to the International Space Station. The mission will be the third flight of the company’s Cygnus XL, the larger, more cargo-capable version of the company’s solar-powered spacecraft. The Cygnus XL will launch aboard a […]",
+      "discovered_at": "2026-11-25T09:34:57.000983+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000170",
+      "title": "NASA’s Titan-Bound Dragonfly Rotorcraft Gets Its Eyes",
+      "url": "https://science.nasa.gov/missions/dragonfly/nasas-titan-bound-dragonfly-rotorcraft-gets-its-eyes/",
+      "publisher_id": "NASA",
+      "published": "Tue, 24 Nov 2026 15:44:38 +0000",
+      "description": "Science instruments for NASA’s Dragonfly are starting to arrive at the Johns Hopkins Applied Physics Laboratory (APL) in Laurel, Maryland, where the car-sized rotorcraft is coming together for its mission to explore Saturn’s largest moon, Titan. First to check in: DragonCam, which consists of seven cameras designed to characterize Titan’s surface at multiple scales during […]",
+      "discovered_at": "2026-11-25T09:34:57.000993+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000171",
+      "title": "Teams Lock in Mission Architecture for NASA’s SR-1 Freedom",
+      "url": "https://www.nasa.gov/general/nasa-locks-in-sr1-freedom-mission-architecture/",
+      "publisher_id": "NASA",
+      "published": "Tue, 24 Nov 2026 21:04:32 +0000",
+      "description": "NASA completed a major review for Space Reactor-1 (SR-1) Freedom and locked in key elements of the spacecraft, which is targeted to launch in 2028 and demonstrate nuclear electric propulsion in deep space for the first time. Experts from across the agency, the U.S. Department of Energy (DOE), and industry met at NASA’s Glenn Research […]",
+      "discovered_at": "2026-11-25T09:34:57.001007+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000172",
+      "title": "Webb Reveals New Details in Supernova Remnant",
+      "url": "https://www.nasa.gov/image-article/webb-reveals-new-details-in-supernova-remnant/",
+      "publisher_id": "NASA",
+      "published": "Tue, 24 Nov 2026 16:51:27 +0000",
+      "description": "NASA’s James Webb Space Telescope reveals the hot dust that makes up Cassiopeia A (Cas A) in this high-resolution, mid-infrared image released on Nov. 23, 2026. Remnants like these are the clouds of gas and dust that remain following the explosion of a massive star and will eventually seed a new generation of stars and […]",
+      "discovered_at": "2026-11-25T09:34:57.001016+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000173",
+      "title": "Could Gas Hydrates Help Meet Future Energy Needs? New Alaska Research Offers Important Insights",
+      "url": "https://www.usgs.gov/news/featured-story/could-gas-hydrates-help-meet-future-energy-needs-new-alaska-research-offers?utm_source=comms&amp;utm_medium=rss&amp;utm_campaign=news",
+      "publisher_id": "USGS",
+      "published": "Tue, 24 Nov 2026 09:55:04 EST",
+      "description": "A new Virtual Special Issue in Energy & Fuels documents results from the world's longest gas hydrate production test on Alaska’s North Slope.",
+      "discovered_at": "2026-11-25T09:34:57.001040+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000174",
+      "title": "Rising seas and coastal erosion threaten sea turtle nesting beaches around the world",
+      "url": "https://www.usgs.gov/programs/cmhrp/news/rising-seas-and-coastal-erosion-threaten-sea-turtle-nesting-beaches-around?utm_source=comms&amp;utm_medium=rss&amp;utm_campaign=news",
+      "publisher_id": "USGS",
+      "published": "Tue, 24 Nov 2026 15:57:13 EST",
+      "description": "A global study of nine important nesting sites finds that some beaches face greater risks than others, highlighting the importance of accounting for shoreline dynamics and limited space for beaches to move inland.",
+      "discovered_at": "2026-11-25T09:34:57.001131+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000175",
+      "title": "USGS leverages SI in science diplomacy mission to Lesotho",
+      "url": "https://www.usgs.gov/international-programs/news/usgs-leverages-si-science-diplomacy-mission-lesotho?utm_source=comms&amp;utm_medium=rss&amp;utm_campaign=news",
+      "publisher_id": "USGS",
+      "published": "Mon, 23 Nov 2026 15:00:00 EST",
+      "description": "The USGS recently helped introduce Super Intelligence (SI) tools for geospatial analysis and hydrologic forecasting to water-resource professionals in the Kingdom of Lesotho, part of a U.S. Department of State initiative strengthening international partnerships in one of southern Africa's most critical water systems.",
+      "discovered_at": "2026-11-25T09:34:57.001163+00:00",
       "status": "candidate_unreviewed",
       "editorial_review_required": false
     }
