@@ -1,58 +1,59 @@
 {
-  "title": "What Your Body Is Doing While You Sleep",
+  "title": "What Is Your Body Doing While You Sleep?",
   "category": "science",
   "voice": "af_heart",
   "production_label": "QUANTATALE ORIGINAL",
-  "post_title": "What Your Body Is Doing While You Sleep | QuantaTale",
-  "post_description": "What happens to your heart, memory and immune system during sleep, from NIH and CDC. Sources: National Institutes of Health https://www.nhlbi.nih.gov/health/sleep/why-sleep-important and Centers for Disease Control and Prevention https://www.cdc.gov/sleep/about/index.html #Science #ScienceFacts #QuantaTale",
+  "post_title": "What Is Your Body Doing While You Sleep? | QuantaTale",
+  "post_description": "Sleep is not your body switching off. It is busy work. Sources: National Institutes of Health https://www.nhlbi.nih.gov/health/sleep/why-sleep-important and Centers for Disease Control and Prevention https://www.cdc.gov/sleep/about/index.html #Science #ScienceFacts #QuantaTale",
   "content_id_prefix": "qt-what-your-body",
   "publish_timezone": "Africa/Kampala",
   "editorial_approved": true,
   "editorial_status": "automated_gate_passed",
   "editorial_review_required": false,
-  "narration": "Is sleep really just your body switching off? No, during sleep your body works to support brain function and keep you physically healthy. When you drift into non-REM sleep, blood pressure and heart rate fall. Sleep also helps you learn and form long-term memories. People who sleep too little may be more likely to catch colds and other infections. Quality sleep is uninterrupted and refreshing, not just long. And the hours you need change as you get older.",
+  "narration": "Is sleep really just your body switching off? Not at all, your body keeps busy looking after your brain and your health. When you first drift off, your heart slows and your blood pressure drops. Sleep also helps you learn and lock in long-term memories. Skimp on it, and you may catch more colds. Here's the cool part: good sleep is about how well you sleep, not just how long. And the hours you need change as you get older.",
   "sources": [
     {
       "publisher": "National Institutes of Health",
       "title": "How Sleep Works - Why Is Sleep Important? | NHLBI, NIH",
       "url": "https://www.nhlbi.nih.gov/health/sleep/why-sleep-important",
-      "supports": "During sleep, your body is working to support healthy brain function and maintain your physical health. | When you fall asleep and enter non-REM sleep , your blood pressure and heart rate fall. | Sleep helps with learning and the formation of long-term memories. | That is why people who do not sleep enough may be more likely to get colds and other infections.",
+      "supports": "your body is working to support healthy brain function and maintain your physical health | When you fall asleep and enter non-REM sleep , your blood pressure and heart rate fall. | Sleep helps with learning and the formation of long-term memories. | people who do not sleep enough may be more likely to get colds and other infections",
       "review_status": "passage_checked_supports_claim",
       "review_method": "automated_quote_grounding_and_model_entailment",
-      "reviewed_at": "2026-11-19"
+      "reviewed_at": "2026-11-25"
     },
     {
       "publisher": "Centers for Disease Control and Prevention",
       "title": "About Sleep | Sleep | CDC",
       "url": "https://www.cdc.gov/sleep/about/index.html",
-      "supports": "Quality sleep means you are getting uninterrupted and refreshing sleep. Getting quality sleep is not just about how many hours you sleep, but how well you sleep. | The daily recommended hours of sleep you need changes as you age.",
+      "supports": "Getting quality sleep is not just about how many hours you sleep, but how well you sleep. | The daily recommended hours of sleep you need changes as you age.",
       "review_status": "passage_checked_supports_claim",
       "review_method": "automated_quote_grounding_and_model_entailment",
-      "reviewed_at": "2026-11-19"
+      "reviewed_at": "2026-11-25"
     }
   ],
   "scenes": [
     {
-      "narration_segment": "Heart rate and blood pressure fall in non-REM sleep.",
-      "visual_description": "Two falling curves for heart rate and blood pressure.",
+      "narration_segment": "Is sleep really just your body switching off? Not at all, your body keeps busy looking after your brain and your health. When you first drift off, your heart slows and your blood pressure drops.",
+      "visual_description": "A sleeping figure with a calm heartbeat line slowing and blood pressure easing down.",
       "visual_style": "hybrid",
       "motif": "sleep_vitals"
     },
     {
-      "narration_segment": "Sleep helps learning and long-term memories.",
-      "visual_description": "A network of nodes lighting up and connecting.",
+      "narration_segment": "Sleep also helps you learn and lock in long-term memories. Skimp on it, and you may catch more colds.",
+      "visual_description": "Memories glow and settle into place inside a sleeping brain.",
       "visual_style": "hybrid",
       "motif": "sleep_memory"
     },
     {
-      "narration_segment": "The hours you need change as you age.",
-      "visual_description": "A bar changing height along an age axis.",
+      "narration_segment": "Here's the cool part: good sleep is about how well you sleep, not just how long. And the hours you need change as you get older.",
+      "visual_description": "Sleep needs shown for different ages along a timeline.",
       "visual_style": "hybrid",
       "motif": "sleep_ages"
     }
   ],
   "visual_profile": "holographic_science_v1",
   "source_passage_verification_required_before_publication": false,
-  "source_assessment": "Automated gates passed on 2026-11-19: each sentence tied to a verbatim source quote, numbers matched, no copied word runs, model entailment check passed, independent publishers. Not complete fact verification.",
-  "authored_by": "assistant_session_draft_then_automated_gates"
+  "source_assessment": "Automated gates passed on 2026-11-25: each sentence tied to a verbatim source quote, numbers matched, no copied word runs, model entailment check passed, independent publishers. Not complete fact verification.",
+  "authored_by": "assistant_session_draft_then_automated_gates",
+  "replaced_at": "2026-11-25"
 }

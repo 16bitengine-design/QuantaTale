@@ -1,58 +1,65 @@
 {
-  "title": "How Your Heart Keeps Blood Moving",
+  "title": "How Does Your Heart Keep You Going?",
   "category": "health",
   "voice": "af_heart",
   "production_label": "QUANTATALE ORIGINAL",
-  "post_title": "How Your Heart Keeps Blood Moving | QuantaTale",
-  "post_description": "What the heart does, how blood circulates and the main risk factors for heart disease, from the NIH and CDC. Sources: National Institutes of Health https://www.nhlbi.nih.gov/health/heart and Centers for Disease Control and Prevention https://www.cdc.gov/heart-disease/about/index.html #Science #ScienceFacts #QuantaTale",
+  "post_title": "How Does Your Heart Keep You Going? | QuantaTale",
+  "post_description": "Your fist-sized heart never takes a break. Here is how it keeps blood moving. Sources: National Institutes of Health https://www.nhlbi.nih.gov/health/heart and Centers for Disease Control and Prevention https://www.cdc.gov/heart-disease/about/index.html #Science #ScienceFacts #QuantaTale",
   "content_id_prefix": "qt-your-heart-keeps",
   "publish_timezone": "Africa/Kampala",
   "editorial_approved": true,
   "editorial_status": "automated_gate_passed",
   "editorial_review_required": false,
-  "narration": "What keeps your blood moving every second of your life? Your heart is a fist-sized organ that pumps blood through your body. It sits at the center of the circulatory system, a network of arteries, veins and capillaries. The blood delivers oxygen and nutrients that organs need, and carries carbon dioxide to the lungs to be breathed out. Valves inside the heart keep the blood flowing in the right direction. Its electrical system controls how fast and how steadily it beats. In the United States, the most common heart disease is coronary artery disease, which affects blood flow to the heart. High blood pressure, high cholesterol and smoking are key risk factors, and nearly half of people in the US have at least one.",
+  "narration": "What keeps your blood moving every second of your life? It's your heart, an organ about the size of your fist. It sits in the middle of a web of tubes that reach all over you. Blood delivers the oxygen and nutrients your organs need. Little doors called valves keep the blood flowing the right way. Smoking, high blood pressure and high cholesterol can make heart trouble more likely.",
   "sources": [
     {
       "publisher": "National Institutes of Health",
       "title": "How the Heart Works - The Heart | NHLBI, NIH",
       "url": "https://www.nhlbi.nih.gov/health/heart",
-      "supports": "The heart is an organ about the size of your fist that pumps blood through your body. | Your heart is at the center of your circulatory system. This system is a network of blood vessels, such as arteries, veins, and capillaries, that carries blood to and from all areas of your body. | Your blood carries the oxygen and nutrients that your organs need to work properly. Blood also carries carbon dioxide to your lungs so you can breathe it out. | Inside your heart, valves keep blood flowing in the right direction. | Your heart’s electrical system controls the rate and rhythm of your heartbeat.",
+      "supports": "The heart is an organ about the size of your fist that pumps blood through your body. | Your heart is at the center of your circulatory system. | Your blood carries the oxygen and nutrients that your organs need to work properly. | Inside your heart, valves keep blood flowing in the right direction.",
       "review_status": "passage_checked_supports_claim",
       "review_method": "automated_quote_grounding_and_model_entailment",
-      "reviewed_at": "2026-11-20"
+      "reviewed_at": "2026-11-25"
     },
     {
       "publisher": "Centers for Disease Control and Prevention",
       "title": "About Heart Disease | Heart Disease | CDC",
       "url": "https://www.cdc.gov/heart-disease/about/index.html",
-      "supports": "The most common type of heart disease in the United States is coronary artery disease (CAD). CAD affects the blood flow to the heart. | High blood pressure , high blood cholesterol , and smoking are key risk factors for heart disease. About half of people in the United States (47%) have at least one of these three risk factors.",
+      "supports": "High blood pressure , high blood cholesterol , and smoking are key risk factors for heart disease.",
       "review_status": "passage_checked_supports_claim",
       "review_method": "automated_quote_grounding_and_model_entailment",
-      "reviewed_at": "2026-11-20"
+      "reviewed_at": "2026-11-25"
     }
   ],
   "scenes": [
     {
-      "narration_segment": "The heart pumps blood around a network of vessels.",
-      "visual_description": "A beating heart with blood circling.",
+      "narration_segment": "What keeps your blood moving every second of your life? It's your heart, an organ about the size of your fist.",
+      "visual_description": "A glowing fist-sized heart pumps in the middle of the chest.",
       "visual_style": "hybrid",
       "motif": "heart_pump"
     },
     {
-      "narration_segment": "Blood delivers oxygen and nutrients and carries carbon dioxide away.",
-      "visual_description": "Two flows between blood and organs.",
+      "narration_segment": "It sits in the middle of a web of tubes that reach all over you. Blood delivers the oxygen and nutrients your organs need.",
+      "visual_description": "Blood flows through a web of vessels carrying oxygen and nutrients to organs.",
       "visual_style": "hybrid",
       "motif": "blood_delivery"
     },
     {
-      "narration_segment": "Blood pressure, cholesterol and smoking are key risks.",
-      "visual_description": "Three risk factor boxes lighting up.",
+      "narration_segment": "Little doors called valves keep the blood flowing the right way.",
+      "visual_description": "Valves inside the heart open one way as blood pumps through.",
+      "visual_style": "hybrid",
+      "motif": "heart_pump"
+    },
+    {
+      "narration_segment": "Smoking, high blood pressure and high cholesterol can make heart trouble more likely.",
+      "visual_description": "Risk factors light up around a heart as a gentle warning.",
       "visual_style": "hybrid",
       "motif": "heart_risks"
     }
   ],
   "visual_profile": "holographic_science_v1",
   "source_passage_verification_required_before_publication": false,
-  "source_assessment": "Automated gates passed on 2026-11-20: each sentence tied to a verbatim source quote, numbers matched, no copied word runs, model entailment check passed, independent publishers. Not complete fact verification.",
-  "authored_by": "assistant_session_draft_then_automated_gates"
+  "source_assessment": "Automated gates passed on 2026-11-25: each sentence tied to a verbatim source quote, numbers matched, no copied word runs, model entailment check passed, independent publishers. Not complete fact verification.",
+  "authored_by": "assistant_session_draft_then_automated_gates",
+  "replaced_at": "2026-11-25"
 }

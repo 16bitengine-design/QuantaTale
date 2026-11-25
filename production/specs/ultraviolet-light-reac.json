@@ -1,58 +1,59 @@
 {
-  "title": "How Ultraviolet Light Reaches You and How to Block It",
+  "title": "Can You Get Sunburnt on a Cloudy Day?",
   "category": "health",
   "voice": "af_heart",
   "production_label": "QUANTATALE ORIGINAL",
-  "post_title": "How Ultraviolet Light Reaches You and How to Block It | QuantaTale",
-  "post_description": "What ultraviolet radiation is, how the atmosphere filters it and how to protect your skin, from the CDC and WHO. Sources: Centers for Disease Control and Prevention https://www.cdc.gov/skin-cancer/sun-safety/index.html and World Health Organization https://www.who.int/news-room/questions-and-answers/item/radiation-ultraviolet-(uv) #Science #ScienceFacts #QuantaTale",
+  "post_title": "Can You Get Sunburnt on a Cloudy Day? | QuantaTale",
+  "post_description": "Invisible sun rays sneak through clouds, so here is how to stay safe. Sources: Centers for Disease Control and Prevention https://www.cdc.gov/skin-cancer/sun-safety/index.html and World Health Organization https://www.who.int/news-room/questions-and-answers/item/radiation-ultraviolet-(uv) #Science #ScienceFacts #QuantaTale",
   "content_id_prefix": "qt-ultraviolet-light-reac",
   "publish_timezone": "Africa/Kampala",
   "editorial_approved": true,
   "editorial_status": "automated_gate_passed",
   "editorial_review_required": false,
-  "narration": "Can you get sunburnt on a cloudy day? Ultraviolet rays are invisible radiation from the sun, and they can damage skin cells. The atmosphere absorbs all UVC and most UVB, but it filters UVA much less. So most of the UV that reaches the ground is UVA. UV is strongest when the sun is high, because then its rays travel the most direct route to Earth. Higher up there is less air to absorb it, so UV is stronger on a mountain than at sea level. UV also gets through on cloudy, cool days, and it bounces off water, sand and snow. Wear broad-spectrum sunscreen rated SPF 15 or higher before going outside. The best sunglasses block both UVA and UVB.",
+  "narration": "Can you really get sunburnt on a cloudy day? Yes, because sunlight carries invisible rays that can harm your skin. Our air blocks some kinds, but UVA slips through much more easily. The higher the Sun climbs, the stronger these rays get. Clouds and cool weather will not stop them. They also bounce off water, sand and snow. So smear on a sunscreen that blocks both UVA and UVB.",
   "sources": [
     {
       "publisher": "Centers for Disease Control and Prevention",
       "title": "Sun Safety Facts | Skin Cancer | CDC",
       "url": "https://www.cdc.gov/skin-cancer/sun-safety/index.html",
-      "supports": "UV rays are an invisible kind of radiation that comes from the sun and tanning beds. UV rays can damage skin cells. | The sun’s UV rays can reach you on cloudy and cool days, and they reflect off of surfaces like water, cement, sand, and snow. | Put on broad-spectrum sunscreen that filters out both UVA and UVB rays and has an SPF of 15 or higher before you go outside. | Sunglasses that block both UVA and UVB rays offer the best protection.",
+      "supports": "UV rays are an invisible kind of radiation that comes from the sun and tanning beds. UV rays can damage skin cells. | rays can reach you on cloudy and cool days | they reflect off of surfaces like water, cement, sand, and snow | Put on broad-spectrum sunscreen that filters out both UVA and UVB rays",
       "review_status": "passage_checked_supports_claim",
       "review_method": "automated_quote_grounding_and_model_entailment",
-      "reviewed_at": "2026-11-21"
+      "reviewed_at": "2026-11-25"
     },
     {
       "publisher": "World Health Organization",
       "title": "Radiation: Ultraviolet (UV) radiation",
       "url": "https://www.who.int/news-room/questions-and-answers/item/radiation-ultraviolet-(uv)",
-      "supports": "As sunlight passes through the atmosphere, all UVC and most UVB is absorbed by ozone, water vapour, oxygen and carbon dioxide. UVA is not filtered as significantly by the atmosphere. | The relatively long-wavelength UVA accounts for approximately 95 per cent of the UV radiation reaching the Earth’s surface. | During these times the sun's rays take the most direct path to earth. | With increasing altitude less atmosphere is available to absorb UV radiation. With every 1000 m in altitude, UV levels increase by approximately 10 per cent.",
+      "supports": "UVA is not filtered as significantly by the atmosphere. | UV levels vary mainly with the height of the sun in the sky",
       "review_status": "passage_checked_supports_claim",
       "review_method": "automated_quote_grounding_and_model_entailment",
-      "reviewed_at": "2026-11-21"
+      "reviewed_at": "2026-11-25"
     }
   ],
   "scenes": [
     {
-      "narration_segment": "The atmosphere absorbs all UVC and most UVB, but UVA reaches the ground.",
-      "visual_description": "UV bands crossing the atmosphere layer.",
+      "narration_segment": "Can you really get sunburnt on a cloudy day? Yes, because sunlight carries invisible rays that can harm your skin. Our air blocks some kinds, but UVA slips through much more easily.",
+      "visual_description": "Invisible ray bands crossing the atmosphere layer, one kind slipping through.",
       "visual_style": "hybrid",
       "motif": "uv_filter_3d"
     },
     {
-      "narration_segment": "UV is strongest when the sun is high and the path through air is short.",
-      "visual_description": "A ray crossing the atmosphere at high and low sun.",
+      "narration_segment": "The higher the Sun climbs, the stronger these rays get.",
+      "visual_description": "A ray crossing the air at high sun and at low sun.",
       "visual_style": "hybrid",
       "motif": "uv_path_3d"
     },
     {
-      "narration_segment": "Sunscreen with SPF 15 or higher and sunglasses that block UVA and UVB protect you.",
-      "visual_description": "A protective bubble around a person.",
+      "narration_segment": "Clouds and cool weather will not stop them. They also bounce off water, sand and snow. So smear on a sunscreen that blocks both UVA and UVB.",
+      "visual_description": "A protective bubble around a person with rays bouncing around.",
       "visual_style": "hybrid",
       "motif": "sun_protection_3d"
     }
   ],
   "visual_profile": "holographic_science_v1",
   "source_passage_verification_required_before_publication": false,
-  "source_assessment": "Automated gates passed on 2026-11-21: each sentence tied to a verbatim source quote, numbers matched, no copied word runs, model entailment check passed, independent publishers. Not complete fact verification.",
-  "authored_by": "assistant_session_draft_then_automated_gates"
+  "source_assessment": "Automated gates passed on 2026-11-25: each sentence tied to a verbatim source quote, numbers matched, no copied word runs, model entailment check passed, independent publishers. Not complete fact verification.",
+  "authored_by": "assistant_session_draft_then_automated_gates",
+  "replaced_at": "2026-11-25"
 }

@@ -1,58 +1,59 @@
 {
-  "title": "Why Some Volcanoes Explode and Others Flow",
+  "title": "Why Does One Volcano Ooze and Another Explode?",
   "category": "science",
   "voice": "af_heart",
   "production_label": "QUANTATALE ORIGINAL",
-  "post_title": "Why Some Volcanoes Explode and Others Flow | QuantaTale",
-  "post_description": "How magma forms and why gas decides whether a volcano flows or explodes, from USGS and NASA. Sources: United States Geological Survey https://www.usgs.gov/faqs/how-do-volcanoes-erupt and National Aeronautics and Space Administration https://spaceplace.nasa.gov/volcanoes/en/ #Science #ScienceFacts #QuantaTale",
+  "post_title": "Why Does One Volcano Ooze and Another Explode? | QuantaTale",
+  "post_description": "The surprising difference between gentle lava rivers and huge explosions. Sources: United States Geological Survey https://www.usgs.gov/faqs/how-do-volcanoes-erupt and National Aeronautics and Space Administration https://spaceplace.nasa.gov/volcanoes/en/ #Science #ScienceFacts #QuantaTale",
   "content_id_prefix": "qt-some-volcanoes-explode",
   "publish_timezone": "Africa/Kampala",
   "editorial_approved": true,
   "editorial_status": "automated_gate_passed",
   "editorial_review_required": false,
-  "narration": "Why does one volcano pour out lava while another blows itself apart? Deep underground, some rock melts into a thick liquid called magma. Magma is lighter than the surrounding rock, so it rises and collects in chambers. When it pushes out through a vent to the surface, it is called lava. How explosive an eruption is depends on the magma's composition. Thin, runny magma lets gas escape easily, so it flows out of the volcano. Thick, sticky magma traps gas until the pressure builds and the volcano explodes. Earth has both explosive volcanoes and ones with slow rivers of lava.",
+  "narration": "Why does one volcano gently ooze while another blows its top? Deep down, rock gets so hot that some of it melts into thick, flowing magma. Magma is lighter than the rock around it, so it rises. Thin, runny magma lets gas slip out, so it simply flows. Thick, sticky magma traps the gas, and pressure builds until boom. So Earth has both exploding volcanoes and slow rivers of lava.",
   "sources": [
     {
       "publisher": "United States Geological Survey",
       "title": "How Do Volcanoes Erupt? | U.S. Geological Survey",
       "url": "https://www.usgs.gov/faqs/how-do-volcanoes-erupt",
-      "supports": "Deep within the Earth it is so hot that some rocks slowly melt and become a thick flowing substance called magma. | Since it is lighter than the solid rock around it, magma rises and collects in magma chambers. | Eventually, some of the magma pushes through vents and fissures to the Earth's surface. Magma that has erupted is called lava. | The explosivity of an eruption depends on the composition of the magma. | If magma is thin and runny, gases can escape easily from it. When this type of magma erupts, it flows out of the volcano. | If magma is thick and sticky, gases cannot escape easily. Pr",
+      "supports": "some rocks slowly melt and become a thick flowing substance called magma | Since it is lighter than the solid rock around it, magma rises and collects in magma chambers. | If magma is thin and runny, gases can escape easily from it. When this type of magma erupts, it flows out of the volcano. | If magma is thick and sticky, gases cannot escape easily. Pressure builds up until the gases escape violently and explode.",
       "review_status": "passage_checked_supports_claim",
       "review_method": "automated_quote_grounding_and_model_entailment",
-      "reviewed_at": "2026-11-19"
+      "reviewed_at": "2026-11-25"
     },
     {
       "publisher": "National Aeronautics and Space Administration",
       "title": "Space Volcanoes! | NASA Space Place – NASA Science for Kids",
       "url": "https://spaceplace.nasa.gov/volcanoes/en/",
-      "supports": "volcanoes that explode with ash and gas, and volcanoes that have slow rivers of melted rock (known as lava).",
+      "supports": "volcanoes that explode with ash and gas, and volcanoes that have slow rivers of melted rock",
       "review_status": "passage_checked_supports_claim",
       "review_method": "automated_quote_grounding_and_model_entailment",
-      "reviewed_at": "2026-11-19"
+      "reviewed_at": "2026-11-25"
     }
   ],
   "scenes": [
     {
-      "narration_segment": "Lighter magma rises and erupts as lava.",
-      "visual_description": "Magma column rising through a volcano.",
+      "narration_segment": "Why does one volcano gently ooze while another blows its top? Deep down, rock gets so hot that some of it melts into thick, flowing magma. Magma is lighter than the rock around it, so it rises.",
+      "visual_description": "Magma melting deep down and rising through a volcano.",
       "visual_style": "hybrid",
       "motif": "magma_rise"
     },
     {
-      "narration_segment": "Thin magma lets gas escape and flows; thick magma explodes.",
-      "visual_description": "Two magma chambers, one releasing gas, one building pressure.",
+      "narration_segment": "Thin, runny magma lets gas slip out, so it simply flows. Thick, sticky magma traps the gas, and pressure builds until boom.",
+      "visual_description": "Two magma chambers, one letting gas out, one building pressure.",
       "visual_style": "hybrid",
       "motif": "gas_pressure"
     },
     {
-      "narration_segment": "Earth has explosive volcanoes and slow lava rivers.",
-      "visual_description": "Pressure-driven blast compared with a flow.",
+      "narration_segment": "So Earth has both exploding volcanoes and slow rivers of lava.",
+      "visual_description": "A pressure blast shown next to a gentle lava flow.",
       "visual_style": "hybrid",
       "motif": "gas_pressure"
     }
   ],
   "visual_profile": "holographic_science_v1",
   "source_passage_verification_required_before_publication": false,
-  "source_assessment": "Automated gates passed on 2026-11-19: each sentence tied to a verbatim source quote, numbers matched, no copied word runs, model entailment check passed, independent publishers. Not complete fact verification.",
-  "authored_by": "assistant_session_draft_then_automated_gates"
+  "source_assessment": "Automated gates passed on 2026-11-25: each sentence tied to a verbatim source quote, numbers matched, no copied word runs, model entailment check passed, independent publishers. Not complete fact verification.",
+  "authored_by": "assistant_session_draft_then_automated_gates",
+  "replaced_at": "2026-11-25"
 }

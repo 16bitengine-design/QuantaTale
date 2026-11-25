@@ -1,0 +1,66 @@
+{
+  "title": "Is Summer Really Caused by Sunshine Getting Closer?",
+  "description": "Summer is not about Earth getting closer to the Sun, and the real reason is a fun surprise.",
+  "category": "earth-science",
+  "replaces": "earth-has-seasons",
+  "source_urls": [
+    "https://spaceplace.nasa.gov/seasons/en/",
+    "https://www.nesdis.noaa.gov/about/k-12-education/understanding-our-planet/why-does-earth-have-seasons"
+  ],
+  "narration": "Does summer happen because Earth swings closer to the Sun? Lots of people think so, but that idea is wrong. Up north, winter actually arrives while Earth is nearest the Sun. The real secret is that Earth leans over a little. As Earth travels around the Sun, it keeps leaning the same way. When the north leans toward the Sun, it gets more sunlight, and that means summer. Down south, the seasons run the opposite way.",
+  "claims": [
+    {
+      "sentence": "Lots of people think so, but that idea is wrong.",
+      "quote": "Although this idea makes sense, it is incorrect.",
+      "source": 0
+    },
+    {
+      "sentence": "Up north, winter actually arrives while Earth is nearest the Sun.",
+      "quote": "in the Northern Hemisphere, we are having winter when Earth is closest to the Sun and summer when it is farthest away",
+      "source": 0
+    },
+    {
+      "sentence": "The real secret is that Earth leans over a little.",
+      "quote": "it leans over a bit",
+      "source": 0
+    },
+    {
+      "sentence": "As Earth travels around the Sun, it keeps leaning the same way.",
+      "quote": "always with the axis pointed in the same direction",
+      "source": 1
+    },
+    {
+      "sentence": "When the north leans toward the Sun, it gets more sunlight, and that means summer.",
+      "quote": "When the North Pole is pointing toward the sun, there is more sunlight reaching the northern half of the planet, leading to summer.",
+      "source": 0
+    },
+    {
+      "sentence": "Down south, the seasons run the opposite way.",
+      "quote": "As the poles are on opposite ends of Earth, they experience opposite timing for the seasons.",
+      "source": 0
+    }
+  ],
+  "scenes": [
+    {
+      "narration_segment": "Does summer happen because Earth swings closer to the Sun? Lots of people think so, but that idea is wrong. Up north, winter actually arrives while Earth is nearest the Sun.",
+      "visual_description": "Earth on its orbit around the Sun, nearest the Sun in the northern winter.",
+      "visual_style": "hybrid",
+      "motif": "orbit_3d"
+    },
+    {
+      "narration_segment": "The real secret is that Earth leans over a little. As Earth travels around the Sun, it keeps leaning the same way.",
+      "visual_description": "Earth leaning the same way at four points around its orbit.",
+      "visual_style": "hybrid",
+      "motif": "seasons_tilt_3d"
+    },
+    {
+      "narration_segment": "When the north leans toward the Sun, it gets more sunlight, and that means summer. Down south, the seasons run the opposite way.",
+      "visual_description": "The north leaning toward the Sun, then the south, with opposite seasons.",
+      "visual_style": "hybrid",
+      "motif": "seasons_tilt_3d"
+    }
+  ],
+  "rejection_reasons": [
+    "'earth-has-seasons' is already scheduled or published and cannot be replaced"
+  ]
+}

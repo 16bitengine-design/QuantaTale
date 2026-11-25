@@ -1,58 +1,65 @@
 {
-  "title": "What a Black Hole Really Is and How One Forms",
+  "title": "What Is a Black Hole, Really?",
   "category": "space",
   "voice": "af_heart",
   "production_label": "QUANTATALE ORIGINAL",
-  "post_title": "What a Black Hole Really Is and How One Forms | QuantaTale",
-  "post_description": "What black holes are, how massive stars collapse into them and how scientists find them, from NASA and ESA. Sources: National Aeronautics and Space Administration https://science.nasa.gov/universe/black-holes/ and European Space Agency https://www.esa.int/articles/about-us/directorates/science/black-holes #Science #ScienceFacts #QuantaTale",
+  "post_title": "What Is a Black Hole, Really? | QuantaTale",
+  "post_description": "Black holes are not holes at all. Here is what they really are. Sources: National Aeronautics and Space Administration https://science.nasa.gov/universe/black-holes/ and European Space Agency https://www.esa.int/articles/about-us/directorates/science/black-holes #Science #ScienceFacts #QuantaTale",
   "content_id_prefix": "qt-what-black-hole",
   "publish_timezone": "Africa/Kampala",
   "editorial_approved": true,
   "editorial_status": "automated_gate_passed",
   "editorial_review_required": false,
-  "narration": "What kind of object is so dense that even light cannot escape it? Black holes are not really holes but huge amounts of matter packed into tiny spaces. Their gravity is so intense that not even light can get out from beyond a boundary called the event horizon. One kind is born when a massive star runs out of fuel and explodes in a supernova. As the core collapses, the outer layers rebound and are thrown into space. If the core left behind is more than three times the Sun's mass, it keeps being crushed into a smaller and smaller volume. Black holes neither emit nor reflect light, so scientists detect them by how they affect their surroundings. Even the closest known black hole, Gaia BH1, is incredibly far away. Our galaxy's central black hole, Sagittarius A*, is 4 million times the Sun's mass. In 2019 the Event Horizon Telescope produced the earliest direct picture of one, a dark silhouette against glowing matter.",
+  "narration": "What kind of thing is so heavy that even light can't get out? Black holes aren't really holes at all. They're huge amounts of stuff squeezed into very tiny spaces. Their gravity is so strong that light itself stays trapped. One kind is born when a giant star runs out of fuel and blows up. Since they give off no light, we spot them by how they tug on things nearby. A telescope has even pictured a dark shape against the glow around one.",
   "sources": [
     {
       "publisher": "National Aeronautics and Space Administration",
       "title": "Black Holes - NASA Science",
       "url": "https://science.nasa.gov/universe/black-holes/",
-      "supports": "These objects aren’t really holes. They’re huge concentrations of matter packed into very tiny spaces. | A black hole is so dense that gravity just beneath its surface, the event horizon, is strong enough that nothing – not even light – can escape. | One type of black hole is born when massive stars run out of fuel and explode in supernovae. | Black holes don’t emit or reflect light, making them effectively invisible to telescopes. Scientists primarily detect and study them based on how they affect their surroundings | The nearest known black hole, called Gaia BH1, is about 1,500 light-years a",
+      "supports": "These objects aren’t really holes. | huge concentrations of matter packed into very tiny spaces | One type of black hole is born when massive stars run out of fuel and explode in supernovae | Scientists primarily detect and study them based on how they affect their surroundings",
       "review_status": "passage_checked_supports_claim",
       "review_method": "automated_quote_grounding_and_model_entailment",
-      "reviewed_at": "2026-11-21"
+      "reviewed_at": "2026-11-25"
     },
     {
       "publisher": "European Space Agency",
       "title": "Black holes",
       "url": "https://www.esa.int/articles/about-us/directorates/science/black-holes",
-      "supports": "But larger stars with iron cores begin to collapse, starting with the innermost layers. When the outer layers fall onto this compact core, they bounce back and are expelled into space as a supernova | If the compact core that remains is more than three times the mass of the Sun, it is crushed into a smaller and smaller volume, its gravitational attraction increases, and its escape velocity becomes larger. | As for the first direct image of a black hole, in 2019 the Event Horizon Telescope captured a black hole’s dark silhouette cast against light from matter in its immediate surroundings.",
+      "supports": "nothing, not even light, can escape it | in 2019 the Event Horizon Telescope captured a black hole’s dark silhouette cast against light from matter",
       "review_status": "passage_checked_supports_claim",
       "review_method": "automated_quote_grounding_and_model_entailment",
-      "reviewed_at": "2026-11-21"
+      "reviewed_at": "2026-11-25"
     }
   ],
   "scenes": [
     {
-      "narration_segment": "Black holes trap even light behind the event horizon.",
-      "visual_description": "A black hole with a glowing disk bending light.",
+      "narration_segment": "What kind of thing is so heavy that even light can't get out? Black holes aren't really holes at all. They're huge amounts of stuff squeezed into very tiny spaces.",
+      "visual_description": "A dark sphere with a glowing ring pulls in and squeezes stuff into a tiny space.",
       "visual_style": "hybrid",
       "motif": "black_hole_3d"
     },
     {
-      "narration_segment": "A massive star runs out of fuel, collapses and explodes, leaving a black hole.",
-      "visual_description": "A star collapsing and a supernova shell.",
+      "narration_segment": "Their gravity is so strong that light itself stays trapped.",
+      "visual_description": "Light rays curve toward a dark sphere and cannot get away.",
+      "visual_style": "hybrid",
+      "motif": "black_hole_3d"
+    },
+    {
+      "narration_segment": "One kind is born when a giant star runs out of fuel and blows up.",
+      "visual_description": "A giant star runs out of fuel, collapses and blows its outer layers into space.",
       "visual_style": "hybrid",
       "motif": "star_collapse_3d"
     },
     {
-      "narration_segment": "Our galaxy's central black hole is 4 million times the Sun's mass.",
-      "visual_description": "Stars orbiting a central black hole.",
+      "narration_segment": "Since they give off no light, we spot them by how they tug on things nearby. A telescope has even pictured a dark shape against the glow around one.",
+      "visual_description": "Glowing gas swirls around a dark silhouette at a galaxy's heart.",
       "visual_style": "hybrid",
       "motif": "galaxy_core_3d"
     }
   ],
   "visual_profile": "holographic_science_v1",
   "source_passage_verification_required_before_publication": false,
-  "source_assessment": "Automated gates passed on 2026-11-21: each sentence tied to a verbatim source quote, numbers matched, no copied word runs, model entailment check passed, independent publishers. Not complete fact verification.",
-  "authored_by": "assistant_session_draft_then_automated_gates"
+  "source_assessment": "Automated gates passed on 2026-11-25: each sentence tied to a verbatim source quote, numbers matched, no copied word runs, model entailment check passed, independent publishers. Not complete fact verification.",
+  "authored_by": "assistant_session_draft_then_automated_gates",
+  "replaced_at": "2026-11-25"
 }

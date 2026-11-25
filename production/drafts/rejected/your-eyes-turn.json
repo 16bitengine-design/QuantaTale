@@ -1,0 +1,66 @@
+{
+  "title": "How Does Light Become the Picture You See?",
+  "description": "A quick tour through your eye, from the front window to the brain.",
+  "category": "health",
+  "replaces": "your-eyes-turn",
+  "source_urls": [
+    "https://www.nei.nih.gov/eye-health-information/healthy-vision/how-eyes-work",
+    "https://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment"
+  ],
+  "narration": "How does light turn into the picture you see? Light first passes through the cornea, a clear dome at the front. The colored iris decides how much light gets in. Next, the lens and cornea team up to focus the light. At the back, special cells turn the light into little electrical signals. Your brain then builds the picture from those signals. Glasses are among the best-value ways to look after your eyes.",
+  "claims": [
+    {
+      "sentence": "Light first passes through the cornea, a clear dome at the front.",
+      "quote": "The cornea is shaped like a dome and bends light to help the eye focus.",
+      "source": 0
+    },
+    {
+      "sentence": "The colored iris decides how much light gets in.",
+      "quote": "The iris (the colored part of the eye) controls how much light the pupil lets in.",
+      "source": 0
+    },
+    {
+      "sentence": "Next, the lens and cornea team up to focus the light.",
+      "quote": "The lens works together with the cornea to focus light correctly on the retina.",
+      "source": 0
+    },
+    {
+      "sentence": "At the back, special cells turn the light into little electrical signals.",
+      "quote": "special cells called photoreceptors turn the light into electrical signals",
+      "source": 0
+    },
+    {
+      "sentence": "Your brain then builds the picture from those signals.",
+      "quote": "Then the brain turns the signals into the images you see.",
+      "source": 0
+    },
+    {
+      "sentence": "Glasses are among the best-value ways to look after your eyes.",
+      "quote": "Eyeglasses correction for refractive error and surgery for cataract are among the most cost-effective of all health-care interventions.",
+      "source": 1
+    }
+  ],
+  "scenes": [
+    {
+      "narration_segment": "How does light turn into the picture you see? Light first passes through the cornea, a clear dome at the front. The colored iris decides how much light gets in.",
+      "visual_description": "Light entering an eye through the cornea and pupil.",
+      "visual_style": "hybrid",
+      "motif": "eye_path_3d"
+    },
+    {
+      "narration_segment": "Next, the lens and cornea team up to focus the light. At the back, special cells turn the light into little electrical signals. Your brain then builds the picture from those signals.",
+      "visual_description": "The lens focusing light onto the retina, then signals going to the brain.",
+      "visual_style": "hybrid",
+      "motif": "lens_focus_3d"
+    },
+    {
+      "narration_segment": "Glasses are among the best-value ways to look after your eyes.",
+      "visual_description": "Glasses sharpening a blurry view, compared with none.",
+      "visual_style": "hybrid",
+      "motif": "vision_counts"
+    }
+  ],
+  "rejection_reasons": [
+    "not supported: 'Glasses are among the best-value ways to look after your eyes.'"
+  ]
+}

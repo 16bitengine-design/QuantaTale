@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T09:34:57.001716+00:00",
+  "updated_at": "2026-11-25T10:16:20.831649+00:00",
   "production_specs": [
     {
       "spec_path": "examples/videos/why-the-sky-is-blue-production.json",
@@ -321,7 +321,7 @@
     {
       "spec_path": "production/specs/what-your-body.json",
       "content_id_prefix": "qt-what-your-body",
-      "title": "What Your Body Is Doing While You Sleep | QuantaTale",
+      "title": "What Is Your Body Doing While You Sleep? | QuantaTale",
       "publish_time_local": null,
       "publish_timezone": "Africa/Kampala",
       "publishing_enabled": true,
@@ -446,7 +446,7 @@
     {
       "spec_path": "production/specs/some-volcanoes-explode.json",
       "content_id_prefix": "qt-some-volcanoes-explode",
-      "title": "Why Some Volcanoes Explode and Others Flow | QuantaTale",
+      "title": "Why Does One Volcano Ooze and Another Explode? | QuantaTale",
       "publish_time_local": null,
       "publish_timezone": "Africa/Kampala",
       "publishing_enabled": true,
@@ -621,7 +621,7 @@
     {
       "spec_path": "production/specs/your-heart-keeps.json",
       "content_id_prefix": "qt-your-heart-keeps",
-      "title": "How Your Heart Keeps Blood Moving | QuantaTale",
+      "title": "How Does Your Heart Keep You Going? | QuantaTale",
       "publish_time_local": null,
       "publish_timezone": "Africa/Kampala",
       "publishing_enabled": true,
@@ -671,7 +671,7 @@
     {
       "spec_path": "production/specs/what-black-hole.json",
       "content_id_prefix": "qt-what-black-hole",
-      "title": "What a Black Hole Really Is and How One Forms | QuantaTale",
+      "title": "What Is a Black Hole, Really? | QuantaTale",
       "publish_time_local": null,
       "publish_timezone": "Africa/Kampala",
       "publishing_enabled": true,
@@ -721,7 +721,7 @@
     {
       "spec_path": "production/specs/ultraviolet-light-reac.json",
       "content_id_prefix": "qt-ultraviolet-light-reac",
-      "title": "How Ultraviolet Light Reaches You and How to Block It | QuantaTale",
+      "title": "Can You Get Sunburnt on a Cloudy Day? | QuantaTale",
       "publish_time_local": null,
       "publish_timezone": "Africa/Kampala",
       "publishing_enabled": true,
@@ -846,7 +846,7 @@
     {
       "spec_path": "production/specs/sun-shines-fusion.json",
       "content_id_prefix": "qt-sun-shines-fusion",
-      "title": "How the Sun Shines: Fusion in Its Core | QuantaTale",
+      "title": "What Keeps the Sun Glowing Day After Day? | QuantaTale",
       "publish_time_local": null,
       "publish_timezone": "Africa/Kampala",
       "publishing_enabled": true,
