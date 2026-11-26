@@ -684,5 +684,15 @@
       }
     },
     "scheduled_at": "2026-11-25T12:44:33.663305+00:00"
+  },
+  "qt-ozone-layer-shields-20261126-1822": {
+    "status": "reserved",
+    "spec": "production/specs/ozone-layer-shields.json",
+    "due_at": "2026-11-26T18:22:46+03:00",
+    "reserved_at": "2026-11-26T15:02:46+00:00",
+    "workflow_run_id": "45845050614",
+    "slot_local": "2026-11-26 18:22",
+    "publish_timezone": "Africa/Kampala",
+    "recovers_slot": "2026-11-26 12:00"
   }
 }
