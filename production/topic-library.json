@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-25T10:16:20.831649+00:00",
+  "updated_at": "2026-11-26T09:12:27.572937+00:00",
   "production_specs": [
     {
       "spec_path": "examples/videos/why-the-sky-is-blue-production.json",
@@ -2817,6 +2817,105 @@
       "published": "Mon, 23 Nov 2026 15:00:00 EST",
       "description": "The USGS recently helped introduce Super Intelligence (SI) tools for geospatial analysis and hydrologic forecasting to water-resource professionals in the Kingdom of Lesotho, part of a U.S. Department of State initiative strengthening international partnerships in one of southern Africa's most critical water systems.",
       "discovered_at": "2026-11-25T09:34:57.001163+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000176",
+      "title": "APOD: 2026 November 26 – Eye in the Sky: The Milky Way over Lençóis",
+      "url": "https://science.nasa.gov/image-article/apod-2026-november-26-eye-in-the-sky-the-milky-way-over-lencois/",
+      "publisher_id": "NASA",
+      "published": "Thu, 26 Nov 2026 05:05:00 +0000",
+      "description": "APOD Science APOD APOD: 2026 November 26 – Eye… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer. Eye in […]",
+      "discovered_at": "2026-11-26T09:12:27.572349+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000177",
+      "title": "Childhood, Career Come Full Circle for Budget Analyst at NASA Goddard",
+      "url": "https://www.nasa.gov/centers-and-facilities/goddard/childhood-career-come-full-circle-for-budget-analyst-at-nasa-goddard/",
+      "publisher_id": "NASA",
+      "published": "Wed, 25 Nov 2026 16:47:29 +0000",
+      "description": "Conversations about NASA were the norm around the dinner table during Ashley Knight’s childhood. Her parents worked at NASA’s Goddard Space Flight Center in Greenbelt, Maryland, and discussions about happenings at the agency continued even when they came home from the office. “I remember a poignant dialogue we had after the space shuttle Challenger disaster,” […]",
+      "discovered_at": "2026-11-26T09:12:27.572384+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000178",
+      "title": "Eye of the Sahara",
+      "url": "https://www.nasa.gov/image-article/eye-of-the-sahara/",
+      "publisher_id": "NASA",
+      "published": "Wed, 25 Nov 2026 16:21:04 +0000",
+      "description": "The Richat Structure, also known as the “Eye of the Sahara,” is seen from the International Space Station as it orbited above on Nov. 14, 2026. It is an eroded geological dome about 100 million years old created by igneous activity and uplift in the nation of Mauritania. In this type of geologic structure, rocks […]",
+      "discovered_at": "2026-11-26T09:12:27.572394+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000179",
+      "title": "NASA Enhances Supplier Program, Announces Mentor-Protégé Agreement",
+      "url": "https://www.nasa.gov/organizations/osbp/nasa-enhances-supplier-program-announces-mentor-protege-agreement/",
+      "publisher_id": "NASA",
+      "published": "Wed, 25 Nov 2026 19:06:56 +0000",
+      "description": "How NASA works with small businesses is evolving, and as a result, the agency is strengthening the domestic aerospace industrial base to support future exploration missions through its recently renamed Small Business Supplier Development Program. As part of the program, NASA announced its latest Mentor-Protégé Agreement, this one signed between The Boeing Company and GRACE […]",
+      "discovered_at": "2026-11-26T09:12:27.572406+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000180",
+      "title": "NASA Eyes Crop Candidates for Future Menus",
+      "url": "https://science.nasa.gov/directorates/smd/nasa-eyes-crop-candidates-for-future-menus/",
+      "publisher_id": "NASA",
+      "published": "Wed, 25 Nov 2026 17:53:42 +0000",
+      "description": "As NASA prepares for future missions to the Moon and Mars, researchers are studying crops that could provide astronauts with fresh food, nutrition, and variety far from Earth. Such crop variety can help with menus in deep space, something top of mind this week as the nation celebrates Thanksgiving. Recent testing points to strawberries, […]",
+      "discovered_at": "2026-11-26T09:12:27.572413+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000181",
+      "title": "NASA’s Hubble Views Ocean of Stars in Groundwork for Roman",
+      "url": "https://science.nasa.gov/missions/hubble/nasas-hubble-views-ocean-of-stars-in-groundwork-for-roman/",
+      "publisher_id": "NASA",
+      "published": "Wed, 25 Nov 2026 14:56:54 +0000",
+      "description": "These Hubble observations are part of a survey that will help researchers better interpret upcoming Nancy Grace Roman Space Telescope observations as they seek to characterize the stars and search for exoplanets in this busy region of our galaxy.",
+      "discovered_at": "2026-11-26T09:12:27.572424+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000182",
+      "title": "Seeking Refuge on Resolution Island",
+      "url": "https://science.nasa.gov/earth/earth-observatory/seeking-refuge-on-resolution-island/",
+      "publisher_id": "NASA",
+      "published": "Thu, 26 Nov 2026 05:01:00 +0000",
+      "description": "New Zealanders have long envisioned the island as a predator-free zone for native birds, but swimming stoats have shown a resolve of their own.",
+      "discovered_at": "2026-11-26T09:12:27.572430+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000183",
+      "title": "Volcano Minute — Mauna Loa 2022 Eruption: Four Years Later",
+      "url": "https://www.usgs.gov/observatories/hvo/news/volcano-minute-mauna-loa-2022-eruption-four-years-later?utm_source=comms&amp;utm_medium=rss&amp;utm_campaign=news",
+      "publisher_id": "USGS",
+      "published": "Wed, 25 Nov 2026 08:43:30 EST",
+      "description": "Four years ago this week, Hawaii witnessed a remarkable event. After 38 years of quiet, Mauna Loa, the world's largest active volcano, began erupting on the night of November 27, 2022.",
+      "discovered_at": "2026-11-26T09:12:27.572530+00:00",
+      "status": "candidate_unreviewed",
+      "editorial_review_required": false
+    },
+    {
+      "lead_id": "lead-000184",
+      "title": "Volcano Watch — Four Years Later: Remembering Mauna Loa’s 2022 Eruption",
+      "url": "https://www.usgs.gov/observatories/hvo/news/volcano-watch-four-years-later-remembering-mauna-loas-2022-eruption?utm_source=comms&amp;utm_medium=rss&amp;utm_campaign=news",
+      "publisher_id": "USGS",
+      "published": "Wed, 25 Nov 2026 09:13:43 EST",
+      "description": "After 38 years of quiescence, Mauna Loa began erupting on November 27, 2022, at 11:21 p.m. HST. Four years later, we reflect on how this eruption provided new insights on Earth’s largest active volcano.",
+      "discovered_at": "2026-11-26T09:12:27.572553+00:00",
       "status": "candidate_unreviewed",
       "editorial_review_required": false
     }
