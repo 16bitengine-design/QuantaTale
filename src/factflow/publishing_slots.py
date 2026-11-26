@@ -4,6 +4,8 @@ from datetime import datetime, time, timedelta, timezone
 from zoneinfo import ZoneInfo
 from typing import Any
 
+from factflow.topic_interest import DEFAULT_MIN_INTEREST, clears_interest_bar, interest_of
+
 DEFAULT_PUBLISH_SLOTS = ("12:00", "18:00")
 # A slot becomes selectable up to 2.5 hours ahead so delayed or dropped GitHub
 # cron events still land inside the window, and stays selectable until 15
@@ -11,6 +13,13 @@ DEFAULT_PUBLISH_SLOTS = ("12:00", "18:00")
 # five-minute minimum scheduling lead.
 DEFAULT_MIN_LEAD = timedelta(minutes=15)
 DEFAULT_MAX_LEAD = timedelta(minutes=150)
+
+class NoInterestingTopicError(ValueError):
+    """Evidence-eligible topics exist but none clears the public-interest bar.
+
+    Callers treat this as a deliberate skipped slot, not a failure.
+    """
+
 
 def is_publishable_spec(item: dict[str, Any]) -> bool:
     """Check default topic enablement and retain independent evidence safeguards."""
@@ -44,11 +53,13 @@ def _ever_used_specs(ledger: dict[str, Any]) -> set[str]:
     return used
 
 
-def unused_topic_count(library: dict[str, Any], ledger: dict[str, Any]) -> int:
-    """Number of publishable topics that have never been used."""
+def unused_topic_count(library: dict[str, Any], ledger: dict[str, Any],
+                       min_interest: int = DEFAULT_MIN_INTEREST) -> int:
+    """Number of publishable, interesting topics that have never been used."""
     used = _ever_used_specs(ledger)
     return sum(1 for item in library.get("production_specs", [])
-               if isinstance(item, dict) and is_publishable_spec(item) and str(item.get("spec_path", "")) not in used)
+               if isinstance(item, dict) and is_publishable_spec(item)
+               and clears_interest_bar(item, min_interest) and str(item.get("spec_path", "")) not in used)
 
 
 def _last_used_by_spec(ledger: dict[str, Any]) -> dict[str, datetime]:
@@ -68,12 +79,13 @@ def _last_used_by_spec(ledger: dict[str, Any]) -> dict[str, datetime]:
 
 
 def _least_recently_used(candidates: list[dict[str, Any]], ledger: dict[str, Any]) -> dict[str, Any]:
-    """Choose the least recently published spec, with a stable path tie-break."""
+    """Choose the most interesting spec; ties go to the least recently used."""
     last_used = _last_used_by_spec(ledger)
     oldest = datetime.min.replace(tzinfo=timezone.utc)
     return sorted(
         candidates,
         key=lambda item: (
+            -interest_of(item),
             last_used.get(str(item.get("spec_path", "")), oldest),
             str(item.get("spec_path", "")),
         ),
@@ -81,7 +93,8 @@ def _least_recently_used(candidates: list[dict[str, Any]], ledger: dict[str, Any
 
 
 def select_immediate_slot(library: dict[str, Any], ledger: dict[str, Any], *,
-    now: datetime | None = None, lead_time: timedelta = timedelta(minutes=20)
+    now: datetime | None = None, lead_time: timedelta = timedelta(minutes=20),
+    min_interest: int = DEFAULT_MIN_INTEREST
 ) -> dict[str, str]:
     """Select an unused evidence-eligible topic for an operator-triggered ASAP post.
 
@@ -118,6 +131,10 @@ def select_immediate_slot(library: dict[str, Any], ledger: dict[str, Any], *,
         and str(item.get("spec_path", "")) not in ever_used]
     if not candidates:
         raise ValueError("No never-used eligible topic remains; topics are never repeated. Add and verify new topics.")
+    interesting = [item for item in candidates if clears_interest_bar(item, min_interest)]
+    if not interesting:
+        raise NoInterestingTopicError("No unused topic clears the public-interest bar; skipping instead of posting low-appeal content.")
+    candidates = interesting
     spec = _least_recently_used(candidates, ledger)
     zone_name = str(spec.get("publish_timezone") or "Africa/Kampala")
     zone = ZoneInfo(zone_name)
@@ -143,7 +160,8 @@ def _parse_datetime(value: str) -> datetime:
 
 def select_next_slot(library: dict[str, Any], ledger: dict[str, Any], *,
     now: datetime | None = None, slot_times: tuple[str, ...] = DEFAULT_PUBLISH_SLOTS,
-    min_lead: timedelta = DEFAULT_MIN_LEAD, max_lead: timedelta = DEFAULT_MAX_LEAD
+    min_lead: timedelta = DEFAULT_MIN_LEAD, max_lead: timedelta = DEFAULT_MAX_LEAD,
+    min_interest: int = DEFAULT_MIN_INTEREST
 ) -> dict[str, str] | None:
     """Return the next imminent slot and an unused enabled spec, or None.
 
@@ -201,6 +219,9 @@ def select_next_slot(library: dict[str, Any], ledger: dict[str, Any], *,
     ever_used = _ever_used_specs(ledger)
     unused = [spec for spec in chosen_specs if str(spec.get("spec_path", "")) not in used_spec_paths
         and str(spec.get("spec_path", "")) not in ever_used]
+    if unused and not any(clears_interest_bar(spec, min_interest) for spec in unused):
+        return None  # deliberate skip: nothing left clears the public-interest bar
+    unused = [spec for spec in unused if clears_interest_bar(spec, min_interest)] or unused
     if not unused:
         raise ValueError(f"No unused eligible topic remains for the {local_slot:%Y-%m-%d %H:%M} {zone.key} publishing slot; topics are never repeated. Add and verify new topics.")
     spec = _least_recently_used(unused, ledger)

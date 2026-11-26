@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit, urlunsplit
 from factflow.publishing_slots import is_publishable_spec
+from factflow.topic_interest import lead_is_low_interest, score_spec
 
 DEFAULT_LIBRARY = Path("production/topic-library.json")
 
@@ -63,6 +64,9 @@ def register_production_spec(library: dict[str, Any], spec_path: str, spec: dict
         "sources": [{"publisher": source.get("publisher"), "url": source.get("url"), "review_status": source.get("review_status")}
             for source in spec.get("sources", []) if isinstance(source, dict)],
     }
+    interest = score_spec(spec)
+    record["interest_score"] = interest["score"]
+    record["interest_reasons"] = interest["reasons"]
     if existing:
         existing.update(record)
         return False
@@ -76,9 +80,12 @@ def add_discovery_report(library: dict[str, Any], report: dict[str, Any]) -> dic
         raise ValueError("Discovery report candidates must be a list.")
     known_urls = {_normalise_url(str(item.get("url", ""))) for item in library["discovery_leads"]}
     known_titles = {_normalise_title(str(item.get("title", ""))) for item in library["discovery_leads"]}
-    added = duplicates = 0
+    added = duplicates = skipped = 0
     for candidate in candidates:
         if not isinstance(candidate, dict):
+            continue
+        if lead_is_low_interest(candidate):
+            skipped += 1
             continue
         title, url = str(candidate.get("title", "")).strip(), str(candidate.get("url", "")).strip()
         if not title or not url:
@@ -97,7 +104,10 @@ def add_discovery_report(library: dict[str, Any], report: dict[str, Any]) -> dic
         known_urls.add(normalized_url)
         known_titles.add(normalized_title)
         added += 1
-    return {"added": added, "duplicates": duplicates, "total_leads": len(library["discovery_leads"])}
+    result = {"added": added, "duplicates": duplicates, "total_leads": len(library["discovery_leads"])}
+    if skipped:
+        result["skipped_low_interest"] = skipped
+    return result
 
 def library_summary(library: dict[str, Any]) -> dict[str, int]:
     specs = library["production_specs"]

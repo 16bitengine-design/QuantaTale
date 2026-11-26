@@ -134,6 +134,10 @@ def build_parser() -> argparse.ArgumentParser:
     stock_parser.add_argument("--minimum", type=int, default=4)
     stock_parser.add_argument("--output", default="build/topic-stock.json")
 
+    interest_parser = subparsers.add_parser(
+        "score-library", help="Score every production spec for public interest and store the result.")
+    interest_parser.add_argument("--library", default="production/topic-library.json")
+
     status_parser = subparsers.add_parser(
         "library-status", help="Report approved topic reserve health without approving candidates."
     )
@@ -301,6 +305,23 @@ def main() -> int:
         if report.get("error"):
             print(f"TOPIC AUTHORING ERROR: {report['error']}", file=sys.stderr)
             return 1
+        return 0
+
+    if args.command == "score-library":
+        from factflow.topic_interest import score_spec
+        library = load_library(args.library)
+        scored = 0
+        for item in library["production_specs"]:
+            try:
+                spec = json.loads(Path(item["spec_path"]).read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError, KeyError):
+                print(f"  could not read {item.get('spec_path')}; left unscored")
+                continue
+            result = score_spec(spec)
+            item["interest_score"], item["interest_reasons"] = result["score"], result["reasons"]
+            scored += 1
+        save_library(library, args.library)
+        print(f"Scored {scored} of {len(library['production_specs'])} specs.")
         return 0
 
     if args.command == "topic-stock":
