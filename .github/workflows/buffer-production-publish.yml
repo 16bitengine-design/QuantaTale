@@ -46,7 +46,7 @@ jobs:
           import json, os
           from datetime import datetime, timezone
           from pathlib import Path
-          from factflow.publishing_slots import select_next_slot, select_immediate_slot
+          from factflow.publishing_slots import select_next_slot, select_immediate_slot, NoInterestingTopicError
           from factflow.publishing_watchdog import unrecovered_missed_slot
 
           library_path = Path("production/topic-library.json")
@@ -66,7 +66,11 @@ jobs:
                   if missed is not None:
                       recovers_slot = f"{missed:%Y-%m-%d %H:%M}"
                       print(f"::warning title=Catching up missed slot::The {recovers_slot} Africa/Kampala slot was never scheduled; publishing one video now.")
-                      selection = select_immediate_slot(library, ledger, now=now)
+                      try:
+                          selection = select_immediate_slot(library, ledger, now=now)
+                      except NoInterestingTopicError as exc:
+                          print(f"::notice title=Slot skipped::{exc}")
+                          selection = None
           output = Path(os.environ["GITHUB_OUTPUT"])
           if selection is None:
               with output.open("a", encoding="utf-8") as handle:

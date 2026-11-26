@@ -40,14 +40,18 @@ def test_new_sunset_spec_is_registered_after_source_passage_assessment():
 
 def test_today_noon_and_evening_slots_select_distinct_eligible_topics():
     from datetime import datetime, timezone
-    from factflow.publishing_slots import select_next_slot
+    from factflow.publishing_slots import is_publishable_spec, select_next_slot
 
     library = json.loads((ROOT / "production/topic-library.json").read_text(encoding="utf-8"))
     ledger = {}
     noon = select_next_slot(
         library, ledger, now=datetime(2026, 11, 16, 8, 30, tzinfo=timezone.utc)
     )
-    assert noon["spec_path"] == "examples/videos/why-the-sky-is-blue-production.json"  # alphabetically first, never used
+    from factflow.topic_interest import interest_of
+    eligible = [i for i in library["production_specs"] if is_publishable_spec(i)]
+    best = max(interest_of(i) for i in eligible)
+    chosen = next(i for i in eligible if i["spec_path"] == noon["spec_path"])
+    assert interest_of(chosen) == best  # the most interesting never-used topic goes first
     ledger[noon["content_id"]] = {"spec": noon["spec_path"], "due_at": noon["due_at"]}
     evening = select_next_slot(
         library, ledger, now=datetime(2026, 11, 16, 14, 30, tzinfo=timezone.utc)

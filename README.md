@@ -266,3 +266,13 @@ The workflow uses the current Buffer GraphQL API and Cloudinary's signed server-
 ## Global audiovisual production standards
 
 Every topic and production workflow follows the shared [visual and narration standards](docs/visual-production-standards.md). The renderer enforces the Kokoro voice policy (default `af_heart`; eSpeak is phonemization-only) and records the shared standards in render metadata. New storyboards must map every important narration beat to a scientifically accurate, animated holographic visual. A topic must never inherit another topic's storyboard. Automated checks and human editorial approval are required before public release.
+
+## Public-interest gate
+
+Pipeline stage 5 ranks topics by likely public interest (`src/factflow/topic_interest.py`): curiosity hook, everyday relevance, visual explainability and concreteness, scored 0-100 with recorded reasons. It is a free, deterministic heuristic and never replaces evidence gates.
+
+- Each registered spec stores `interest_score` and `interest_reasons` in `production/topic-library.json`; `quantatale score-library` rescores existing specs.
+- Slots pick the highest-scoring unused topic (least recently used breaks ties).
+- Topics below `DEFAULT_MIN_INTEREST` (40) are never posted: the slot is skipped rather than filled with low-appeal content, and they are excluded from the low-stock alert count.
+- Administrative or personnel discovery leads (appointments, webinars, budgets, meetings) are not added to the leads list.
+- The score is a heuristic, not audience data. Tune the threshold once real watch-time results exist.

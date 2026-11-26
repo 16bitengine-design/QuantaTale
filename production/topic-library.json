@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-26T09:12:27.572937+00:00",
+  "updated_at": "2026-11-26T18:32:13.332127+00:00",
   "production_specs": [
     {
       "spec_path": "examples/videos/why-the-sky-is-blue-production.json",
@@ -10,7 +10,14 @@
       "publish_timezone": "Africa/Kampala",
       "editorial_approved": true,
       "status": "approved_ready",
-      "registered_at": "2026-11-15T00:00:00+00:00"
+      "registered_at": "2026-11-15T00:00:00+00:00",
+      "interest_score": 55,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "extreme or record claim",
+        "touches everyday life"
+      ]
     },
     {
       "spec_path": "production/specs/moon-phases.json",
@@ -22,7 +29,13 @@
       "registered_at": "2026-11-15T13:21:14.396Z",
       "editorial_approved_at": "2026-11-15T13:27:57.027Z",
       "editorial_approval_basis": "explicit_project_owner_batch_approval",
-      "source_passage_verification_required_before_publication": false
+      "source_passage_verification_required_before_publication": false,
+      "interest_score": 51,
+      "interest_reasons": [
+        "challenges an assumption",
+        "touches everyday life",
+        "strong visual explanation"
+      ]
     },
     {
       "spec_path": "production/specs/ocean-blue.json",
@@ -34,7 +47,15 @@
       "registered_at": "2026-11-15T13:21:14.404Z",
       "editorial_approved_at": "2026-11-15T13:27:57.027Z",
       "editorial_approval_basis": "explicit_project_owner_batch_approval",
-      "source_passage_verification_required_before_publication": false
+      "source_passage_verification_required_before_publication": false,
+      "interest_score": 70,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation"
+      ]
     },
     {
       "spec_path": "production/specs/venus-day.json",
@@ -46,7 +67,13 @@
       "registered_at": "2026-11-15T13:21:14.404Z",
       "editorial_approved_at": "2026-11-15T13:27:57.027Z",
       "editorial_approval_basis": "explicit_project_owner_batch_approval",
-      "source_passage_verification_required_before_publication": true
+      "source_passage_verification_required_before_publication": true,
+      "interest_score": 46,
+      "interest_reasons": [
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation"
+      ]
     },
     {
       "spec_path": "production/specs/lightning-hot-air.json",
@@ -58,7 +85,14 @@
       "registered_at": "2026-11-15T13:21:14.404Z",
       "editorial_approved_at": "2026-11-15T13:27:57.027Z",
       "editorial_approval_basis": "explicit_project_owner_batch_approval",
-      "source_passage_verification_required_before_publication": false
+      "source_passage_verification_required_before_publication": false,
+      "interest_score": 62,
+      "interest_reasons": [
+        "challenges an assumption",
+        "touches everyday life",
+        "strong visual explanation",
+        "concrete number"
+      ]
     },
     {
       "spec_path": "production/specs/old-faithful.json",
@@ -70,7 +104,13 @@
       "registered_at": "2026-11-15T13:21:14.404Z",
       "editorial_approved_at": "2026-11-15T13:27:57.027Z",
       "editorial_approval_basis": "explicit_project_owner_batch_approval",
-      "source_passage_verification_required_before_publication": false
+      "source_passage_verification_required_before_publication": false,
+      "interest_score": 44,
+      "interest_reasons": [
+        "challenges an assumption",
+        "touches everyday life",
+        "strong visual explanation"
+      ]
     },
     {
       "spec_path": "production/specs/clouds-form.json",
@@ -82,7 +122,13 @@
       "registered_at": "2026-11-15T13:21:14.404Z",
       "editorial_approved_at": "2026-11-15T13:27:57.027Z",
       "editorial_approval_basis": "explicit_project_owner_batch_approval",
-      "source_passage_verification_required_before_publication": false
+      "source_passage_verification_required_before_publication": false,
+      "interest_score": 43,
+      "interest_reasons": [
+        "challenges an assumption",
+        "touches everyday life",
+        "strong visual explanation"
+      ]
     },
     {
       "spec_path": "production/specs/stars-twinkle.json",
@@ -94,7 +140,14 @@
       "registered_at": "2026-11-15T13:21:14.404Z",
       "editorial_approved_at": "2026-11-15T13:27:57.027Z",
       "editorial_approval_basis": "explicit_project_owner_batch_approval",
-      "source_passage_verification_required_before_publication": false
+      "source_passage_verification_required_before_publication": false,
+      "interest_score": 55,
+      "interest_reasons": [
+        "challenges an assumption",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation"
+      ]
     },
     {
       "spec_path": "production/specs/tectonic-plates.json",
@@ -106,7 +159,14 @@
       "registered_at": "2026-11-15T13:21:14.404Z",
       "editorial_approved_at": "2026-11-15T13:27:57.027Z",
       "editorial_approval_basis": "explicit_project_owner_batch_approval",
-      "source_passage_verification_required_before_publication": false
+      "source_passage_verification_required_before_publication": false,
+      "interest_score": 57,
+      "interest_reasons": [
+        "challenges an assumption",
+        "big-question subject",
+        "touches everyday life",
+        "strong visual explanation"
+      ]
     },
     {
       "spec_path": "production/specs/aurora-lights.json",
@@ -118,7 +178,13 @@
       "registered_at": "2026-11-15T13:21:14.404Z",
       "editorial_approved_at": "2026-11-15T13:27:57.027Z",
       "editorial_approval_basis": "explicit_project_owner_batch_approval",
-      "source_passage_verification_required_before_publication": true
+      "source_passage_verification_required_before_publication": true,
+      "interest_score": 47,
+      "interest_reasons": [
+        "challenges an assumption",
+        "touches everyday life",
+        "strong visual explanation"
+      ]
     },
     {
       "spec_path": "production/specs/leaves-colour.json",
@@ -130,7 +196,14 @@
       "registered_at": "2026-11-15T13:21:14.404Z",
       "editorial_approved_at": "2026-11-15T13:27:57.027Z",
       "editorial_approval_basis": "explicit_project_owner_batch_approval",
-      "source_passage_verification_required_before_publication": false
+      "source_passage_verification_required_before_publication": false,
+      "interest_score": 42,
+      "interest_reasons": [
+        "challenges an assumption",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation"
+      ]
     },
     {
       "spec_path": "production/specs/sound-space.json",
@@ -142,7 +215,13 @@
       "registered_at": "2026-11-15T13:22:33.559Z",
       "editorial_approved_at": "2026-11-15T13:27:57.027Z",
       "editorial_approval_basis": "explicit_project_owner_batch_approval",
-      "source_passage_verification_required_before_publication": true
+      "source_passage_verification_required_before_publication": true,
+      "interest_score": 46,
+      "interest_reasons": [
+        "challenges an assumption",
+        "touches everyday life",
+        "strong visual explanation"
+      ]
     },
     {
       "spec_path": "production/specs/earth-shape.json",
@@ -154,7 +233,13 @@
       "registered_at": "2026-11-15T13:22:33.559Z",
       "editorial_approved_at": "2026-11-15T13:27:57.027Z",
       "editorial_approval_basis": "explicit_project_owner_batch_approval",
-      "source_passage_verification_required_before_publication": false
+      "source_passage_verification_required_before_publication": false,
+      "interest_score": 48,
+      "interest_reasons": [
+        "challenges an assumption",
+        "touches everyday life",
+        "strong visual explanation"
+      ]
     },
     {
       "spec_path": "production/specs/mercury-day.json",
@@ -166,7 +251,13 @@
       "registered_at": "2026-11-15T13:22:33.559Z",
       "editorial_approved_at": "2026-11-15T13:27:57.027Z",
       "editorial_approval_basis": "explicit_project_owner_batch_approval",
-      "source_passage_verification_required_before_publication": false
+      "source_passage_verification_required_before_publication": false,
+      "interest_score": 43,
+      "interest_reasons": [
+        "challenges an assumption",
+        "touches everyday life",
+        "strong visual explanation"
+      ]
     },
     {
       "spec_path": "production/specs/olympus-mons.json",
@@ -178,7 +269,15 @@
       "registered_at": "2026-11-15T13:22:33.559Z",
       "editorial_approved_at": "2026-11-15T13:27:57.027Z",
       "editorial_approval_basis": "explicit_project_owner_batch_approval",
-      "source_passage_verification_required_before_publication": true
+      "source_passage_verification_required_before_publication": true,
+      "interest_score": 57,
+      "interest_reasons": [
+        "extreme or record claim",
+        "big-question subject",
+        "touches everyday life",
+        "strong visual explanation",
+        "concrete number"
+      ]
     },
     {
       "spec_path": "production/specs/sunset-red.json",
@@ -191,7 +290,13 @@
       "editorial_approval_basis": "project_owner_default_topic_eligibility",
       "source_passage_verification_required_before_publication": false,
       "source_assessment_status": "automated_passage_assessment_supports_claims",
-      "renderer_profile": "sunset_red_v1"
+      "renderer_profile": "sunset_red_v1",
+      "interest_score": 55,
+      "interest_reasons": [
+        "challenges an assumption",
+        "touches everyday life",
+        "strong visual explanation"
+      ]
     },
     {
       "spec_path": "production/specs/moon-and-sun.json",
@@ -216,6 +321,13 @@
           "url": "https://science.nasa.gov/moon/tides/",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 65,
+      "interest_reasons": [
+        "opens with a question",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -241,6 +353,15 @@
           "url": "https://www.usgs.gov/faqs/what-are-tsunamis",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 76,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "extreme or record claim",
+        "big-question subject",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -266,6 +387,12 @@
           "url": "https://spaceplace.nasa.gov/el-nino/en/",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 58,
+      "interest_reasons": [
+        "opens with a question",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -291,6 +418,12 @@
           "url": "https://spaceplace.nasa.gov/hurricanes/en/",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 54,
+      "interest_reasons": [
+        "opens with a question",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -316,6 +449,14 @@
           "url": "https://www.usgs.gov/water-science-school/science/saline-water-and-salinity",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 81,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -341,6 +482,13 @@
           "url": "https://www.cdc.gov/sleep/about/index.html",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 72,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -366,6 +514,13 @@
           "url": "https://www.cdc.gov/niosh/heat-stress/about/illnesses.html",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 67,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -391,6 +546,13 @@
           "url": "https://www.usgs.gov/programs/geomagnetism/introduction-geomagnetism",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 54,
+      "interest_reasons": [
+        "opens with a question",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -416,6 +578,15 @@
           "url": "https://gml.noaa.gov/ozwv/faq_cat-2.html",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 68,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation",
+        "concrete number"
       ]
     },
     {
@@ -441,6 +612,13 @@
           "url": "https://www.ncei.noaa.gov/news/what-is-space-weather",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 57,
+      "interest_reasons": [
+        "opens with a question",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -466,6 +644,14 @@
           "url": "https://spaceplace.nasa.gov/volcanoes/en/",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 60,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "big-question subject",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -491,6 +677,13 @@
           "url": "https://www.nasa.gov/missions/tech-demonstration/deep-space-atomic-clock/what-is-an-atomic-clock/",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 50,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "extreme or record claim",
+        "strong visual explanation"
       ]
     },
     {
@@ -516,6 +709,14 @@
           "url": "https://www.ncei.noaa.gov/news/science-beauty-and-mystery-auroras",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 70,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -541,6 +742,14 @@
           "url": "https://newsinhealth.nih.gov/2023/05/hydrating-health",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 80,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -566,6 +775,14 @@
           "url": "https://science.nasa.gov/kids/earth/10-interesting-things-about-glaciers/",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 77,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -591,6 +808,14 @@
           "url": "https://spaceplace.nasa.gov/earthquakes/en/",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 61,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "big-question subject",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -616,6 +841,13 @@
           "url": "https://www.cdc.gov/niosh/noise/about/index.html",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 70,
+      "interest_reasons": [
+        "opens with a question",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -641,6 +873,13 @@
           "url": "https://www.cdc.gov/heart-disease/about/index.html",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 62,
+      "interest_reasons": [
+        "opens with a question",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -666,6 +905,11 @@
           "url": "https://science.nasa.gov/sun/facts/",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 42,
+      "interest_reasons": [
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -691,6 +935,14 @@
           "url": "https://www.esa.int/articles/about-us/directorates/science/black-holes",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 60,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "big-question subject",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -716,6 +968,14 @@
           "url": "https://www.who.int/news-room/fact-sheets/detail/blindness-and-visual-impairment",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 80,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -741,6 +1001,13 @@
           "url": "https://www.who.int/news-room/questions-and-answers/item/radiation-ultraviolet-(uv)",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 72,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -766,6 +1033,15 @@
           "url": "https://www.who.int/news-room/questions-and-answers/item/vaccines-and-immunization-what-is-vaccination",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 81,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "extreme or record claim",
+        "big-question subject",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -791,6 +1067,15 @@
           "url": "https://oceanservice.noaa.gov/facts/sealevel.html",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 82,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation",
+        "concrete number"
       ]
     },
     {
@@ -816,6 +1101,14 @@
           "url": "https://science.nasa.gov/earth/earth-observatory/the-water-cycle/",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 75,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -841,6 +1134,14 @@
           "url": "https://www.esa.int/articles/about-us/directorates/operations/space-safety/hera/hera-mission-overview",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 67,
+      "interest_reasons": [
+        "opens with a question",
+        "extreme or record claim",
+        "big-question subject",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -866,6 +1167,13 @@
           "url": "https://sci.esa.int/web/education/-/36828-stellar-processes-and-evolution",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 58,
+      "interest_reasons": [
+        "opens with a question",
+        "extreme or record claim",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     },
     {
@@ -891,6 +1199,13 @@
           "url": "https://www.nesdis.noaa.gov/about/k-12-education/understanding-our-planet/why-does-earth-have-seasons",
           "review_status": "passage_checked_supports_claim"
         }
+      ],
+      "interest_score": 55,
+      "interest_reasons": [
+        "opens with a question",
+        "challenges an assumption",
+        "touches everyday life",
+        "strong visual explanation"
       ]
     }
   ],
