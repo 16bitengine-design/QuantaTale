@@ -723,7 +723,7 @@
     "scheduled_at": "2026-11-26T15:05:12.872877+00:00"
   },
   "qt-what-making-global-20261127-1200": {
-    "status": "reserved",
+    "status": "scheduled",
     "spec": "production/specs/what-making-global.json",
     "due_at": "2026-11-27T12:00:00+03:00",
     "reserved_at": "2026-11-27T08:14:26+00:00",
@@ -747,6 +747,7 @@
           "status": "awaiting_confirmation"
         }
       }
-    }
+    },
+    "scheduled_at": "2026-11-27T08:16:03.156105+00:00"
   }
 }
