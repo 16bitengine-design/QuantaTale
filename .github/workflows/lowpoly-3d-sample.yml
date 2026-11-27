@@ -1,0 +1,64 @@
+name: Low-poly 3D sample
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "src/factflow/web/**"
+      - "src/factflow/webgl_render.py"
+      - "src/factflow/webgl_preview.py"
+      - "tests/test_webgl_backdrop.py"
+      - ".github/workflows/lowpoly-3d-sample.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: quantatale-3d-sample-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render-3d:
+    name: Render 3D low-poly sample and measure speed
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg
+
+      - name: Install QuantaTale with 3D support
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev,render,webgl]"
+          python -m playwright install --with-deps chromium
+
+      - name: Run 3D backdrop tests (real Chromium, must not skip)
+        env:
+          QUANTATALE_REQUIRE_WEBGL: "1"
+        run: python -m pytest tests/test_webgl_backdrop.py -v -rs
+
+      - name: Render preview of every motif
+        run: |
+          set -o pipefail
+          mkdir -p build
+          python -m factflow.webgl_preview --output build/lowpoly-3d-preview.mp4 | tee build/speed.txt
+
+      - name: Summarise speed
+        run: cat build/speed.txt >> "$GITHUB_STEP_SUMMARY"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lowpoly-3d-preview
+          path: build/lowpoly-3d-preview.mp4
+          if-no-files-found: error
+          retention-days: 7
