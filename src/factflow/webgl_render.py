@@ -65,10 +65,10 @@ class WebGLBackdrop:
                 except Exception:
                     pass
 
-    def frame(self, motif: str, seconds: float, progress: float) -> Any:
+    def frame(self, motif: str, seconds: float, progress: float, shot: int = 0) -> Any:
         from PIL import Image
         if motif != self._scene:
             self._page.evaluate("name => window.setScene(name)", motif)
             self._scene = motif
-        self._page.evaluate("([t, p]) => window.renderAt(t, p)", [seconds, max(0.0, min(1.0, progress))])
+        self._page.evaluate("([t, p, s]) => window.renderAt(t, p, s)", [seconds, max(0.0, min(1.0, progress)), int(shot)])
         return Image.open(io.BytesIO(self._page.screenshot(type="png"))).convert("RGB")

@@ -56,3 +56,14 @@ def test_easing_and_shading_bounds():
     assert abs(ease_out_back(0)) < 1e-9 and abs(ease_out_back(1) - 1) < 1e-9
     assert max(ease_out_back(i / 20) for i in range(21)) > 1.0  # overshoot = bounce
     assert all(0 <= c <= 255 for c in shade((250, 250, 250), 1.0))
+
+
+def test_lowpoly_frames_carry_little_text_and_short_captions():
+    from factflow.video_render import _caption_segments
+
+    long = "In the Northern Hemisphere, winter arrives while Earth is nearest the Sun, and summer arrives when it is farthest."
+    chunks = [t for _, _, t in _caption_segments(long, 20.0, None, max_words=5, max_chars=30)]
+    assert all(len(c.split()) <= 5 and len(c) <= 30 for c in chunks)
+    early, late = _frame(t=1.0), _frame(t=9.0)
+    # the title fades away after the first seconds, so the top band differs
+    assert early.crop((0, 80, 720, 150)).tobytes() != late.crop((0, 80, 720, 150)).tobytes()
