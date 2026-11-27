@@ -40,24 +40,38 @@ function sunAt(y,r0,intensity=1.1e5){sun=new THREE.Mesh(new THREE.IcosahedronGeo
 
 const builders={
  lp_seasons(){base();sunAt(120,46);tree(-150,60);tree(160,90,.8);tree(-110,-130,.7);tree(120,-120,.9);tree(30,160,.6);
-  const eg=new THREE.IcosahedronGeometry(32,1).toNonIndexed();const A=eg.attributes.position,col=[];
+  const eg=new THREE.IcosahedronGeometry(42,1).toNonIndexed();const A=eg.attributes.position,col=[];state.faces=[];
   for(let i=0;i<A.count;i+=3){const cx=(A.getX(i)+A.getX(i+1)+A.getX(i+2))/3,cy=(A.getY(i)+A.getY(i+1)+A.getY(i+2))/3,cz=(A.getZ(i)+A.getZ(i+1)+A.getZ(i+2))/3;
-   const n=Math.sin(cx*.21)+Math.sin(cy*.3+1)+Math.cos(cz*.25);const c=new THREE.Color(n>0.6?0x4fae6a:0x2f6fd0);for(let k=0;k<3;k++)col.push(c.r,c.g,c.b)}
-  eg.setAttribute('color',new THREE.Float32BufferAttribute(col,3));
-  earth=new THREE.Mesh(eg,new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,roughness:.7}));earth.castShadow=true;
+   const n=Math.sin(cx*.21)+Math.sin(cy*.3+1)+Math.cos(cz*.25);const c=new THREE.Color(n>0.6?0x4fae6a:0x2f6fd0);
+   state.faces.push({i,yn:cy/42,base:c});for(let k=0;k<3;k++)col.push(c.r,c.g,c.b)}
+  eg.setAttribute('color',new THREE.Float32BufferAttribute(col,3));state.eg=eg;
+  const lc=document.createElement('canvas');lc.width=512;lc.height=96;state.lc=lc;state.lt=new THREE.CanvasTexture(lc);
+  state.label=new THREE.Sprite(new THREE.SpriteMaterial({map:state.lt,depthTest:false,transparent:true}));state.label.scale.set(200,38,1);scene.add(state.label);
+  earth=new THREE.Mesh(eg,new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,roughness:.7,emissive:0x3c5470,emissiveIntensity:1}));earth.castShadow=true;
   const tilt=new THREE.Group();tilt.rotation.z=THREE.MathUtils.degToRad(-23.5);tilt.add(earth);
-  tilt.add(new THREE.Mesh(new THREE.CylinderGeometry(1,1,104,6),new THREE.MeshBasicMaterial({color:0xe8f4ff})));
+  tilt.add(new THREE.Mesh(new THREE.CylinderGeometry(1.2,1.2,130,6),new THREE.MeshBasicMaterial({color:0xe8f4ff})));
   orb=new THREE.Group();orb.add(tilt);scene.add(orb);
   const ring=new THREE.Mesh(new THREE.TorusGeometry(170,0.9,6,96),new THREE.MeshBasicMaterial({color:0x7aa6d8,transparent:true,opacity:.55}));ring.rotation.x=Math.PI/2;ring.position.y=120;scene.add(ring)},
  generic(){base();sunAt(260,28,1.6e5);tree(-150,60);tree(160,80,.8);house(-30,-40);house(120,-80,.9);house(-120,-90,.8);earth=null;orb=null}
 };
 const updaters={
- lp_seasons(t,p){const a=p*Math.PI*1.5+0.5;orb.position.set(170*Math.cos(a),120,170*Math.sin(a));earth.rotation.y=t*1.4;sun.rotation.y=t*.3},
+ lp_seasons(t,p){const R=170,a=0.5+t*0.35;orb.position.set(R*Math.cos(a),120,R*Math.sin(a));earth.rotation.y=t*1.4;sun.rotation.y=t*.3;
+  // The axis always tilts the same way in space; f > 0 means the north pole leans toward the sun.
+  const lean=Math.sin(THREE.MathUtils.degToRad(23.5))*(-Math.cos(a));
+  const warm=new THREE.Color(0x7ddc6a),ice=new THREE.Color(0xffffff);const k=THREE.MathUtils.smoothstep(lean,-0.3,0.3);
+  const col=state.eg.attributes.color;
+  for(const fc of state.faces){let c=fc.base;if(Math.abs(fc.yn)>0.38){const north=fc.yn>0;const w=north?k:1-k;c=ice.clone().lerp(warm,w)}
+   for(let v=0;v<3;v++)col.setXYZ(fc.i+v,c.r,c.g,c.b)}
+  col.needsUpdate=true;
+  const txt=lean>0.12?'NORTH: SUMMER':lean<-0.12?'NORTH: WINTER':'EQUAL DAY & NIGHT';
+  if(state.txt!==txt){state.txt=txt;const g=state.lc.getContext('2d');g.clearRect(0,0,512,96);g.fillStyle='rgba(4,12,28,.75)';g.fillRect(0,14,512,68);
+   g.fillStyle=lean>0.12?'#ffd36b':lean<-0.12?'#bfe6ff':'#e8f4ff';g.font='bold 40px DejaVu Sans, Arial, sans-serif';g.textAlign='center';g.textBaseline='middle';g.fillText(txt,256,48);state.lt.needsUpdate=true}
+  state.label.position.set(orb.position.x,orb.position.y+95,orb.position.z)},
  generic(t,p){sun.position.x=Math.sin(t*.4)*30;sun.rotation.y=t*.3}
 };
 window.setScene=name=>{state.name=builders[name]?name:'generic';builders[state.name]()};
 window.renderAt=(t,p)=>{updaters[state.name](t,p);
- const ang=0.6+0.35*Math.sin(t*0.3),rad=1750-230*p,hgt=600-100*p;
+ const ang=0.6+0.35*Math.sin(t*0.3),rad=1560-150*p,hgt=560-90*p;
  cam.position.set(Math.sin(ang)*rad,hgt,Math.cos(ang)*rad);cam.lookAt(0,70,0);composer.render()};
 window.ready=true;
 </script></body>
