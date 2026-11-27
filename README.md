@@ -276,3 +276,7 @@ Pipeline stage 5 ranks topics by likely public interest (`src/factflow/topic_int
 - Topics below `DEFAULT_MIN_INTEREST` (40) are never posted: the slot is skipped rather than filled with low-appeal content, and they are excluded from the low-stock alert count.
 - Administrative or personnel discovery leads (appointments, webinars, budgets, meetings) are not added to the leads list.
 - The score is a heuristic, not audience data. Tune the threshold once real watch-time results exist.
+
+## Low-poly diorama style (`lowpoly_diorama_v1`)
+
+An opt-in visual profile: flat-shaded low-poly miniature dioramas on a swaying platform, muted palette, cool twilight lighting with a faint cyan edge glow, gentle pop-in animation, drawn entirely with Pillow (`lowpoly.py` primitives, `lowpoly_scenes.py` motifs). Set `"visual_profile": "lowpoly_diorama_v1"` in a spec and use scene motifs `lp_sky_scatter`, `lp_water_cycle`, `lp_volcano`, `lp_seasons` or `lp_plates`; unknown motifs fall back to a generic village. The holographic profile is unchanged and remains the default for authored topics.
