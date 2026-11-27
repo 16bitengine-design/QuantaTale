@@ -52,3 +52,20 @@ def test_every_motif_has_a_distinct_3d_scene_when_chromium_is_present():
     finally:
         backdrop.__exit__(None, None, None)
     assert len(set(frames.values())) == len(frames)
+
+
+def test_vendored_three_js_files_are_tracked_by_git_and_present():
+    """Regression: .gitignore's build/ once excluded three.module.js, silently disabling 3D on main."""
+    import subprocess
+    from pathlib import Path
+
+    from factflow.webgl_render import WEB_DIR
+
+    page = (WEB_DIR / "lowpoly_scene.html").read_text(encoding="utf-8")
+    assert "./vendor/three/lib/three.module.js" in page
+    core = WEB_DIR / "vendor/three/lib/three.module.js"
+    assert core.is_file() and core.stat().st_size > 500_000
+    root = Path(__file__).resolve().parents[1]
+    if (root / ".git").exists():
+        ignored = subprocess.run(["git", "check-ignore", "-q", str(core)], cwd=root).returncode == 0
+        assert not ignored, "three.module.js is git-ignored and would be missing from the repository"
