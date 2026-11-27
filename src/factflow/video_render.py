@@ -198,7 +198,8 @@ def _fit_font(draw: Any, text: str, font: Any, max_width: int, min_size: int = 1
         fitted = fitted.font_variant(size=max(min_size, size - 1))
     return fitted
 
-def _draw_frame(spec: dict[str, Any], seconds: float, duration: float, caption: str, fonts: dict[str, Any], stars: list[tuple[int, int, int]]) -> Any:
+def _draw_frame(spec: dict[str, Any], seconds: float, duration: float, caption: str, fonts: dict[str, Any], stars: list[tuple[int, int, int]],
+                backdrop: Any = None) -> Any:
     """Render a narration-led frame using only holographic scientific imagery."""
     from PIL import Image, ImageDraw
     from .holographic_scenes import draw_generic_science_scene, draw_holographic_scene, draw_sunset_scene
@@ -208,8 +209,16 @@ def _draw_frame(spec: dict[str, Any], seconds: float, duration: float, caption: 
 
     lowpoly = spec.get("visual_profile") == "lowpoly_diorama_v1"
     if lowpoly:
-        from .lowpoly_scenes import draw_lowpoly_scene
-        draw_lowpoly_scene(draw, WIDTH, HEIGHT, seconds, spec.get("scenes") or [], str(spec.get("narration", "")), duration)
+        if backdrop is not None:  # real 3D backdrop (three.js); Pillow drawing is the fallback below
+            from .holographic_scenes import scene_position
+            scenes = spec.get("scenes") or []
+            narration = str(spec.get("narration", ""))
+            position, local = scene_position(narration, scenes, seconds, duration) if scenes and narration and duration else (0, 0.0)
+            motif = str(scenes[min(position, len(scenes) - 1)].get("motif", "")) if scenes else ""
+            image.paste(backdrop(motif, seconds, local))
+        else:
+            from .lowpoly_scenes import draw_lowpoly_scene
+            draw_lowpoly_scene(draw, WIDTH, HEIGHT, seconds, spec.get("scenes") or [], str(spec.get("narration", "")), duration)
         draw.text((48, 55), "QUANTATALE", font=fonts["small"], fill=CYAN)
         title_text = spec["title"].upper()
         title_font = _fit_font(draw, title_text, fonts["title"], WIDTH - 96, min_size=20)
@@ -279,6 +288,20 @@ def _draw_frame(spec: dict[str, Any], seconds: float, duration: float, caption: 
     return image
 
 
+def _open_backdrop(spec: dict[str, Any]) -> tuple[Any, Any]:
+    """Start the optional three.js backdrop for the low-poly profile; (None, None) means use Pillow."""
+    if spec.get("visual_profile") != "lowpoly_diorama_v1":
+        return None, None
+    from .webgl_render import WebGLBackdrop, WebGLUnavailable
+    scene = WebGLBackdrop(WIDTH, HEIGHT)
+    try:
+        scene.__enter__()
+    except WebGLUnavailable as exc:
+        print(f"::warning title=3D backdrop unavailable::{exc} Falling back to the Pillow low-poly renderer.")
+        return None, None
+    return scene, scene.frame
+
+
 def render_sample_video(spec_path: str | Path, output_dir: str | Path) -> dict[str, Any]:
     """Render a narrated 9:16 MP4 sample and quality-check the encoded file."""
     from PIL import ImageFont
@@ -338,12 +361,13 @@ def render_sample_video(spec_path: str | Path, output_dir: str | Path) -> dict[s
         "-shortest", "-movflags", "+faststart", str(video_path),
     ]
     process = subprocess.Popen(ffmpeg_command, stdin=subprocess.PIPE, stderr=subprocess.PIPE)
+    web_scene, backdrop = _open_backdrop(spec)
     try:
         assert process.stdin is not None
         for frame_index in range(frame_count):
             seconds = frame_index / FPS
             caption = next((text for start, end, text in segments if start <= seconds < end), segments[-1][2])
-            frame = _draw_frame(spec, seconds, duration, caption, fonts, stars)
+            frame = _draw_frame(spec, seconds, duration, caption, fonts, stars, backdrop)
             if frame_index == min(frame_count - 1, FPS):
                 frame.save(thumbnail_path, format="PNG", optimize=True)
             process.stdin.write(frame.tobytes())
@@ -354,6 +378,9 @@ def render_sample_video(spec_path: str | Path, output_dir: str | Path) -> dict[s
         process.kill()
         process.wait()
         raise
+    finally:
+        if web_scene is not None:
+            web_scene.__exit__(None, None, None)
     if return_code != 0:
         raise RuntimeError(f"FFmpeg video encoding failed: {stderr[-3000:]}")
 
