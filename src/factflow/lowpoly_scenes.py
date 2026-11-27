@@ -73,7 +73,10 @@ def lp_seasons(draw: Any, p: float, t: float, ang: float) -> None:
     a = p * 2 * math.pi * 0.75 + 0.4
     ex, ez = 190 * math.cos(a), 190 * math.sin(a)
     faces += ball_faces(ex, 120, ez, 24, BLUE, bands=4, sides=8)
-    faces += prism_faces(ex + 6, ez, 5, 5, 70, WHITE, y0=96)  # tilted-looking axis stick
+    tilt = math.radians(23.5)  # the axis always points the same way in space, whatever the orbit position
+    for k in range(-5, 6):
+        d = 9 * k
+        faces += prism_faces(ex + d * math.sin(tilt), ez, 4, 4, 4, WHITE, y0=120 + d * math.cos(tilt))
     for k in range(24):  # orbit track
         b = k * math.pi / 12
         faces += prism_faces(190 * math.cos(b), 190 * math.sin(b), 5, 5, 3, STONE, y0=118)

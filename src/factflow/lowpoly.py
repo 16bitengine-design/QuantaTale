@@ -26,7 +26,7 @@ Vec = tuple[float, float, float]
 CX_DEFAULT = 360
 
 
-def pt(x: float, y: float, z: float, ang: float, cx: float = CX_DEFAULT, cy: float = 930) -> tuple[float, float]:
+def pt(x: float, y: float, z: float, ang: float, cx: float = CX_DEFAULT, cy: float = 830) -> tuple[float, float]:
     """x right, y up, z depth -> screen. Same projection as the holographic toolkit, kept separate on purpose."""
     return cx + x * math.cos(ang) - z * math.sin(ang), cy - y + (x * math.sin(ang) + z * math.cos(ang)) * 0.38
 
@@ -71,7 +71,7 @@ def bob(t: float, phase: float = 0.0, amount: float = 4.0) -> float:
     return amount * math.sin(t * 2.4 + phase)
 
 
-def draw_mesh(draw: Any, faces: list[tuple[list[Vec], tuple]], ang: float, cx: float = 360, cy: float = 930,
+def draw_mesh(draw: Any, faces: list[tuple[list[Vec], tuple]], ang: float, cx: float = 360, cy: float = 830,
               outline: bool = True) -> None:
     """Paint flat-shaded faces back to front. Each face is (vertices, base colour)."""
     items = []
@@ -136,7 +136,7 @@ def _dedupe(poly: list[Vec]) -> list[Vec]:
     return out if len(out) >= 3 else poly
 
 
-def platform(draw: Any, ang: float, top: tuple = GRASS, cy: float = 930, radius: float = 300) -> None:
+def platform(draw: Any, ang: float, top: tuple = GRASS, cy: float = 830, radius: float = 300) -> None:
     """Octagonal diorama base: soil slab with a grass top and a soft shadow under it."""
     cx = 360
     sh = [pt(radius * 1.05 * math.cos(2 * math.pi * i / 8), -34, radius * 1.05 * math.sin(2 * math.pi * i / 8), ang, cx, cy + 14)
@@ -154,7 +154,7 @@ def platform(draw: Any, ang: float, top: tuple = GRASS, cy: float = 930, radius:
                  outline=(*shade(top, 0.3), 255))
 
 
-def shadow(draw: Any, x: float, z: float, r: float, ang: float, cy: float = 930) -> None:
+def shadow(draw: Any, x: float, z: float, r: float, ang: float, cy: float = 830) -> None:
     pts = [pt(x + r * math.cos(a), 0.5, z + r * math.sin(a), ang, 360, cy) for a in [i * math.pi / 6 for i in range(12)]]
     draw.polygon(pts, fill=(0, 0, 0, 80))
 
