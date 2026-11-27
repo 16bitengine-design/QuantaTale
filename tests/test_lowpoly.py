@@ -3,16 +3,16 @@ import pytest
 pytest.importorskip("PIL")
 from PIL import Image, ImageDraw, ImageFont  # noqa: E402
 
-from factflow.toybox import ease_out_back, shade  # noqa: E402
-from factflow.toybox_scenes import TOYBOX_MOTIFS, toy_generic  # noqa: E402
+from factflow.lowpoly import ease_out_back, shade  # noqa: E402
+from factflow.lowpoly_scenes import LOWPOLY_MOTIFS, lp_generic  # noqa: E402
 from factflow.video_render import _draw_frame, validate_sample_spec  # noqa: E402
 
 SPEC = {
-    "title": "Why Is the Sky Blue?", "visual_profile": "toybox_diorama_v1",
+    "title": "Why Is the Sky Blue?", "visual_profile": "lowpoly_diorama_v1",
     "narration": "Why is the sky blue? Sunlight is made of many colours. Air scatters blue light the most. "
                  "So blue reaches your eyes from every direction of the sky.",
     "sources": [{"publisher": "NASA", "url": "https://science.nasa.gov/"}],
-    "scenes": [{"motif": "toy_sky_scatter"}, {"motif": "toy_sky_scatter"}, {"motif": "toy_unknown"}],
+    "scenes": [{"motif": "lp_sky_scatter"}, {"motif": "lp_sky_scatter"}, {"motif": "lp_unknown"}],
 }
 
 
@@ -30,7 +30,7 @@ def test_profile_is_accepted_by_validation():
 
 
 def test_every_motif_draws_something_and_is_deterministic():
-    for name, fn in list(TOYBOX_MOTIFS.items()) + [("generic", toy_generic)]:
+    for name, fn in list(LOWPOLY_MOTIFS.items()) + [("generic", lp_generic)]:
         images = []
         for _ in range(2):
             im = Image.new("RGB", (720, 1280), (0, 0, 0))
@@ -40,9 +40,10 @@ def test_every_motif_draws_something_and_is_deterministic():
         assert images[0].getbbox() is not None, name
 
 
-def test_frame_uses_light_toybox_background_not_dark_hologram():
-    px = _frame().getpixel((20, 300))
-    assert sum(px) > 450  # warm light sky, not the navy chamber
+def test_frame_uses_muted_dark_palette_not_pastel():
+    frame = _frame()
+    assert sum(frame.getpixel((20, 300))) < 330  # twilight sky, not a bright pastel one
+    assert sum(frame.getpixel((20, 700))) > sum(frame.getpixel((20, 250)))  # gradient brightens toward the horizon
 
 
 def test_frames_animate_and_unknown_motif_falls_back():

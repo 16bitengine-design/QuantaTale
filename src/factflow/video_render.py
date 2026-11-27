@@ -33,7 +33,7 @@ def validate_sample_spec(spec: dict[str, Any]) -> None:
     if not isinstance(spec, dict):
         raise ValueError("Sample specification must be a JSON object.")
     visual_profile = spec.get("visual_profile", "sky_blue_v1")
-    if visual_profile not in {"sky_blue_v1", "sunset_red_v1", "holographic_science_v1", "toybox_diorama_v1"}:
+    if visual_profile not in {"sky_blue_v1", "sunset_red_v1", "holographic_science_v1", "lowpoly_diorama_v1"}:
         raise ValueError(f"No renderer exists for visual profile {visual_profile!r}; refusing to reuse an unrelated storyboard.")
     for field in ("title", "narration", "sources"):
         if field not in spec:
@@ -206,15 +206,15 @@ def _draw_frame(spec: dict[str, Any], seconds: float, duration: float, caption: 
     image = Image.new("RGB", (WIDTH, HEIGHT), NAVY)
     draw = ImageDraw.Draw(image, "RGBA")
 
-    toybox = spec.get("visual_profile") == "toybox_diorama_v1"
-    if toybox:
-        from .toybox_scenes import draw_toybox_scene
-        draw_toybox_scene(draw, WIDTH, HEIGHT, seconds, spec.get("scenes") or [], str(spec.get("narration", "")), duration)
-        draw.text((48, 55), "QUANTATALE", font=fonts["small"], fill=(150, 90, 60))
+    lowpoly = spec.get("visual_profile") == "lowpoly_diorama_v1"
+    if lowpoly:
+        from .lowpoly_scenes import draw_lowpoly_scene
+        draw_lowpoly_scene(draw, WIDTH, HEIGHT, seconds, spec.get("scenes") or [], str(spec.get("narration", "")), duration)
+        draw.text((48, 55), "QUANTATALE", font=fonts["small"], fill=CYAN)
         title_text = spec["title"].upper()
         title_font = _fit_font(draw, title_text, fonts["title"], WIDTH - 96, min_size=20)
-        draw.text((48, 105), title_text, font=title_font, fill=(62, 44, 40), stroke_width=1, stroke_fill=(255, 244, 222))
-        draw.line((48, 177, WIDTH-48, 177), fill=(150, 90, 60, 150), width=2)
+        draw.text((48, 105), title_text, font=title_font, fill=WHITE, stroke_width=1, stroke_fill=(25, 88, 120))
+        draw.line((48, 177, WIDTH-48, 177), fill=(73, 226, 255, 150), width=2)
     else:
         # Dark holographic chamber: technical grid, stars and animated scan plane.
         for x in range(24, WIDTH, 48):
@@ -236,7 +236,7 @@ def _draw_frame(spec: dict[str, Any], seconds: float, duration: float, caption: 
 
     scene_index, scene_progress = _scene_state(seconds, duration)
     profile = spec.get("visual_profile", "sky_blue_v1")
-    if toybox:
+    if lowpoly:
         headline = subline = ""  # the diorama explains the narration without on-screen banners
     elif profile == "holographic_science_v1":
         headline, subline = draw_generic_science_scene(draw, scene_index, scene_progress, seconds, fonts, spec.get("scenes") or [],
@@ -271,11 +271,11 @@ def _draw_frame(spec: dict[str, Any], seconds: float, duration: float, caption: 
         draw.text(((WIDTH-text_width)//2, cap_top+14+line_index*42), line,
                   font=fonts["caption"], fill=WHITE)
 
-    draw.text((48, 1230), "KNOW MORE. SEE DIFFERENTLY.", font=fonts["tiny"], fill=(120, 80, 60) if toybox else MUTED)
-    footer_label = str(spec.get("production_label", "TOY-BOX DEMO" if toybox else "HOLOGRAPHIC DEMO"))
+    draw.text((48, 1230), "KNOW MORE. SEE DIFFERENTLY.", font=fonts["tiny"], fill=MUTED)
+    footer_label = str(spec.get("production_label", "LOW-POLY DEMO" if lowpoly else "HOLOGRAPHIC DEMO"))
     footer_font = _fit_font(draw, footer_label, fonts["tiny"], 205, min_size=12)
     draw.text((WIDTH-48-draw.textbbox((0, 0), footer_label, font=footer_font)[2], 1230),
-              footer_label, font=footer_font, fill=(190, 90, 70) if toybox else VIOLET)
+              footer_label, font=footer_font, fill=VIOLET)
     return image
 
 
@@ -395,7 +395,7 @@ def render_sample_video(spec_path: str | Path, output_dir: str | Path) -> dict[s
             ["long_sunset_atmospheric_path", "short_wavelength_scattering", "red_orange_light_reaching_observer", "holographic_sunset_horizon"]
             if spec.get("visual_profile", "sky_blue_v1") == "sunset_red_v1"
             else [f"generic_scene_{i + 1}" for i in range(len(spec.get("scenes") or [None] * 4))]
-            if spec.get("visual_profile") in {"holographic_science_v1", "toybox_diorama_v1"}
+            if spec.get("visual_profile") in {"holographic_science_v1", "lowpoly_diorama_v1"}
             else ["sunlight_visible_spectrum", "atmospheric_molecular_scattering", "holographic_human_eye", "holographic_earth_and_blue_sky"]
         ),
         "render_engine": "FFmpeg",

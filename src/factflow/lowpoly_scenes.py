@@ -1,4 +1,4 @@
-"""Toy-box diorama motifs and the scene renderer for visual profile ``toybox_diorama_v1``.
+"""Low-poly diorama motifs and the scene renderer for visual profile ``lowpoly_diorama_v1``.
 
 Each motif is ``fn(draw, p, t, ang)``: ``p`` is 0-1 progress inside the scene and ``t`` elapsed
 seconds. Motifs only illustrate the narrated idea; they print no text.
@@ -8,7 +8,7 @@ from __future__ import annotations
 import math
 from typing import Any, Callable
 
-from .toybox import (BLUE, GRASS, ORANGE, RED, SOIL, STONE, SUN, WATER, WHITE, background, ball_faces, bob, draw_mesh,
+from .lowpoly import (BLUE, GRASS, ORANGE, RED, SOIL, STONE, SUN, WATER, WHITE, background, ball_faces, bob, draw_mesh,
                      ease_out_back, house, platform, prism_faces, pt, pyramid_faces, shadow, tree, view)
 
 Faces = list
@@ -18,8 +18,8 @@ def _sun(x: float, y: float, z: float, t: float, r: float = 34) -> Faces:
     return ball_faces(x, y + bob(t, 0, 6), z, r, SUN, bands=4, sides=8)
 
 
-def toy_sky_scatter(draw: Any, p: float, t: float, ang: float) -> None:
-    """Sunlight meets air: blue toy specks scatter across the sky while a house sits below."""
+def lp_sky_scatter(draw: Any, p: float, t: float, ang: float) -> None:
+    """Sunlight meets air: blue air-molecule cubes scatter across the sky while a house sits below."""
     platform(draw, ang)
     faces = tree(-130, 70) + house(110, -50) + _sun(-150, 330, -80, t)
     for i in range(10):  # blue air molecules pop in one by one
@@ -36,7 +36,7 @@ def toy_sky_scatter(draw: Any, p: float, t: float, ang: float) -> None:
     draw_mesh(draw, faces, ang)
 
 
-def toy_water_cycle(draw: Any, p: float, t: float, ang: float) -> None:
+def lp_water_cycle(draw: Any, p: float, t: float, ang: float) -> None:
     """Sea, mountain, cloud and rain: water rises, gathers, falls."""
     platform(draw, ang)
     faces = prism_faces(-110, 90, 170, 120, 8, WATER) + pyramid_faces(120, -40, 110, 150, STONE, sides=5)
@@ -53,7 +53,7 @@ def toy_water_cycle(draw: Any, p: float, t: float, ang: float) -> None:
     draw_mesh(draw, faces, ang)
 
 
-def toy_volcano(draw: Any, p: float, t: float, ang: float) -> None:
+def lp_volcano(draw: Any, p: float, t: float, ang: float) -> None:
     """Faceted volcano that blows lava cubes in arcs as the scene progresses."""
     platform(draw, ang)
     faces = pyramid_faces(0, 0, 170, 200, SOIL, sides=7, top_r=40) + tree(-210, 80, 0.8) + tree(200, 60, 0.7)
@@ -66,8 +66,8 @@ def toy_volcano(draw: Any, p: float, t: float, ang: float) -> None:
     draw_mesh(draw, faces, ang)
 
 
-def toy_seasons(draw: Any, p: float, t: float, ang: float) -> None:
-    """A tilted toy Earth circles a sun; the tilt, not the distance, changes the seasons."""
+def lp_seasons(draw: Any, p: float, t: float, ang: float) -> None:
+    """A tilted low-poly Earth circles a sun; the tilt, not the distance, changes the seasons."""
     platform(draw, ang)
     faces = ball_faces(0, 120, 0, 46, SUN, bands=4, sides=8)
     a = p * 2 * math.pi * 0.75 + 0.4
@@ -80,7 +80,7 @@ def toy_seasons(draw: Any, p: float, t: float, ang: float) -> None:
     draw_mesh(draw, faces, ang)
 
 
-def toy_plates(draw: Any, p: float, t: float, ang: float) -> None:
+def lp_plates(draw: Any, p: float, t: float, ang: float) -> None:
     """Two ground slabs push together and crumple a mountain between them."""
     platform(draw, ang)
     shift = 120 * (1 - p)
@@ -89,7 +89,7 @@ def toy_plates(draw: Any, p: float, t: float, ang: float) -> None:
     draw_mesh(draw, faces, ang)
 
 
-def toy_generic(draw: Any, p: float, t: float, ang: float) -> None:
+def lp_generic(draw: Any, p: float, t: float, ang: float) -> None:
     """Fallback diorama: a little village whose pieces pop in as the scene advances."""
     platform(draw, ang)
     faces = tree(-150, 60) + tree(160, 80, 0.8)
@@ -101,13 +101,13 @@ def toy_generic(draw: Any, p: float, t: float, ang: float) -> None:
     draw_mesh(draw, faces, ang)
 
 
-TOYBOX_MOTIFS: dict[str, Callable[..., None]] = {
-    "toy_sky_scatter": toy_sky_scatter, "toy_water_cycle": toy_water_cycle, "toy_volcano": toy_volcano,
-    "toy_seasons": toy_seasons, "toy_plates": toy_plates,
+LOWPOLY_MOTIFS: dict[str, Callable[..., None]] = {
+    "lp_sky_scatter": lp_sky_scatter, "lp_water_cycle": lp_water_cycle, "lp_volcano": lp_volcano,
+    "lp_seasons": lp_seasons, "lp_plates": lp_plates,
 }
 
 
-def draw_toybox_scene(draw: Any, width: int, height: int, seconds: float, scenes: list[dict[str, Any]],
+def draw_lowpoly_scene(draw: Any, width: int, height: int, seconds: float, scenes: list[dict[str, Any]],
                       narration: str, duration: float) -> None:
     """Draw the diorama for the scene being narrated at ``seconds``."""
     from .holographic_scenes import scene_position
@@ -117,4 +117,4 @@ def draw_toybox_scene(draw: Any, width: int, height: int, seconds: float, scenes
     position, local = (scene_position(narration, scenes, seconds, duration) if narration and duration and scenes else (0, 0.0))
     position = min(count - 1, position)
     name = str(scenes[position].get("motif", "")) if scenes else ""
-    TOYBOX_MOTIFS.get(name, toy_generic)(draw, local, seconds, view(seconds))
+    LOWPOLY_MOTIFS.get(name, lp_generic)(draw, local, seconds, view(seconds))

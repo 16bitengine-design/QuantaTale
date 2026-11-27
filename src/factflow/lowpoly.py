@@ -1,8 +1,8 @@
-"""Low-poly "toy-box diorama" toolkit (visual profile ``toybox_diorama_v1``).
+"""Low-poly diorama toolkit (visual profile ``lowpoly_diorama_v1``).
 
 Pure Pillow, no GPU. Objects are flat-shaded polygon meshes: each face is lit by one fixed light,
 faces are painted back to front, and the camera sways slowly so the scene reads as a small
-tabletop diorama of painted toys. Everything is a function of progress and elapsed time, so
+miniature scientific diorama under cool twilight light. Everything is a function of progress and elapsed time, so
 renders are reproducible.
 """
 from __future__ import annotations
@@ -11,14 +11,16 @@ import math
 from typing import Any
 
 
-# Warm, limited toy palette (RGB).
-CREAM, SKY, SKY_LOW = (255, 244, 222), (150, 205, 245), (255, 226, 190)
-GRASS, SOIL, STONE = (118, 200, 120), (150, 105, 78), (170, 170, 185)
-SUN, RED, ORANGE = (255, 205, 70), (238, 88, 80), (255, 150, 60)
-BLUE, WATER, WHITE = (80, 150, 235), (70, 170, 225), (250, 250, 252)
-WOOD, LEAF, PINK = (190, 130, 85), (70, 170, 100), (245, 150, 180)
-INK = (62, 44, 40)
+# Muted, desaturated materials (RGB). Lit faces warm up, shadowed faces cool down.
+GRASS, SOIL, STONE = (82, 138, 120), (96, 84, 104), (132, 146, 172)
+SUN, RED, ORANGE = (255, 196, 110), (214, 96, 72), (240, 150, 80)
+BLUE, WATER, WHITE = (74, 132, 205), (52, 130, 172), (214, 226, 238)
+WOOD, LEAF, PINK = (128, 100, 84), (62, 132, 108), (156, 162, 184)  # PINK: neutral concrete walls
+ROOF = (84, 96, 120)
+SKY_TOP, SKY_LOW, GLOW = (6, 14, 34), (24, 52, 82), (73, 226, 255)
+INK = (232, 246, 255)
 
+_EMISSIVE = {SUN, ORANGE, RED}
 _LIGHT = (-0.45, 0.8, -0.4)
 Vec = tuple[float, float, float]
 CX_DEFAULT = 360
@@ -43,8 +45,13 @@ _L = _norm(_LIGHT)
 
 def shade(color: tuple, intensity: float) -> tuple[int, int, int]:
     """Scale a base colour; 0.55 ambient plus up to 0.45 directional light."""
-    k = 0.72 + 0.4 * max(0.0, min(1.0, intensity))
-    return tuple(max(0, min(255, int(ch * k))) for ch in color[:3])  # type: ignore[return-value]
+    i = max(0.0, min(1.0, intensity))
+    if tuple(color[:3]) in _EMISSIVE:  # glowing objects (sun, lava) stay bright on every face
+        return tuple(min(255, int(ch * (0.85 + 0.3 * i))) for ch in color[:3])  # type: ignore[return-value]
+    k = 0.62 + 0.8 * i
+    cool = (34, 56, 104)  # shadows drift toward blue instead of just going black
+    return tuple(max(0, min(255, int(ch * k * (0.55 + 0.45 * i) + cool[n] * (1 - i) * 0.55)))
+                 for n, ch in enumerate(color[:3]))  # type: ignore[return-value]
 
 
 def _normal(face: list[Vec]) -> Vec:
@@ -56,11 +63,11 @@ def _normal(face: list[Vec]) -> Vec:
 def ease_out_back(p: float) -> float:
     """Bouncy pop-in: overshoots slightly then settles. 0 -> 0, 1 -> 1."""
     p = max(0.0, min(1.0, p))
-    c1 = 1.70158
+    c1 = 0.9  # gentle settle, not a cartoon bounce
     return 1 + (c1 + 1) * (p - 1) ** 3 + c1 * (p - 1) ** 2
 
 
-def bob(t: float, phase: float = 0.0, amount: float = 8.0) -> float:
+def bob(t: float, phase: float = 0.0, amount: float = 4.0) -> float:
     return amount * math.sin(t * 2.4 + phase)
 
 
@@ -134,7 +141,11 @@ def platform(draw: Any, ang: float, top: tuple = GRASS, cy: float = 930, radius:
     cx = 360
     sh = [pt(radius * 1.05 * math.cos(2 * math.pi * i / 8), -34, radius * 1.05 * math.sin(2 * math.pi * i / 8), ang, cx, cy + 14)
           for i in range(8)]
-    draw.polygon(sh, fill=(60, 40, 30, 60))
+    draw.polygon(sh, fill=(0, 0, 0, 90))
+    for k in range(4):  # faint cyan edge light ties the diorama to the QuantaTale hologram look
+        halo = [pt(radius * (1.08 + 0.05 * k) * math.cos(2 * math.pi * i / 8), -28, radius * (1.08 + 0.05 * k) * math.sin(2 * math.pi * i / 8),
+                   ang, cx, cy + 14) for i in range(8)]
+        draw.polygon(halo, outline=(*GLOW, 46 - k * 10))
     faces = pyramid_faces(0, 0, radius, 26, SOIL, y0=-26, sides=8, top_r=radius)
     faces = [([(x, y, z) for x, y, z in v], c) for v, c in faces]
     draw_mesh(draw, faces, ang, cx, cy)
@@ -145,7 +156,7 @@ def platform(draw: Any, ang: float, top: tuple = GRASS, cy: float = 930, radius:
 
 def shadow(draw: Any, x: float, z: float, r: float, ang: float, cy: float = 930) -> None:
     pts = [pt(x + r * math.cos(a), 0.5, z + r * math.sin(a), ang, 360, cy) for a in [i * math.pi / 6 for i in range(12)]]
-    draw.polygon(pts, fill=(50, 70, 50, 70))
+    draw.polygon(pts, fill=(0, 0, 0, 80))
 
 
 def tree(x: float, z: float, scale: float = 1.0, color: tuple = LEAF) -> list[tuple[list[Vec], tuple]]:
@@ -157,17 +168,19 @@ def tree(x: float, z: float, scale: float = 1.0, color: tuple = LEAF) -> list[tu
 
 def house(x: float, z: float, scale: float = 1.0) -> list[tuple[list[Vec], tuple]]:
     s = scale
-    return prism_faces(x, z, 70 * s, 60 * s, 50 * s, PINK) + pyramid_faces(x, z, 56 * s, 38 * s, RED, y0=50 * s, sides=4)
+    return prism_faces(x, z, 70 * s, 60 * s, 50 * s, PINK) + pyramid_faces(x, z, 56 * s, 38 * s, ROOF, y0=50 * s, sides=4)
 
 
 def background(draw: Any, width: int, height: int, seconds: float) -> None:
-    """Soft sky-to-cream gradient with a few drifting low-poly clouds."""
+    """Deep twilight gradient with a soft horizon glow and a few slow stars."""
     for y in range(0, height, 4):
-        f = y / height
-        col = tuple(int(SKY[i] * (1 - f) + SKY_LOW[i] * f) for i in range(3))
+        f = (y / height) ** 1.4
+        col = tuple(int(SKY_TOP[i] * (1 - f) + SKY_LOW[i] * f) for i in range(3))
         draw.rectangle((0, y, width, y + 4), fill=(*col, 255))
-    for k in range(4):
-        x = (k * 230 + seconds * (12 + 5 * k)) % (width + 200) - 100
-        y = 230 + k * 95
-        for dx, dw in ((-34, 60), (0, 84), (40, 56)):
-            draw.rounded_rectangle((x + dx - dw / 2, y - 16, x + dx + dw / 2, y + 14), radius=14, fill=(255, 255, 255, 150))
+    for k in range(40):
+        x, y = (k * 97 + 31) % width, 200 + (k * 53) % 520
+        a = 70 + int(70 * (0.5 + 0.5 * math.sin(seconds * 1.6 + k)))
+        draw.ellipse((x - 1, y - 1, x + 1, y + 1), fill=(190, 225, 255, a))
+    for k in range(5):  # thin drifting haze bands
+        x = (k * 210 + seconds * (6 + 2 * k)) % (width + 300) - 150
+        draw.rounded_rectangle((x - 90, 330 + k * 70, x + 90, 338 + k * 70), radius=4, fill=(120, 170, 220, 22))
