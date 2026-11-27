@@ -58,5 +58,16 @@
   "source_passage_verification_required_before_publication": false,
   "source_assessment": "Automated gates passed on 2026-11-22: each sentence tied to a verbatim source quote, numbers matched, no copied word runs, model entailment check passed, independent publishers. Not complete fact verification.",
   "authored_by": "assistant_session_draft_then_automated_gates",
-  "publishing_enabled": false
+  "publishing_enabled": false,
+  "cues": [
+    "near_far",
+    "near_far",
+    "dismiss",
+    "near_winter_far_summer",
+    "tilt",
+    "axis_fixed",
+    "lean",
+    "rays",
+    "opposite"
+  ]
 }

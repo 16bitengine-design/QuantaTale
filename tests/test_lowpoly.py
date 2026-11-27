@@ -67,3 +67,15 @@ def test_lowpoly_frames_carry_little_text_and_short_captions():
     early, late = _frame(t=1.0), _frame(t=9.0)
     # the title fades away after the first seconds, so the top band differs
     assert early.crop((0, 80, 720, 150)).tobytes() != late.crop((0, 80, 720, 150)).tobytes()
+
+
+def test_cue_follows_the_spoken_sentence():
+    from factflow.video_render import _cue_at
+
+    spec = {"cues": ["a", "b", "c"]}
+    spans = [(0.0, 2.0), (2.5, 4.0), (4.5, 6.0)]
+    name, progress = _cue_at(spec, spans, 1.0, 7.0)
+    assert name == "a" and abs(progress - 0.4) < 1e-9  # sentence a runs until the next one starts at 2.5
+    assert _cue_at(spec, spans, 5.0, 7.0)[0] == "c"
+    assert _cue_at({}, spans, 1.0, 7.0) == (None, 0.0)
+    assert _cue_at({"cues": ["a"]}, spans, 1.0, 7.0) == (None, 0.0)  # mismatched cue list is ignored safely

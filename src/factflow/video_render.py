@@ -200,7 +200,7 @@ def _fit_font(draw: Any, text: str, font: Any, max_width: int, min_size: int = 1
     return fitted
 
 def _draw_frame(spec: dict[str, Any], seconds: float, duration: float, caption: str, fonts: dict[str, Any], stars: list[tuple[int, int, int]],
-                backdrop: Any = None) -> Any:
+                backdrop: Any = None, cue: tuple[str | None, float] = (None, 0.0)) -> Any:
     """Render a narration-led frame using only holographic scientific imagery."""
     from PIL import Image, ImageDraw
     from .holographic_scenes import draw_generic_science_scene, draw_holographic_scene, draw_sunset_scene
@@ -216,7 +216,7 @@ def _draw_frame(spec: dict[str, Any], seconds: float, duration: float, caption: 
             narration = str(spec.get("narration", ""))
             position, local = scene_position(narration, scenes, seconds, duration) if scenes and narration and duration else (0, 0.0)
             motif = str(scenes[min(position, len(scenes) - 1)].get("motif", "")) if scenes else ""
-            image.paste(backdrop(motif, seconds, local, position))
+            image.paste(backdrop(motif, seconds, local, position, cue[0], cue[1]))
         else:
             from .lowpoly_scenes import draw_lowpoly_scene
             draw_lowpoly_scene(draw, WIDTH, HEIGHT, seconds, spec.get("scenes") or [], str(spec.get("narration", "")), duration)
@@ -296,6 +296,19 @@ def _draw_frame(spec: dict[str, Any], seconds: float, duration: float, caption: 
     draw.text((WIDTH-48-draw.textbbox((0, 0), footer_label, font=footer_font)[2], 1230),
               footer_label, font=footer_font, fill=VIOLET)
     return image
+
+
+def _cue_at(spec: dict[str, Any], spans: list[tuple[float, float]] | None, seconds: float,
+            duration: float) -> tuple[str | None, float]:
+    """The visual cue for the sentence being spoken at ``seconds`` and how far through it we are."""
+    cues = spec.get("cues")
+    if not cues or not spans or len(cues) != len(spans):
+        return None, 0.0
+    for index, (start, _end) in enumerate(spans):
+        stop = spans[index + 1][0] if index + 1 < len(spans) else duration
+        if start <= seconds < stop:
+            return (str(cues[index]) or None), (seconds - start) / max(0.001, stop - start)
+    return None, 0.0
 
 
 def _open_backdrop(spec: dict[str, Any]) -> tuple[Any, Any]:
@@ -380,7 +393,7 @@ def render_sample_video(spec_path: str | Path, output_dir: str | Path) -> dict[s
         for frame_index in range(frame_count):
             seconds = frame_index / FPS
             caption = next((text for start, end, text in segments if start <= seconds < end), segments[-1][2])
-            frame = _draw_frame(spec, seconds, duration, caption, fonts, stars, backdrop)
+            frame = _draw_frame(spec, seconds, duration, caption, fonts, stars, backdrop, _cue_at(spec, spans, seconds, duration))
             if frame_index == min(frame_count - 1, FPS):
                 frame.save(thumbnail_path, format="PNG", optimize=True)
             process.stdin.write(frame.tobytes())
