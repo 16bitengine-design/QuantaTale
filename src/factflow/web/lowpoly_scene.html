@@ -16,17 +16,17 @@ const mat=(c,o={})=>new THREE.MeshStandardMaterial({color:c,flatShading:true,rou
 const cam=new THREE.PerspectiveCamera(34,W/H,1,3000);
 let scene,orb,earth,sun,state={};
 
-function sky(){const cv=document.createElement('canvas');cv.width=4;cv.height=256;const g=cv.getContext('2d');
- const gr=g.createLinearGradient(0,0,0,256);gr.addColorStop(0,'#050b1e');gr.addColorStop(.55,'#0d2644');gr.addColorStop(1,'#15395a');g.fillStyle=gr;g.fillRect(0,0,4,256);
+function sky(space){const cv=document.createElement('canvas');cv.width=4;cv.height=256;const g=cv.getContext('2d');
+ const gr=g.createLinearGradient(0,0,0,256);if(space){gr.addColorStop(0,'#01030a');gr.addColorStop(.6,'#050d1e');gr.addColorStop(1,'#0a1d38')}else{gr.addColorStop(0,'#050b1e');gr.addColorStop(.55,'#0d2644');gr.addColorStop(1,'#15395a')}g.fillStyle=gr;g.fillRect(0,0,4,256);
  return new THREE.CanvasTexture(cv)}
-function base(){scene=new THREE.Scene();scene.background=sky();seed=7;
+function base(space=false){scene=new THREE.Scene();scene.background=sky(space);seed=7;
  const sp=[];for(let i=0;i<500;i++){const a=rnd()*6.28,b=rnd()*1.2-0.1;sp.push(Math.cos(a)*900,b*540+120,Math.sin(a)*900)}
  const sg=new THREE.BufferGeometry();sg.setAttribute('position',new THREE.Float32BufferAttribute(sp,3));
  scene.add(new THREE.Points(sg,new THREE.PointsMaterial({color:0xbfe3ff,size:2.2})));
  scene.add(new THREE.HemisphereLight(0x7fa8e8,0x1a2238,0.75));
- const plat=new THREE.Mesh(new THREE.CylinderGeometry(235,215,34,8,1),mat(0x6fb7a0));plat.position.y=-17;plat.receiveShadow=true;scene.add(plat);
+ if(!space){const plat=new THREE.Mesh(new THREE.CylinderGeometry(235,215,34,8,1),mat(0x6fb7a0));plat.position.y=-17;plat.receiveShadow=true;scene.add(plat);
  const soil=new THREE.Mesh(new THREE.CylinderGeometry(215,170,60,8,1),mat(0x726687));soil.position.y=-64;scene.add(soil);
- const rim=new THREE.Mesh(new THREE.CylinderGeometry(236.5,236.5,3,8,1,true),new THREE.MeshBasicMaterial({color:0x49e2ff}));rim.position.y=-1;scene.add(rim);
+ const rim=new THREE.Mesh(new THREE.CylinderGeometry(236.5,236.5,3,8,1,true),new THREE.MeshBasicMaterial({color:0x49e2ff}));rim.position.y=-1;scene.add(rim)}
  composer=new EffectComposer(r);composer.addPass(new RenderPass(scene,cam));
  composer.addPass(new UnrealBloomPass(new THREE.Vector2(W,H),0.5,0.6,0.9));composer.addPass(new OutputPass())}
 let composer;
@@ -46,7 +46,7 @@ function conem(r,h,c,sides=5,o={}){const m=new THREE.Mesh(new THREE.ConeGeometry
 function dirLight(x,y,z,color=0xbcd4ff,i=1.6){const L=new THREE.DirectionalLight(color,i);L.position.set(x,y,z);L.castShadow=true;L.shadow.mapSize.set(1024,1024);
  L.shadow.camera.left=-300;L.shadow.camera.right=300;L.shadow.camera.top=300;L.shadow.camera.bottom=-300;L.shadow.camera.far=1200;L.shadow.bias=-0.0006;scene.add(L);return L}
 const builders={
- lp_seasons(){base();sunAt(120,46);tree(-150,60);tree(160,90,.8);tree(-110,-130,.7);tree(120,-120,.9);tree(30,160,.6);
+ lp_seasons(){base(true);sunAt(120,38);const cor=new THREE.Mesh(new THREE.IcosahedronGeometry(54,1),new THREE.MeshBasicMaterial({color:0xff9a1f,transparent:true,opacity:.16}));cor.position.y=120;scene.add(cor);
   const eg=new THREE.IcosahedronGeometry(42,1).toNonIndexed();const A=eg.attributes.position,col=[];state.faces=[];
   for(let i=0;i<A.count;i+=3){const cx=(A.getX(i)+A.getX(i+1)+A.getX(i+2))/3,cy=(A.getY(i)+A.getY(i+1)+A.getY(i+2))/3,cz=(A.getZ(i)+A.getZ(i+1)+A.getZ(i+2))/3;
    const n=Math.sin(cx*.21)+Math.sin(cy*.3+1)+Math.cos(cz*.25);const c=new THREE.Color(n>0.6?0x4fae6a:0x2f6fd0);
@@ -56,7 +56,7 @@ const builders={
   const tilt=new THREE.Group();tilt.rotation.z=THREE.MathUtils.degToRad(-23.5);tilt.add(earth);
   tilt.add(new THREE.Mesh(new THREE.CylinderGeometry(1.2,1.2,130,6),new THREE.MeshBasicMaterial({color:0xe8f4ff})));
   orb=new THREE.Group();orb.add(tilt);scene.add(orb);
-  const ring=new THREE.Mesh(new THREE.TorusGeometry(170,0.9,6,96),new THREE.MeshBasicMaterial({color:0x7aa6d8,transparent:true,opacity:.55}));ring.rotation.x=Math.PI/2;ring.position.y=120;scene.add(ring);
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(130,0.9,6,128),new THREE.MeshBasicMaterial({color:0x7aa6d8,transparent:true,opacity:.55}));ring.rotation.x=Math.PI/2;ring.position.y=120;scene.add(ring);
   state.line=new THREE.Mesh(new THREE.BoxGeometry(1,1,1),new THREE.MeshBasicMaterial({color:0x7fe9ff,transparent:true,opacity:.7}));state.line.visible=false;scene.add(state.line);
   state.ref=new THREE.Mesh(new THREE.CylinderGeometry(.8,.8,150,6),new THREE.MeshBasicMaterial({color:0x8899aa,transparent:true,opacity:.7}));state.ref.visible=false;scene.add(state.ref);
   state.ghosts=[];for(let i=0;i<3;i++){const g=new THREE.Group();g.add(new THREE.Mesh(new THREE.IcosahedronGeometry(30,1),new THREE.MeshStandardMaterial({color:0x4a86d8,flatShading:true,transparent:true,opacity:.45,emissive:0x203a60})));
@@ -90,29 +90,38 @@ const builders={
 };
 const updaters={
  lp_seasons(t,p,cue,cp){
-  const TILT=THREE.MathUtils.degToRad(23.5);let R=170,a=0.5+t*0.35,scale=1,north=null,south=null,txt=null,tcol='#e8f4ff',line=false,ref=false,ghosts=false,rays=false;
+  const TILT=THREE.MathUtils.degToRad(23.5);let R=130,a=0.5+t*0.35,north=null,south=null,line=false,ref=false,ghosts=false,rays=false,mode=0;
   const leanAt=ang=>Math.sin(TILT)*(-Math.cos(ang));
   switch(cue){
-   case'near_far':R=170+55*Math.sin(cp*6.28);a=2.6;txt='CLOSER = SUMMER?';tcol='#ffd36b';line=true;break;
-   case'dismiss':R=170;a=2.6;txt='NOT THE CAUSE';tcol='#ff8a80';line=true;break;
-   case'near_winter_far_summer':a=2.6;if(cp<.5){R=140;txt='NORTH: WINTER (NEAREST)';tcol='#bfe6ff';north=0;south=1}else{R=205;txt='NORTH: SUMMER (FARTHEST)';tcol='#ffd36b';north=1;south=0}line=true;break;
-   case'tilt':R=170;a=Math.PI*1.5;scale=1.5;txt='AXIS IS TILTED';ref=true;break;
-   case'axis_fixed':a=Math.PI*1.5+cp*5.4;txt='AXIS KEEPS ITS DIRECTION';ghosts=true;break;
-   case'lean':a=Math.PI+Math.PI*(0.5-0.5*Math.cos(cp*6.2832));break;
-   case'rays':a=Math.PI;txt='DIRECT RAYS = SUMMER';tcol='#ffd36b';north=1;south=0;rays=true;break;
-   case'opposite':a=Math.PI;scale=1.4;txt='NORTH: SUMMER  ·  SOUTH: WINTER';tcol='#ffffff';north=1;south=0;break;
+   case'near_far':R=130+30*Math.sin(cp*6.28);a=-1.5708;line=true;mode=1;break;
+   case'dismiss':R=130;a=-1.5708;line=true;mode=1;break;
+   case'near_winter_far_summer':a=-1.5708;if(cp<.5){R=105;north=0;south=1}else{R=160;north=1;south=0}line=true;mode=1;break;
+   case'tilt':a=Math.PI;ref=true;mode=2;break;
+   case'axis_fixed':R=105;a=Math.PI*1.5+cp*5.4;ghosts=true;mode=0;break;
+   case'lean':a=Math.PI+Math.PI*(0.5-0.5*Math.cos(cp*6.2832));mode=2;break;
+   case'rays':a=Math.PI;north=1;south=0;rays=true;mode=2;break;
+   case'opposite':a=Math.PI;north=1;south=0;mode=2;break;
   }
-  const ex=R*Math.cos(a),ez=R*Math.sin(a);orb.position.set(ex,120,ez);orb.scale.setScalar(scale);earth.rotation.y=t*1.4;sun.rotation.y=t*.3;
+  // Smooth the Earth's path and the camera so nothing jumps between sentences.
+  const dt=state.t===undefined?1:clamp(t-state.t,0,.2);state.t=t;
+  if(state.sa===undefined){state.sa=a;state.sR=R;state.w=[1,0,0]}
+  const k=1-Math.exp(-dt*3.2);state.sa+=Math.atan2(Math.sin(a-state.sa),Math.cos(a-state.sa))*k;state.sR+=(R-state.sR)*k;
+  for(let q=0;q<3;q++)state.w[q]+=((q===mode?1:0)-state.w[q])*(1-Math.exp(-dt*2.2));
+  a=state.sa;R=state.sR;const scale=1,Y=120;
+  const ex=R*Math.cos(a),ez=R*Math.sin(a);orb.position.set(ex,Y,ez);earth.rotation.y=t*1.4;sun.rotation.y=t*.3;
+  {const E=new THREE.Vector3(ex,Y,ez),per=new THREE.Vector3(Math.sin(a),0,-Math.cos(a));
+   const C=[new THREE.Vector3(Math.sin(t*.2)*50,Y+600,620),new THREE.Vector3(Math.sin(t*.25)*30,Y+470,300),E.clone().addScaledVector(per,350).add(new THREE.Vector3(Math.sin(t*.3)*20,60+Math.sin(t*.4)*10,0))];
+   const Lk=[new THREE.Vector3(0,Y-10,0),new THREE.Vector3(0,Y,-70),E.clone()];const w=state.w,sw=w[0]+w[1]+w[2];
+   const cp3=new THREE.Vector3(),lk=new THREE.Vector3();for(let q=0;q<3;q++){cp3.addScaledVector(C[q],w[q]/sw);lk.addScaledVector(Lk[q],w[q]/sw)}
+   cam.position.copy(cp3);cam.lookAt(lk)}
   const lean=leanAt(a);
   const warm=new THREE.Color(0x7ddc6a),ice=new THREE.Color(0xffffff);const kAuto=THREE.MathUtils.smoothstep(lean,-0.3,0.3);
   const kn=north!==null?north:kAuto,ks=south!==null?south:1-kAuto;
   const col=state.eg.attributes.color;
   for(const fc of state.faces){let c=fc.base;if(Math.abs(fc.yn)>0.38){const k=fc.yn>0?kn:ks;c=ice.clone().lerp(warm,k)}for(let v=0;v<3;v++)col.setXYZ(fc.i+v,c.r,c.g,c.b)}
   col.needsUpdate=true;
-  let label=txt,lc=tcol;if(label===null){label=lean>0.12?'NORTH: SUMMER':lean<-0.12?'NORTH: WINTER':'EQUAL DAY & NIGHT';lc=lean>0.12?'#ffd36b':lean<-0.12?'#bfe6ff':'#e8f4ff'}
-  const L=document.getElementById('lbl');if(state.txt!==label+lc){state.txt=label+lc;L.innerHTML='<span style="color:'+lc+'">'+label+'</span>'}
   // distance line sun -> Earth
-  state.line.visible=line;if(line){const len=Math.hypot(ex,ez);state.line.scale.set(len,2.2,2.2);state.line.position.set(ex/2,120,ez/2);state.line.rotation.y=-Math.atan2(ez,ex)}
+  state.line.visible=line;if(line){const len=Math.hypot(ex,ez);state.line.scale.set(len,3,3);state.line.position.set(ex/2,120,ez/2);state.line.rotation.y=-Math.atan2(ez,ex)}
   state.ref.visible=ref;if(ref)state.ref.position.set(ex,120+10,ez);
   state.ghosts.forEach((g,i)=>{g.visible=ghosts;if(ghosts){const ga=Math.PI*1.5+(i+1)*1.5708;g.position.set(R*Math.cos(ga),120,R*Math.sin(ga))}});
   if(rays){if(!state.rayM){state.rayM=[];for(let i=0;i<10;i++){const m=ico(5,0xffe2a0,{emissive:0xffcf70,emissiveIntensity:2});state.rayM.push(m)}}
@@ -145,7 +154,8 @@ window.setScene=name=>{document.getElementById('lbl').innerHTML='';state={};stat
 // [distance, height, look-at height, sway centre, sway size, push-in amount]
 const SHOTS=[[1560,560,70,0.6,0.35,150],[1250,420,85,0.9,0.25,200],[1250,1050,40,0.4,0.3,150],[1050,140,120,0.5,0.3,200]];
 window.renderAt=(t,p,shot=0,cue=null,cp=0)=>{updaters[state.name](t,p,cue,cp);
- const [d,h,ly,c,sw,push]=SHOTS[((shot%4)+4)%4];const ang=c+sw*Math.sin(t*0.3);
- cam.position.set(Math.sin(ang)*(d-push*p),h-90*p*(h>300?1:0),Math.cos(ang)*(d-push*p));cam.lookAt(0,ly,0);composer.render()};
+ if(state.name!=='lp_seasons'){const [d,h,ly,c,sw,push]=SHOTS[((shot%4)+4)%4];const ang=c+sw*Math.sin(t*0.3);
+ cam.position.set(Math.sin(ang)*(d-push*p),h-90*p*(h>300?1:0),Math.cos(ang)*(d-push*p));cam.lookAt(0,ly,0)}
+ composer.render()};
 window.ready=true;
 </script></body>
