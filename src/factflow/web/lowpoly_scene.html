@@ -123,8 +123,11 @@ const updaters={
 };
 window.setScene=name=>{state.name=builders[name]?name:'generic';builders[state.name]();
  if(state.name!=='lp_seasons'){const f=new THREE.DirectionalLight(0xa9c2f0,0.95);f.position.set(-120,260,700);scene.add(f)}};
-window.renderAt=(t,p)=>{updaters[state.name](t,p);
- const ang=0.6+0.35*Math.sin(t*0.3),rad=1560-150*p,hgt=560-90*p;
- cam.position.set(Math.sin(ang)*rad,hgt,Math.cos(ang)*rad);cam.lookAt(0,70,0);composer.render()};
+// Camera shots cycle with the scene number so the picture changes as the narration moves on.
+// [distance, height, look-at height, sway centre, sway size, push-in amount]
+const SHOTS=[[1560,560,70,0.6,0.35,150],[1250,420,85,0.9,0.25,200],[1250,1050,40,0.4,0.3,150],[1050,140,120,0.5,0.3,200]];
+window.renderAt=(t,p,shot=0)=>{updaters[state.name](t,p);
+ const [d,h,ly,c,sw,push]=SHOTS[((shot%4)+4)%4];const ang=c+sw*Math.sin(t*0.3);
+ cam.position.set(Math.sin(ang)*(d-push*p),h-90*p*(h>300?1:0),Math.cos(ang)*(d-push*p));cam.lookAt(0,ly,0);composer.render()};
 window.ready=true;
 </script></body>

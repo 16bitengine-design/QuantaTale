@@ -131,13 +131,14 @@ def _split_caption(text: str, max_words: int = 9, max_chars: int = 58) -> list[s
 
 
 def _caption_segments(narration: str, duration: float,
-                      spans: list[tuple[float, float]] | None = None) -> list[tuple[float, float, str]]:
+                      spans: list[tuple[float, float]] | None = None,
+                      max_words: int = 9, max_chars: int = 58) -> list[tuple[float, float, str]]:
     """Caption pieces with start/end times. With real per-sentence ``spans`` each caption follows the spoken sentence."""
     spoken = _narration_sentences(narration)
     if spans and len(spans) == len(spoken):
         segments: list[tuple[float, float, str]] = []
         for number, (sentence, (start, end)) in enumerate(zip(spoken, spans)):
-            chunks = _split_caption(sentence)
+            chunks = _split_caption(sentence, max_words, max_chars)
             counts = [max(1, len(c.split())) for c in chunks]
             cursor = start
             for chunk, count in zip(chunks, counts):
@@ -158,7 +159,7 @@ def _caption_segments(narration: str, duration: float,
         start = cursor
         cursor += duration * weight / total
         text = sentence.rstrip(" ,;:") + ("." if not sentence.endswith((".", "?", "!")) else "")
-        chunks = _split_caption(text)
+        chunks = _split_caption(text, max_words, max_chars)
         words = [max(1, len(c.split())) for c in chunks]
         chunk_start = start
         for chunk, count in zip(chunks, words):
@@ -215,15 +216,17 @@ def _draw_frame(spec: dict[str, Any], seconds: float, duration: float, caption: 
             narration = str(spec.get("narration", ""))
             position, local = scene_position(narration, scenes, seconds, duration) if scenes and narration and duration else (0, 0.0)
             motif = str(scenes[min(position, len(scenes) - 1)].get("motif", "")) if scenes else ""
-            image.paste(backdrop(motif, seconds, local))
+            image.paste(backdrop(motif, seconds, local, position))
         else:
             from .lowpoly_scenes import draw_lowpoly_scene
             draw_lowpoly_scene(draw, WIDTH, HEIGHT, seconds, spec.get("scenes") or [], str(spec.get("narration", "")), duration)
-        draw.text((48, 55), "QUANTATALE", font=fonts["small"], fill=CYAN)
-        title_text = spec["title"].upper()
-        title_font = _fit_font(draw, title_text, fonts["title"], WIDTH - 96, min_size=20)
-        draw.text((48, 105), title_text, font=title_font, fill=WHITE, stroke_width=1, stroke_fill=(25, 88, 120))
-        draw.line((48, 177, WIDTH-48, 177), fill=(73, 226, 255, 150), width=2)
+        draw.text((40, 40), "QUANTATALE", font=fonts["tiny"], fill=(73, 226, 255, 120))
+        fade = max(0.0, min(1.0, (4.0 - seconds) / 1.0))  # the title shows for ~3 s, then gets out of the way
+        if fade > 0:
+            title_text = spec["title"].upper()
+            title_font = _fit_font(draw, title_text, fonts["title"], WIDTH - 96, min_size=20)
+            draw.text((48, 90), title_text, font=title_font, fill=(255, 255, 255, int(255 * fade)),
+                      stroke_width=1, stroke_fill=(25, 88, 120, int(255 * fade)))
     else:
         # Dark holographic chamber: technical grid, stars and animated scan plane.
         for x in range(24, WIDTH, 48):
@@ -266,6 +269,13 @@ def _draw_frame(spec: dict[str, Any], seconds: float, duration: float, caption: 
         subline_font = _fit_font(draw, subline, fonts["small"], panel[2] - panel[0] - 44)
         subline_width = draw.textbbox((0, 0), subline, font=subline_font)[2]
         draw.text(((WIDTH-subline_width)//2, 1044), subline, font=subline_font, fill=WHITE)
+
+    if lowpoly:  # one short, large line over the picture: no panel, no footer
+        line = _wrap_text(draw, caption, fonts["title"], WIDTH - 80)[0] if caption else ""
+        font = fonts["title"]
+        width = draw.textbbox((0, 0), line, font=font)[2]
+        draw.text(((WIDTH - width) // 2, 1060), line, font=font, fill=WHITE, stroke_width=4, stroke_fill=(4, 12, 30))
+        return image
 
     # Synchronized caption area remains separate from scene labels.
     caption_lines = _wrap_text(draw, caption, fonts["caption"], WIDTH-112)[:2]
@@ -343,7 +353,10 @@ def render_sample_video(spec_path: str | Path, output_dir: str | Path) -> dict[s
     if not 8 <= duration <= 90:
         raise RuntimeError(f"Sample narration duration {duration:.1f}s is outside the safe 8-90s range.")
 
-    segments = _caption_segments(spec["narration"], duration, spans)
+    if spec.get("visual_profile") == "lowpoly_diorama_v1":  # short, glanceable captions
+        segments = _caption_segments(spec["narration"], duration, spans, max_words=5, max_chars=30)
+    else:
+        segments = _caption_segments(spec["narration"], duration, spans)
     with srt_path.open("w", encoding="utf-8") as handle:
         for index, (start, end, text) in enumerate(segments, 1):
             handle.write(f"{index}\n{_timestamp(start)} --> {_timestamp(end)}\n{text}\n\n")
