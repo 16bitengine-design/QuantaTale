@@ -276,3 +276,7 @@ Pipeline stage 5 ranks topics by likely public interest (`src/factflow/topic_int
 - Topics below `DEFAULT_MIN_INTEREST` (40) are never posted: the slot is skipped rather than filled with low-appeal content, and they are excluded from the low-stock alert count.
 - Administrative or personnel discovery leads (appointments, webinars, budgets, meetings) are not added to the leads list.
 - The score is a heuristic, not audience data. Tune the threshold once real watch-time results exist.
+
+## Toy-box diorama style (`toybox_diorama_v1`)
+
+An opt-in visual profile: flat-shaded low-poly toys on a swaying tabletop diorama, warm palette, bouncy pop-in animation, drawn entirely with Pillow (`toybox.py` primitives, `toybox_scenes.py` motifs). Set `"visual_profile": "toybox_diorama_v1"` in a spec and use scene motifs `toy_sky_scatter`, `toy_water_cycle`, `toy_volcano`, `toy_seasons` or `toy_plates`; unknown motifs fall back to a generic village. The holographic profile is unchanged and remains the default for authored topics.
