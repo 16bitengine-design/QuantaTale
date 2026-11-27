@@ -8,6 +8,7 @@ from __future__ import annotations
 import math
 from typing import Any, Callable
 
+from .lowpoly import glow, set_zoom
 from .lowpoly import (BLUE, GRASS, ORANGE, RED, SOIL, STONE, SUN, WATER, WHITE, background, ball_faces, bob, draw_mesh,
                      ease_out_back, house, platform, prism_faces, pt, pyramid_faces, shadow, tree, view)
 
@@ -15,12 +16,13 @@ Faces = list
 
 
 def _sun(x: float, y: float, z: float, t: float, r: float = 34) -> Faces:
-    return ball_faces(x, y + bob(t, 0, 6), z, r, SUN, bands=4, sides=8)
+    return ball_faces(x, y + bob(t, 0, 3), z, r, SUN, bands=4, sides=8)
 
 
 def lp_sky_scatter(draw: Any, p: float, t: float, ang: float) -> None:
     """Sunlight meets air: blue air-molecule cubes scatter across the sky while a house sits below."""
     platform(draw, ang)
+    glow(draw, -150, 330, -80, 34, SUN, ang)
     faces = tree(-130, 70) + house(110, -50) + _sun(-150, 330, -80, t)
     for i in range(10):  # blue air molecules pop in one by one
         pop = ease_out_back(p * 10 - i)
@@ -56,6 +58,7 @@ def lp_water_cycle(draw: Any, p: float, t: float, ang: float) -> None:
 def lp_volcano(draw: Any, p: float, t: float, ang: float) -> None:
     """Faceted volcano that blows lava cubes in arcs as the scene progresses."""
     platform(draw, ang)
+    glow(draw, 0, 215, 0, 40, ORANGE, ang)
     faces = pyramid_faces(0, 0, 170, 200, SOIL, sides=7, top_r=40) + tree(-210, 80, 0.8) + tree(200, 60, 0.7)
     for i in range(int(2 + 10 * p)):
         f = (t * 0.6 + i * 0.173) % 1
@@ -69,10 +72,11 @@ def lp_volcano(draw: Any, p: float, t: float, ang: float) -> None:
 def lp_seasons(draw: Any, p: float, t: float, ang: float) -> None:
     """A tilted low-poly Earth circles a sun; the tilt, not the distance, changes the seasons."""
     platform(draw, ang)
-    faces = ball_faces(0, 120, 0, 46, SUN, bands=4, sides=8)
+    glow(draw, 0, 120, 0, 46, SUN, ang)
+    faces = ball_faces(0, 120, 0, 46, SUN, bands=4, sides=8, spin=t * 0.4)
     a = p * 2 * math.pi * 0.75 + 0.4
     ex, ez = 190 * math.cos(a), 190 * math.sin(a)
-    faces += ball_faces(ex, 120, ez, 24, BLUE, bands=4, sides=8)
+    faces += ball_faces(ex, 120, ez, 26, BLUE, bands=4, sides=10, alt=GRASS, spin=t * 1.2)
     tilt = math.radians(23.5)  # the axis always points the same way in space, whatever the orbit position
     for k in range(-5, 6):
         d = 9 * k
@@ -100,6 +104,7 @@ def lp_generic(draw: Any, p: float, t: float, ang: float) -> None:
         s = ease_out_back(p * 3 - i)
         if s > 0.02:
             faces += house(x, z, max(0.05, s))
+    glow(draw, 0, 340, 0, 26, SUN, ang)
     faces += _sun(0, 340, 0, t, 26)
     draw_mesh(draw, faces, ang)
 
@@ -120,4 +125,5 @@ def draw_lowpoly_scene(draw: Any, width: int, height: int, seconds: float, scene
     position, local = (scene_position(narration, scenes, seconds, duration) if narration and duration and scenes else (0, 0.0))
     position = min(count - 1, position)
     name = str(scenes[position].get("motif", "")) if scenes else ""
+    set_zoom(1.22 + 0.16 * local)  # slow push-in during every scene
     LOWPOLY_MOTIFS.get(name, lp_generic)(draw, local, seconds, view(seconds))
