@@ -759,7 +759,7 @@
     "scheduled_at": "2026-11-27T08:16:03.156105+00:00"
   },
   "qt-vaccines-train-your-20261127-2044": {
-    "status": "reserved",
+    "status": "scheduled",
     "spec": "production/specs/vaccines-train-your.json",
     "due_at": "2026-11-27T20:44:52+03:00",
     "reserved_at": "2026-11-27T17:24:52+00:00",
@@ -784,6 +784,7 @@
           "status": "awaiting_confirmation"
         }
       }
-    }
+    },
+    "scheduled_at": "2026-11-27T17:27:58.197641+00:00"
   }
 }
