@@ -26,9 +26,18 @@ Vec = tuple[float, float, float]
 CX_DEFAULT = 360
 
 
+_ZOOM = [1.3]  # camera zoom, set per frame by the scene renderer (single-threaded renderer)
+
+
+def set_zoom(zoom: float) -> None:
+    _ZOOM[0] = zoom
+
+
 def pt(x: float, y: float, z: float, ang: float, cx: float = CX_DEFAULT, cy: float = 830) -> tuple[float, float]:
-    """x right, y up, z depth -> screen. Same projection as the holographic toolkit, kept separate on purpose."""
-    return cx + x * math.cos(ang) - z * math.sin(ang), cy - y + (x * math.sin(ang) + z * math.cos(ang)) * 0.38
+    """x right, y up, z depth -> screen, scaled by the camera zoom."""
+    k = _ZOOM[0]
+    return (cx + k * (x * math.cos(ang) - z * math.sin(ang)),
+            cy - k * y + k * (x * math.sin(ang) + z * math.cos(ang)) * 0.38)
 
 
 def view(t: float, sway: float = 0.3, base: float = 0.6) -> float:
@@ -113,16 +122,18 @@ def pyramid_faces(x: float, z: float, r: float, h: float, color: tuple, y0: floa
     return faces
 
 
-def ball_faces(x: float, y: float, z: float, r: float, color: tuple, bands: int = 3, sides: int = 8) -> list[tuple[list[Vec], tuple]]:
-    """Low-poly sphere from latitude bands."""
+def ball_faces(x: float, y: float, z: float, r: float, color: tuple, bands: int = 3, sides: int = 8,
+               alt: tuple | None = None, spin: float = 0.0) -> list[tuple[list[Vec], tuple]]:
+    """Low-poly sphere from latitude bands; ``alt`` paints patchy continents that rotate with ``spin``."""
     faces: list[tuple[list[Vec], tuple]] = []
     for b in range(bands):
         lat0, lat1 = math.pi * (b / bands - 0.5), math.pi * ((b + 1) / bands - 0.5)
         for i in range(sides):
-            a0, a1 = 2 * math.pi * i / sides, 2 * math.pi * (i + 1) / sides
+            a0, a1 = 2 * math.pi * i / sides + spin, 2 * math.pi * (i + 1) / sides + spin
             p = lambda lat, a: (x + r * math.cos(lat) * math.cos(a), y + r * math.sin(lat), z + r * math.cos(lat) * math.sin(a))
             quad = [p(lat0, a0), p(lat0, a1), p(lat1, a1), p(lat1, a0)]
-            faces.append((quad if b not in (0, bands - 1) else _dedupe(quad), color))
+            land = alt is not None and ((i * 5 + b * 3) % 7) in (0, 1, 3)
+            faces.append((quad if b not in (0, bands - 1) else _dedupe(quad), alt if land else color))
     return faces
 
 
@@ -136,7 +147,7 @@ def _dedupe(poly: list[Vec]) -> list[Vec]:
     return out if len(out) >= 3 else poly
 
 
-def platform(draw: Any, ang: float, top: tuple = GRASS, cy: float = 830, radius: float = 300) -> None:
+def platform(draw: Any, ang: float, top: tuple = GRASS, cy: float = 830, radius: float = 235) -> None:
     """Octagonal diorama base: soil slab with a grass top and a soft shadow under it."""
     cx = 360
     sh = [pt(radius * 1.05 * math.cos(2 * math.pi * i / 8), -34, radius * 1.05 * math.sin(2 * math.pi * i / 8), ang, cx, cy + 14)
@@ -151,7 +162,16 @@ def platform(draw: Any, ang: float, top: tuple = GRASS, cy: float = 830, radius:
     draw_mesh(draw, faces, ang, cx, cy)
     top_face = [(radius * math.cos(2 * math.pi * i / 8), 0, radius * math.sin(2 * math.pi * i / 8)) for i in range(8)]
     draw.polygon([pt(x, y, z, ang, cx, cy) for x, y, z in top_face], fill=(*shade(top, 1.0), 255),
-                 outline=(*shade(top, 0.3), 255))
+                 outline=(*GLOW, 150), width=2)
+
+
+def glow(draw: Any, x: float, y: float, z: float, r: float, color: tuple, ang: float, cy: float = 830) -> None:
+    """Soft bloom behind a glowing object: stacked translucent discs."""
+    sx, sy = pt(x, y, z, ang, 360, cy)
+    k = _ZOOM[0]
+    for n in range(24):  # many faint steps so the bloom looks smooth, not ringed
+        rr = r * k * (3.4 - n * 0.1)
+        draw.ellipse((sx - rr, sy - rr, sx + rr, sy + rr), fill=(*color[:3], 3 + n // 2))
 
 
 def shadow(draw: Any, x: float, z: float, r: float, ang: float, cy: float = 830) -> None:
