@@ -15,6 +15,7 @@ dependencies = []
 [project.optional-dependencies]
 dev = ["pytest>=8.0,<9.0"]
 render = ["Pillow>=10,<13"]
+webgl = ["playwright>=1.40,<2.0"]
 tts = ["kokoro>=0.9.4,<1.0", "soundfile>=0.12,<1.0"]
 
 [project.scripts]
@@ -23,6 +24,9 @@ factflow = "factflow.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+factflow = ["web/*.html", "web/vendor/three/**/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

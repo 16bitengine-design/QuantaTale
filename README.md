@@ -280,3 +280,7 @@ Pipeline stage 5 ranks topics by likely public interest (`src/factflow/topic_int
 ## Low-poly diorama style (`lowpoly_diorama_v1`)
 
 An opt-in visual profile: flat-shaded low-poly miniature dioramas on a swaying platform, muted palette, cool twilight lighting with a faint cyan edge glow, gentle pop-in animation, drawn entirely with Pillow (`lowpoly.py` primitives, `lowpoly_scenes.py` motifs). Set `"visual_profile": "lowpoly_diorama_v1"` in a spec and use scene motifs `lp_sky_scatter`, `lp_water_cycle`, `lp_volcano`, `lp_seasons` or `lp_plates`; unknown motifs fall back to a generic village. The holographic profile is unchanged and remains the default for authored topics.
+
+### 3D backdrop (optional)
+
+For `lowpoly_diorama_v1`, scenes can be rendered with real lighting, shadows and bloom using three.js (vendored, MIT) in headless Chromium: free and GPU-less. Install with `pip install -e ".[webgl]"` and `python -m playwright install --with-deps chromium`. If Playwright or Chromium is missing, the renderer logs a warning and falls back to the Pillow low-poly drawing. Rendering takes roughly 4x the video length on a small CPU. Currently implemented in 3D: `lp_seasons` and a generic village; other `lp_*` motifs use the generic village until ported.

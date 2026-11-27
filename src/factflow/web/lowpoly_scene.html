@@ -1,0 +1,63 @@
+<!doctype html><meta charset="utf-8"><style>html,body{margin:0;background:#050b1a}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/examples/jsm/"}}</script>
+<body><script type="module">
+import * as THREE from 'three';
+import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
+import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
+import {UnrealBloomPass} from 'three/addons/postprocessing/UnrealBloomPass.js';
+import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
+const Q=new URLSearchParams(location.search),W=+Q.get('w')||720,H=+Q.get('h')||1280;
+const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+r.setSize(W,H);r.setPixelRatio(1);r.shadowMap.enabled=true;r.shadowMap.type=THREE.PCFSoftShadowMap;
+r.toneMapping=THREE.ACESFilmicToneMapping;r.toneMappingExposure=0.95;document.body.appendChild(r.domElement);
+// Deterministic pseudo-random numbers so every render of a topic is identical.
+let seed=7;const rnd=()=>{seed=(seed*16807)%2147483647;return seed/2147483647};
+const mat=(c,o={})=>new THREE.MeshStandardMaterial({color:c,flatShading:true,roughness:.85,metalness:.05,...o});
+const cam=new THREE.PerspectiveCamera(34,W/H,1,3000);
+let scene,orb,earth,sun,state={};
+
+function sky(){const cv=document.createElement('canvas');cv.width=4;cv.height=256;const g=cv.getContext('2d');
+ const gr=g.createLinearGradient(0,0,0,256);gr.addColorStop(0,'#050b1e');gr.addColorStop(.55,'#0d2644');gr.addColorStop(1,'#15395a');g.fillStyle=gr;g.fillRect(0,0,4,256);
+ return new THREE.CanvasTexture(cv)}
+function base(){scene=new THREE.Scene();scene.background=sky();seed=7;
+ const sp=[];for(let i=0;i<500;i++){const a=rnd()*6.28,b=rnd()*1.2-0.1;sp.push(Math.cos(a)*900,b*540+120,Math.sin(a)*900)}
+ const sg=new THREE.BufferGeometry();sg.setAttribute('position',new THREE.Float32BufferAttribute(sp,3));
+ scene.add(new THREE.Points(sg,new THREE.PointsMaterial({color:0xbfe3ff,size:2.2})));
+ scene.add(new THREE.HemisphereLight(0x7fa8e8,0x1a2238,0.75));
+ const plat=new THREE.Mesh(new THREE.CylinderGeometry(235,215,34,8,1),mat(0x6fb7a0));plat.position.y=-17;plat.receiveShadow=true;scene.add(plat);
+ const soil=new THREE.Mesh(new THREE.CylinderGeometry(215,170,60,8,1),mat(0x726687));soil.position.y=-64;scene.add(soil);
+ const rim=new THREE.Mesh(new THREE.CylinderGeometry(236.5,236.5,3,8,1,true),new THREE.MeshBasicMaterial({color:0x49e2ff}));rim.position.y=-1;scene.add(rim);
+ composer=new EffectComposer(r);composer.addPass(new RenderPass(scene,cam));
+ composer.addPass(new UnrealBloomPass(new THREE.Vector2(W,H),0.5,0.6,0.9));composer.addPass(new OutputPass())}
+let composer;
+function tree(x,z,s=1){const g=new THREE.Group();const t=new THREE.Mesh(new THREE.CylinderGeometry(4*s,5*s,22*s,5),mat(0x7a5a48));t.position.y=11*s;t.castShadow=true;g.add(t);
+ for(let i=0;i<3;i++){const c=new THREE.Mesh(new THREE.ConeGeometry((34-i*8)*s,(44-i*6)*s,5),mat(i%2?0x3f9a78:0x2f8466));c.position.y=(36+i*24)*s;c.castShadow=true;c.receiveShadow=true;g.add(c)}
+ g.position.set(x,0,z);scene.add(g)}
+function house(x,z,s=1){const g=new THREE.Group();const b=new THREE.Mesh(new THREE.BoxGeometry(70*s,50*s,60*s),mat(0x9aa2b8));b.position.y=25*s;b.castShadow=b.receiveShadow=true;g.add(b);
+ const roof=new THREE.Mesh(new THREE.ConeGeometry(56*s,38*s,4),mat(0x54607a));roof.position.y=69*s;roof.rotation.y=Math.PI/4;roof.castShadow=true;g.add(roof);g.position.set(x,0,z);scene.add(g)}
+function sunAt(y,r0,intensity=1.1e5){sun=new THREE.Mesh(new THREE.IcosahedronGeometry(r0,1),new THREE.MeshStandardMaterial({color:0xffb347,emissive:0xff9a1f,emissiveIntensity:2.2,flatShading:true}));sun.position.y=y;scene.add(sun);
+ const L=new THREE.PointLight(0xffc77a,intensity,0,2);L.position.set(0,y,0);L.castShadow=true;L.shadow.mapSize.set(1024,1024);L.shadow.bias=-0.0005;scene.add(L)}
+
+const builders={
+ lp_seasons(){base();sunAt(120,46);tree(-150,60);tree(160,90,.8);tree(-110,-130,.7);tree(120,-120,.9);tree(30,160,.6);
+  const eg=new THREE.IcosahedronGeometry(32,1).toNonIndexed();const A=eg.attributes.position,col=[];
+  for(let i=0;i<A.count;i+=3){const cx=(A.getX(i)+A.getX(i+1)+A.getX(i+2))/3,cy=(A.getY(i)+A.getY(i+1)+A.getY(i+2))/3,cz=(A.getZ(i)+A.getZ(i+1)+A.getZ(i+2))/3;
+   const n=Math.sin(cx*.21)+Math.sin(cy*.3+1)+Math.cos(cz*.25);const c=new THREE.Color(n>0.6?0x4fae6a:0x2f6fd0);for(let k=0;k<3;k++)col.push(c.r,c.g,c.b)}
+  eg.setAttribute('color',new THREE.Float32BufferAttribute(col,3));
+  earth=new THREE.Mesh(eg,new THREE.MeshStandardMaterial({vertexColors:true,flatShading:true,roughness:.7}));earth.castShadow=true;
+  const tilt=new THREE.Group();tilt.rotation.z=THREE.MathUtils.degToRad(-23.5);tilt.add(earth);
+  tilt.add(new THREE.Mesh(new THREE.CylinderGeometry(1,1,104,6),new THREE.MeshBasicMaterial({color:0xe8f4ff})));
+  orb=new THREE.Group();orb.add(tilt);scene.add(orb);
+  const ring=new THREE.Mesh(new THREE.TorusGeometry(170,0.9,6,96),new THREE.MeshBasicMaterial({color:0x7aa6d8,transparent:true,opacity:.55}));ring.rotation.x=Math.PI/2;ring.position.y=120;scene.add(ring)},
+ generic(){base();sunAt(260,28,1.6e5);tree(-150,60);tree(160,80,.8);house(-30,-40);house(120,-80,.9);house(-120,-90,.8);earth=null;orb=null}
+};
+const updaters={
+ lp_seasons(t,p){const a=p*Math.PI*1.5+0.5;orb.position.set(170*Math.cos(a),120,170*Math.sin(a));earth.rotation.y=t*1.4;sun.rotation.y=t*.3},
+ generic(t,p){sun.position.x=Math.sin(t*.4)*30;sun.rotation.y=t*.3}
+};
+window.setScene=name=>{state.name=builders[name]?name:'generic';builders[state.name]()};
+window.renderAt=(t,p)=>{updaters[state.name](t,p);
+ const ang=0.6+0.35*Math.sin(t*0.3),rad=1750-230*p,hgt=600-100*p;
+ cam.position.set(Math.sin(ang)*rad,hgt,Math.cos(ang)*rad);cam.lookAt(0,70,0);composer.render()};
+window.ready=true;
+</script></body>
