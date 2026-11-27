@@ -31,3 +31,18 @@ def test_real_3d_frame_when_chromium_is_present():
     assert a.size == (360, 640)
     assert a.tobytes() == b.tobytes()  # deterministic
     assert a.getextrema() != ((0, 0),) * 3 and a.tobytes() != c.tobytes()
+
+
+def test_every_motif_has_a_distinct_3d_scene_when_chromium_is_present():
+    pytest.importorskip("playwright")
+    pytest.importorskip("PIL")
+    try:
+        backdrop = WebGLBackdrop(240, 426).__enter__()
+    except WebGLUnavailable:
+        pytest.skip("Chromium not available")
+    try:
+        frames = {m: backdrop.frame(m, 3.0, 0.6).tobytes()
+                  for m in ("lp_seasons", "lp_sky_scatter", "lp_water_cycle", "lp_volcano", "lp_plates", "generic")}
+    finally:
+        backdrop.__exit__(None, None, None)
+    assert len(set(frames.values())) == len(frames)
