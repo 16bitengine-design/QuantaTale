@@ -43,10 +43,13 @@ jobs:
           python -m playwright install --with-deps chromium
 
       - name: Run 3D backdrop tests (real Chromium, must not skip)
+        env:
+          QUANTATALE_REQUIRE_WEBGL: "1"
         run: python -m pytest tests/test_webgl_backdrop.py -v -rs
 
       - name: Render preview of every motif
         run: |
+          set -o pipefail
           mkdir -p build
           python -m factflow.webgl_preview --output build/lowpoly-3d-preview.mp4 | tee build/speed.txt
 

@@ -45,11 +45,15 @@ class WebGLBackdrop:
             self._pw = sync_playwright().start()
             self._browser = self._pw.chromium.launch(args=CHROMIUM_ARGS)
             self._page = self._browser.new_page(viewport={"width": self.width, "height": self.height})
+            self._log: list[str] = []
+            self._page.on("console", lambda m: self._log.append(f"console.{m.type}: {m.text}"))
+            self._page.on("pageerror", lambda e: self._log.append(f"pageerror: {e}"))
             self._page.goto(f"http://127.0.0.1:{self._server.server_port}/lowpoly_scene.html?w={self.width}&h={self.height}")
-            self._page.wait_for_function("window.ready === true", timeout=60000)
+            self._page.wait_for_function("window.ready === true", timeout=45000)
         except Exception as exc:  # browser missing, launch or load failure
             self.__exit__(None, None, None)
-            raise WebGLUnavailable(f"Chromium WebGL backend failed to start: {exc}") from exc
+            detail = " | ".join(getattr(self, "_log", [])[-6:])
+            raise WebGLUnavailable(f"Chromium WebGL backend failed to start: {str(exc)[:200]} Browser log: {detail}") from exc
         return self
 
     def __exit__(self, *exc: Any) -> None:
