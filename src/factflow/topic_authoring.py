@@ -26,6 +26,7 @@ from urllib.parse import urlparse
 from factflow.fact_research import _ArticleParser, _publisher_for_url, fetch_article
 from factflow.llm_providers import AllProvidersFailed, ProviderChain
 from factflow.topic_library import register_production_spec
+from factflow.visual_style import apply_visual_style
 from factflow.visual_motifs import HOLOGRAPHIC_3D, MOTIFS
 
 MIN_WORDS, MAX_WORDS = 50, 110  # fewer ideas, more time on each: the audience is entertained, not lectured
@@ -328,6 +329,10 @@ def write_draft(chain: ProviderChain, question: str, sources: list[dict[str, Any
 # ---------------------------------------------------------------- orchestration
 
 def build_spec(draft: dict[str, Any], sources: list[dict[str, Any]], today: str) -> dict[str, Any]:
+    return apply_visual_style(_build_spec(draft, sources, today))
+
+
+def _build_spec(draft: dict[str, Any], sources: list[dict[str, Any]], today: str) -> dict[str, Any]:
     title = draft["title"].strip()
     urls = " and ".join(f"{s['publisher']} {s['url']}" for s in sources[:2])
     claims = draft["claims"]
