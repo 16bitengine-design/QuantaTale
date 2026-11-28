@@ -796,7 +796,7 @@
     "scheduled_at": "2026-11-27T17:27:58.197641+00:00"
   },
   "qt-where-ocean-s-20261128-1335": {
-    "status": "reserved",
+    "status": "scheduled",
     "spec": "production/specs/where-ocean-s.json",
     "due_at": "2026-11-28T13:35:10+03:00",
     "reserved_at": "2026-11-28T10:15:10+00:00",
@@ -821,6 +821,7 @@
           "status": "awaiting_confirmation"
         }
       }
-    }
+    },
+    "scheduled_at": "2026-11-28T10:17:04.677414+00:00"
   }
 }
