@@ -833,7 +833,7 @@
     "scheduled_at": "2026-11-28T10:17:04.677414+00:00"
   },
   "qt-your-eyes-turn-20261128-1800": {
-    "status": "reserved",
+    "status": "scheduled",
     "spec": "production/specs/your-eyes-turn.json",
     "due_at": "2026-11-28T18:00:00+03:00",
     "reserved_at": "2026-11-28T14:38:11+00:00",
@@ -857,6 +857,7 @@
           "status": "awaiting_confirmation"
         }
       }
-    }
+    },
+    "scheduled_at": "2026-11-28T14:40:47.164490+00:00"
   }
 }
