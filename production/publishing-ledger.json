@@ -831,5 +831,14 @@
       }
     },
     "scheduled_at": "2026-11-28T10:17:04.677414+00:00"
+  },
+  "qt-your-eyes-turn-20261128-1800": {
+    "status": "reserved",
+    "spec": "production/specs/your-eyes-turn.json",
+    "due_at": "2026-11-28T18:00:00+03:00",
+    "reserved_at": "2026-11-28T14:38:11+00:00",
+    "workflow_run_id": "46155668140",
+    "slot_local": "2026-11-28 18:00",
+    "publish_timezone": "Africa/Kampala"
   }
 }
