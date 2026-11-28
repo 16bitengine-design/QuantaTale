@@ -839,6 +839,24 @@
     "reserved_at": "2026-11-28T14:38:11+00:00",
     "workflow_run_id": "46155668140",
     "slot_local": "2026-11-28 18:00",
-    "publish_timezone": "Africa/Kampala"
+    "publish_timezone": "Africa/Kampala",
+    "buffer_posts": {
+      "youtube": {
+        "post_id": "6b0ae7edb8ec87c6ced193ea",
+        "buffer_status": "scheduled",
+        "due_at": "2026-11-28T15:00:00.000Z",
+        "verification": {
+          "status": "awaiting_confirmation"
+        }
+      },
+      "tiktok": {
+        "post_id": "6b0ae7ed0f9559e0ce1d7fb1",
+        "buffer_status": "scheduled",
+        "due_at": "2026-11-28T15:00:00.000Z",
+        "verification": {
+          "status": "awaiting_confirmation"
+        }
+      }
+    }
   }
 }
