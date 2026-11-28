@@ -803,6 +803,24 @@
     "workflow_run_id": "46134264469",
     "slot_local": "2026-11-28 13:35",
     "publish_timezone": "Africa/Kampala",
-    "recovers_slot": "2026-11-28 12:00"
+    "recovers_slot": "2026-11-28 12:00",
+    "buffer_posts": {
+      "youtube": {
+        "post_id": "6b0aaa1e8cbf0dfe50ce43e9",
+        "buffer_status": "scheduled",
+        "due_at": "2026-11-28T10:35:10.000Z",
+        "verification": {
+          "status": "awaiting_confirmation"
+        }
+      },
+      "tiktok": {
+        "post_id": "6b0aaa1fe126bb75971db628",
+        "buffer_status": "scheduled",
+        "due_at": "2026-11-28T10:35:10.000Z",
+        "verification": {
+          "status": "awaiting_confirmation"
+        }
+      }
+    }
   }
 }
